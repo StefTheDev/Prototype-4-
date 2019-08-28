@@ -49,6 +49,10 @@ public class PlayerController : MonoBehaviour
         // Fire projectile
         var airBlast = Instantiate(airBlastPrefab, this.transform.position, Quaternion.identity, null);
         airBlast.GetComponent<AirBlast>().Launch(this.transform.forward, currentCharge, this.GetComponent<Player>().GetPlayerID());
+        if (GetComponent<Player>().inShadowRealm)
+        {
+            airBlast.layer = LayerMask.NameToLayer("Shadow Realm");
+        }
 
         currentCharge = 0.0f;
 
@@ -56,7 +60,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rigidBody.AddForce(moveVector.normalized * moveForce);
+        float moveModifier = 1.0f;
+        if (isCharging) { moveModifier = 0.5f; }
+
+        rigidBody.AddForce(moveVector.normalized * moveForce * moveModifier);
         
         if (moveVector != Vector3.zero)
         {
