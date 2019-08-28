@@ -1299,6 +1299,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 02121072da73eab4eb0be1c0633900d9, type: 2}
+    - target: {fileID: 6000394959823662808, guid: 547e5692493ecf6498745103af18a693,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6000394959823662812, guid: 547e5692493ecf6498745103af18a693,
         type: 3}
       propertyPath: projectilePrefab
