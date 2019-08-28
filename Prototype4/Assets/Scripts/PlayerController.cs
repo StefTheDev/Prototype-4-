@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
     public float moveForce = 10.0f;
     public GameObject airBlastPrefab;
 
+    // public float movingDrag = 10.0f;
+    // public float normalDrag = 1.0f;
+
     public float chargeTime = 1.0f;
     
     public float currentCharge = 0.0f;
