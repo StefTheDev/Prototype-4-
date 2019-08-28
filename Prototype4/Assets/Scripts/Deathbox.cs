@@ -19,6 +19,16 @@ public class Deathbox : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        var player = other.GetComponent<Player>();
+
+        if (player)
+        {
+            GameManager.Instance.playerManagers[player.GetPlayerID()].GetComponent<PlayerManager>().PlayerDeath();
+        }
+    }
+
     public List<GameObject> GetVulnerable()
     {
         return vulnerable;

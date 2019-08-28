@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4179661121999685345}
   - component: {fileID: 1091006101}
   - component: {fileID: 1091006102}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AirBlast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,6 +122,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9ba24197c8eb9842bc781245923ee8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blastSpeed: 1000
-  maxLifetime: 1
-  blastForce: 300
