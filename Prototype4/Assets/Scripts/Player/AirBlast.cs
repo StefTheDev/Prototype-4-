@@ -5,9 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class AirBlast : MonoBehaviour
 {
-    public float blastSpeed = 10.0f;
-    public float maxLifetime = 3.0f;
-    public float blastForce = 10.0f;
+    public static float blastSpeed = 1000.0f;
+    public static float maxLifetime = 1.0f;
+    public static float blastForce = 300.0f;
 
     private Rigidbody rigidBody;
     private Vector3 direction;
@@ -36,6 +36,18 @@ public class AirBlast : MonoBehaviour
         {
             otherPlayer.GetComponent<Rigidbody>().AddForce(direction * blastForce * chargeAmount);
             Destroy(this.gameObject);
+        }
+    }
+
+    public static void SetSuddenDeath(bool _isSuddenDeath)
+    {
+        if (_isSuddenDeath)
+        {
+            blastForce = 100.0f;
+        }
+        else
+        {
+            blastForce = 10.0f;
         }
     }
 }
