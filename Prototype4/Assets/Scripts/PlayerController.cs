@@ -6,9 +6,17 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveForce = 10.0f;
+    public GameObject airBlastPrefab;
 
+    // public float movingDrag = 10.0f;
+    // public float normalDrag = 1.0f;
+
+    public float chargeTime = 1.0f;
+    
+    public float currentCharge = 0.0f;
     private Rigidbody rigidBody;
     private Vector3 moveVector = Vector3.zero;
+    private bool isCharging = false;
 
     private void Awake()
     {
@@ -20,11 +28,30 @@ public class PlayerController : MonoBehaviour
         moveVector = _moveDirection;
     }
 
-    public void Push()
+    private void Update()
     {
-        // If push pressed down, start charging
+        if (isCharging)
+        {
+            currentCharge = Mathf.Clamp(currentCharge + (Time.deltaTime / chargeTime), 0.0f, 1.0f);
+        }
+    }
 
-        // If push released, fire
+    public void StartCharging()
+    {
+        isCharging = true;
+        currentCharge = 0.0f;
+    }
+
+    public void FireProjectile()
+    {
+        isCharging = false;
+
+        // Fire projectile
+        var airBlast = Instantiate(airBlastPrefab, this.transform.position, Quaternion.identity, null);
+        airBlast.GetComponent<AirBlast>().Launch(this.transform.forward, currentCharge, this.GetComponent<Player>().GetPlayerID());
+
+        currentCharge = 0.0f;
+
     }
 
     private void FixedUpdate()
