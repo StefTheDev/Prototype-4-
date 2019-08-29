@@ -7,7 +7,7 @@ public class AirBlast : MonoBehaviour
 {
     public static float blastSpeed = 1000.0f;
     public static float maxLifetime = 1.0f;
-    public static float blastForce = 300.0f;
+    public static float blastForce = 1000.0f;
 
     private Rigidbody rigidBody;
     private Vector3 direction;
@@ -34,6 +34,7 @@ public class AirBlast : MonoBehaviour
 
         if (otherPlayer && otherPlayer.GetPlayerID() != playerIndex)
         {
+            GameManager.Instance.playerManagers[otherPlayer.GetPlayerID()].GetComponent<PlayerManager>().SetLastHitBy(playerIndex);
             otherPlayer.GetComponent<Rigidbody>().AddForce(direction * blastForce * chargeAmount);
             Destroy(this.gameObject);
         }

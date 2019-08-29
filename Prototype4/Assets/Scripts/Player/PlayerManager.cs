@@ -8,10 +8,20 @@ public class PlayerManager : MonoBehaviour
     public bool inShadowRealm = false;
     public bool isAI = false;
 
+    public int normalKills = 0;
+    public int shadowKills = 0;
+
     public GameObject myPlayer;
+    private Player myPlayerComp;
 
     private const string shadowRealmLayer = "Shadow Realm";
     private const string normalRealmLayer = "Normal Realm";
+
+    private const int spawnTries = 100;
+
+    // ID of the last player that hit us
+    private int lastHitBy = -1;
+    
 
     public void SetPlayerID(int _playerID)
     {
@@ -23,16 +33,32 @@ public class PlayerManager : MonoBehaviour
         // Instantiate player
         if (isAI)
         {
-            myPlayer = Instantiate(GameManager.Instance.AIPrefab, Vector3.zero, Quaternion.identity, null);
+            myPlayer = Instantiate(ReferenceManager.Instance.AIPrefab, Vector3.zero, Quaternion.identity, null);
         }
         else
         {
-            myPlayer = Instantiate(GameManager.Instance.humanPrefab, Vector3.zero, Quaternion.identity, null);
+            myPlayer = Instantiate(ReferenceManager.Instance.humanPrefab, Vector3.zero, Quaternion.identity, null);
         }
 
-        myPlayer.GetComponent<Player>().SetPlayerID(playerID);
+        myPlayerComp = myPlayer.GetComponent<Player>();
+
+        myPlayerComp.SetPlayerID(playerID);
 
         RespawnPlayer();
+    }
+
+    public void AwardKill(bool _isShadowKill)
+    {
+        if (_isShadowKill)
+        {
+            shadowKills++;
+            SwitchRealm(false);
+            // RespawnPlayer();
+        }
+        else
+        {
+            normalKills++;
+        }
     }
 
     public void RespawnPlayer()
@@ -40,20 +66,37 @@ public class PlayerManager : MonoBehaviour
         bool foundFreeSpawn = false;
         SpawnPoint spawnPoint;
 
+        var attempts = 0;
+
         do
         {
+            // If failed 100 times, just spawn at the first spawn point, to prevent infinite loop
+            if (attempts > spawnTries)
+            {
+                spawnPoint = GameManager.Instance.spawnPoints.spawnPoints[0];
+                break;
+            }
+
             spawnPoint = GameManager.Instance.spawnPoints.GetRandom();
 
             if (!spawnPoint.IsOccupied()) { foundFreeSpawn = true; }
+
+            attempts++;
         }
         while (!foundFreeSpawn);
 
         spawnPoint.Teleport(myPlayer.transform);
+        myPlayer.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
     public void PlayerDeath()
     {
-        SwitchRealm(true);
+        if (lastHitBy != -1)
+        {
+            GameManager.Instance.playerManagers[lastHitBy].GetComponent<PlayerManager>().AwardKill(inShadowRealm);
+        }
+
+        if (!inShadowRealm) { SwitchRealm(true); }
 
         RespawnPlayer();
     }
@@ -65,12 +108,17 @@ public class PlayerManager : MonoBehaviour
         if (inShadowRealm)
         {
             myPlayer.layer = LayerMask.NameToLayer(shadowRealmLayer);
-            myPlayer.GetComponent<Player>().ChangeRealm(true);
+            myPlayerComp.ChangeRealm(true);
         }
         else
         {
             myPlayer.layer = LayerMask.NameToLayer(normalRealmLayer);
-            myPlayer.GetComponent<Player>().ChangeRealm(false);
+            myPlayerComp.ChangeRealm(false);
         }
+    }
+
+    public void SetLastHitBy(int _playerID)
+    {
+        lastHitBy = _playerID;
     }
 }

@@ -89,6 +89,8 @@ MonoBehaviour:
   moveForce: 10
   airBlastPrefab: {fileID: 4179661121999685344, guid: b8a7dd0bb7086bd498bf0059f94012cf,
     type: 3}
+  movingDrag: 1
+  normalDrag: 1
   chargeTime: 1
   currentCharge: 0
 --- !u!114 &6000394959823662813

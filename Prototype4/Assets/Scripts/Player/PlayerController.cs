@@ -8,8 +8,8 @@ public class PlayerController : MonoBehaviour
     public float moveForce = 10.0f;
     public GameObject airBlastPrefab;
 
-    // public float movingDrag = 10.0f;
-    // public float normalDrag = 1.0f;
+    public float movingDrag = 10.0f;
+    public float normalDrag = 1.0f;
 
     public float chargeTime = 1.0f;
     
@@ -33,6 +33,15 @@ public class PlayerController : MonoBehaviour
         if (isCharging)
         {
             currentCharge = Mathf.Clamp(currentCharge + (Time.deltaTime / chargeTime), 0.0f, 1.0f);
+        }
+
+        if (moveVector == Vector3.zero)
+        {
+            rigidBody.drag = normalDrag;
+        }
+        else
+        {
+            rigidBody.drag = movingDrag;
         }
     }
 
