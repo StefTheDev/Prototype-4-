@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(PlayerController))]
 public class HumanPlayer : Player
 {
-    private string[] horizontalAxes = { "P1_Horizontal", "P2_Horizontal" };
-    private string[] verticalAxes = { "P1_Vertical", "P2_Vertical" };
-    private string[] chargeButtons = { "P1_Charge", "P2_Charge" };
+    private string[] horizontalAxes = { "P1_Horizontal", "P2_Horizontal", "P3_Horizontal", "P4_Horizontal" };
+    private string[] verticalAxes = { "P1_Vertical", "P2_Vertical", "P3_Vertical", "P4_Vertical" };
+    private string[] chargeButtons = { "P1_Charge", "P2_Charge", "P3_Charge", "P4_Charge" };
 
     private PlayerController controller;
 

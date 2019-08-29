@@ -25,11 +25,11 @@ public class Player : MonoBehaviour
 
         if (_shadowRealm)
         {
-            GetComponentInChildren<MeshRenderer>().material = GameManager.Instance.shadowRealmMaterial;
+            GetComponentInChildren<MeshRenderer>().material = ReferenceManager.Instance.shadowRealmMaterial;
         }
         else
         {
-            GetComponentInChildren<MeshRenderer>().material = GameManager.Instance.normalMaterial;
+            GetComponentInChildren<MeshRenderer>().material = ReferenceManager.Instance.normalMaterial;
         }
     }
 }
