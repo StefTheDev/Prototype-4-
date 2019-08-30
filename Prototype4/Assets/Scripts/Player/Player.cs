@@ -6,6 +6,11 @@ public class Player : MonoBehaviour
 {
     public int playerID;
     public bool inShadowRealm = false;
+    public GameObject victoryCamera;
+
+    public AudioClip deathSound;
+
+    public AudioSource audioSource;
 
     public int GetPlayerID()
     {
@@ -19,17 +24,21 @@ public class Player : MonoBehaviour
 
     public void ChangeRealm(bool _shadowRealm)
     {
-        inShadowRealm = _shadowRealm;
-
-        var meshRenderer = GetComponentInChildren<MeshRenderer>();
-
-        if (_shadowRealm)
+        if (_shadowRealm && !inShadowRealm)
         {
             GetComponentInChildren<MeshRenderer>().material = ReferenceManager.Instance.shadowRealmMaterial;
+            audioSource.PlayOneShot(deathSound);
         }
-        else
+        else if (!_shadowRealm && inShadowRealm)
         {
             GetComponentInChildren<MeshRenderer>().material = ReferenceManager.Instance.normalMaterial;
         }
+
+        inShadowRealm = _shadowRealm;
+    }
+
+    public void ActivateVictoryCamera()
+    {
+        victoryCamera.SetActive(true);
     }
 }

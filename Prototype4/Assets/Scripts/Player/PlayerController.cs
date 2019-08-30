@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(AudioSource))]
 public class PlayerController : MonoBehaviour
 {
     public float moveForce = 10.0f;
@@ -16,13 +17,20 @@ public class PlayerController : MonoBehaviour
     public float currentCharge = 0.0f;
     private bool disabled = false;
 
+    public float brakingForceMultiplier = 1.0f;
+
+    public AudioClip exhaleSound;
+    public AudioClip inhaleSound;
+
     private Rigidbody rigidBody;
     private Vector3 moveVector = Vector3.zero;
     private bool isCharging = false;
+    private AudioSource audioSource;
 
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void Move(Vector3 _moveDirection)
@@ -62,12 +70,18 @@ public class PlayerController : MonoBehaviour
 
     public void StartCharging()
     {
+        if (disabled) { return; }
+
         isCharging = true;
         currentCharge = 0.0f;
+
+        audioSource.PlayOneShot(inhaleSound);
     }
 
     public void FireProjectile()
     {
+        if (disabled) { return; }
+
         isCharging = false;
 
         // Fire projectile
@@ -80,6 +94,8 @@ public class PlayerController : MonoBehaviour
 
         currentCharge = 0.0f;
 
+        audioSource.Stop();
+        audioSource.PlayOneShot(exhaleSound);
     }
 
     private void FixedUpdate()
@@ -90,10 +106,15 @@ public class PlayerController : MonoBehaviour
         if (isCharging) { moveModifier = 0.5f; }
 
         rigidBody.AddForce(moveVector.normalized * moveForce * moveModifier);
-        
+
         if (moveVector != Vector3.zero)
         {
             transform.forward = moveVector;
+        }
+        // Apply braking force if there are no inputs
+        else
+        {
+            rigidBody.AddForce(-rigidBody.velocity * brakingForceMultiplier);
         }
 
     }

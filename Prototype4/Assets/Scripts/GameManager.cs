@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Cinemachine;
 
 public enum GameState
 {
@@ -39,7 +40,8 @@ public class GameManager : MonoBehaviour
 
     public const int numPlayers = 4;
     public List<GameObject> playerManagers;
-   
+    public GameObject gameMusic;
+    public GameObject timerObject;
 
     private void Awake()
     {
@@ -73,13 +75,6 @@ public class GameManager : MonoBehaviour
         {
             case GameState.preGame:
             {
-                preGameTimer -= Time.deltaTime;
-                timerText.text = preGameTimer.ToString("#.##");
-
-                if (preGameTimer <= 0.0f)
-                {
-                    StartGame();
-                }
 
                 break;
             }
@@ -111,7 +106,7 @@ public class GameManager : MonoBehaviour
                 
                 if (postGameTimer <= 0.0f)
                 {
-                    SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 }
 
                 break;
@@ -127,6 +122,9 @@ public class GameManager : MonoBehaviour
         {
             manager.GetComponent<PlayerManager>().myPlayer.GetComponent<PlayerController>().Enable();
         }
+
+        gameMusic.SetActive(true);
+        timerObject.SetActive(true);
 
         roundTimer = roundLength;
         gameState = GameState.inGame;
@@ -158,19 +156,24 @@ public class GameManager : MonoBehaviour
     public void OnKnockout(int _knockedOutID)
     {
         int playersInNormalRealm = 0;
+        Player winner = null;
 
         // Check for victory
         foreach (GameObject manager in playerManagers)
         {
-            if (!manager.GetComponent<PlayerManager>().inShadowRealm)
+            var managerComp = manager.GetComponent<PlayerManager>();
+            if (!managerComp.inShadowRealm)
             {
                 playersInNormalRealm++;
+                winner = managerComp.myPlayer.GetComponent<Player>();
             }
         }
 
         if (playersInNormalRealm <= 1)
         {
             EndGame();
+            winner.transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+            winner.ActivateVictoryCamera();
         }
     }
 }
