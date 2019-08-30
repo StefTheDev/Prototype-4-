@@ -875,7 +875,7 @@ MonoBehaviour:
   timerText: {fileID: 941665301}
   spawnPoints: {fileID: 1721479219}
   preGameLength: 3
-  roundLength: 10
+  roundLength: 60
   postGameLength: 3
   gameState: 0
   playerManagers: []
