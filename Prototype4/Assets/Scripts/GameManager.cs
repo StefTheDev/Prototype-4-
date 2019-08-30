@@ -1,6 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
+
+public enum GameState
+{
+    preGame,
+    inGame,
+    suddenDeath,
+    postGame
+}
 
 public class GameManager : MonoBehaviour
 {
@@ -9,11 +19,23 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get { return instance; } }
 
-    [SerializeField]
-    private Timer timer;
+    public TextMeshProUGUI timerText;
+
+    // [SerializeField]
+    // private Timer timer;
     //private List<Player> players;
 
     public SpawnPoints spawnPoints;
+
+    public float preGameLength = 5.0f;
+    public float roundLength = 60.0f;
+    public float postGameLength = 5.0f;
+
+    private float preGameTimer = 0.0f;
+    private float roundTimer = 0.0f;
+    private float postGameTimer = 0.0f;
+
+    public GameState gameState = GameState.preGame;
 
     public const int numPlayers = 4;
     public List<GameObject> playerManagers;
@@ -38,12 +60,117 @@ public class GameManager : MonoBehaviour
             playerManagers.Add(newManager);
             managerComp.SetPlayerID(i);
             managerComp.SpawnPlayer();
+            
+            managerComp.myPlayer.GetComponent<PlayerController>().Disable();
+        }
+
+        preGameTimer = preGameLength;
+    }
+
+    private void Update()
+    {
+        switch (gameState)
+        {
+            case GameState.preGame:
+            {
+                preGameTimer -= Time.deltaTime;
+                timerText.text = preGameTimer.ToString("#.##");
+
+                if (preGameTimer <= 0.0f)
+                {
+                    StartGame();
+                }
+
+                break;
+            }
+
+            case GameState.inGame:
+            {
+                roundTimer -= Time.deltaTime;
+                timerText.text = roundTimer.ToString("#.##");
+
+                if (roundTimer <= 0.0f)
+                {
+                    StartSuddenDeath();
+                }
+
+                break;
+            }
+
+            case GameState.suddenDeath:
+            {
+                timerText.text = "0.00";
+
+                break;
+            }
+
+            case GameState.postGame:
+            {
+                postGameTimer -= Time.deltaTime;
+                timerText.text = postGameTimer.ToString("#.##");
+                
+                if (postGameTimer <= 0.0f)
+                {
+                    SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+                }
+
+                break;
+            }
         }
     }
 
-    public bool IsGameOver()
+    // Changes from the preGame state to the inGame state
+    public void StartGame()
     {
-        // return (timer.GetTime() < 0.0f) && players.Count < 0;
-        return false;
+        // Enable player controls
+        foreach (GameObject manager in playerManagers)
+        {
+            manager.GetComponent<PlayerManager>().myPlayer.GetComponent<PlayerController>().Enable();
+        }
+
+        roundTimer = roundLength;
+        gameState = GameState.inGame;
+    }
+
+    // Changes from the inGame state to the suddenDeath state
+    public void StartSuddenDeath()
+    {
+        gameState = GameState.suddenDeath;
+        AirBlast.SetSuddenDeath(true);
+    }
+
+    // Changes to the postGame state
+    public void EndGame()
+    {
+        // Disable player controls
+        foreach (GameObject manager in playerManagers)
+        {
+            manager.GetComponent<PlayerManager>().myPlayer.GetComponent<PlayerController>().Disable();
+        }
+
+        AirBlast.SetSuddenDeath(false);
+
+        postGameTimer = postGameLength;
+        gameState = GameState.postGame;
+    }
+
+    // Gets called when a player is knocked out
+    public void OnKnockout(int _knockedOutID)
+    {
+        int playersInNormalRealm = 0;
+
+        // Check for victory
+        foreach (GameObject manager in playerManagers)
+        {
+            if (!manager.GetComponent<PlayerManager>().inShadowRealm)
+            {
+                playersInNormalRealm++;
+            }
+        }
+
+        if (playersInNormalRealm <= 1)
+        {
+            EndGame();
+        }
     }
 }

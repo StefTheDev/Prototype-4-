@@ -98,6 +98,8 @@ public class PlayerManager : MonoBehaviour
 
         if (!inShadowRealm) { SwitchRealm(true); }
 
+        GameManager.Instance.OnKnockout(playerID);
+
         RespawnPlayer();
     }
 
