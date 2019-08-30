@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public float chargeTime = 1.0f;
     
     public float currentCharge = 0.0f;
+    private bool disabled = false;
+
     private Rigidbody rigidBody;
     private Vector3 moveVector = Vector3.zero;
     private bool isCharging = false;
@@ -28,8 +30,21 @@ public class PlayerController : MonoBehaviour
         moveVector = _moveDirection;
     }
 
+    public void Disable()
+    {
+        disabled = true;
+        rigidBody.velocity = Vector3.zero;
+    }
+
+    public void Enable()
+    {
+        disabled = false;
+    }
+
     private void Update()
     {
+        if (disabled) { return; }
+
         if (isCharging)
         {
             currentCharge = Mathf.Clamp(currentCharge + (Time.deltaTime / chargeTime), 0.0f, 1.0f);
@@ -69,6 +84,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (disabled) { return; }
+
         float moveModifier = 1.0f;
         if (isCharging) { moveModifier = 0.5f; }
 

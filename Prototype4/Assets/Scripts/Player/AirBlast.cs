@@ -44,11 +44,11 @@ public class AirBlast : MonoBehaviour
     {
         if (_isSuddenDeath)
         {
-            blastForce = 100.0f;
+            blastForce = 10000.0f;
         }
         else
         {
-            blastForce = 10.0f;
+            blastForce = 1000.0f;
         }
     }
 }
