@@ -21,7 +21,7 @@ MonoBehaviour:
       m_RotationRangeMax: {x: 0, y: 360, z: 0}
       m_ScaleRangeMin: {x: 2, y: 2, z: 1}
       m_ScaleRangeMax: {x: 4, y: 4, z: 1}
-      m_UniformScale: {x: 2, y: 4}
+      m_UniformScale: {x: 4, y: 6}
       m_UniformBool: 1
       m_XRotationBool: 0
       m_YRotationBool: 1
@@ -38,7 +38,7 @@ MonoBehaviour:
       m_RotationRangeMax: {x: 0, y: 360, z: 0}
       m_ScaleRangeMin: {x: 4, y: 8, z: 1}
       m_ScaleRangeMax: {x: 10, y: 9.999999, z: 1}
-      m_UniformScale: {x: 4, y: 8}
+      m_UniformScale: {x: 6, y: 8}
       m_UniformBool: 1
       m_XRotationBool: 0
       m_YRotationBool: 1
@@ -81,3 +81,71 @@ MonoBehaviour:
       m_YScaleBool: 1
       m_ZScaleBool: 0
     name: grass_lgreen
+  - gameObject: {fileID: 1128505331524368914, guid: 7cf950287cbd71844a33c1bd7032d34f,
+      type: 3}
+    settings:
+      m_Strength: 50
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 360, y: 360, z: 360}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 0.5, y: 1}
+      m_UniformBool: 1
+      m_XRotationBool: 1
+      m_YRotationBool: 1
+      m_ZRotationBool: 1
+      m_XScaleBool: 1
+      m_YScaleBool: 1
+      m_ZScaleBool: 0
+    name: rock_even2
+  - gameObject: {fileID: 7764198063623963368, guid: 57d014b4ac5de75429d71fa814c48352,
+      type: 3}
+    settings:
+      m_Strength: 50
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 0, y: 360, z: 0}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 1, y: 2}
+      m_UniformBool: 1
+      m_XRotationBool: 0
+      m_YRotationBool: 1
+      m_ZRotationBool: 0
+      m_XScaleBool: 1
+      m_YScaleBool: 1
+      m_ZScaleBool: 0
+    name: rock_LARGE
+  - gameObject: {fileID: 4969159203560814989, guid: b6f419cf33cc93c4a88708be7348df39,
+      type: 3}
+    settings:
+      m_Strength: 50
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 0, y: 0, z: 0}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 1, y: 1}
+      m_UniformBool: 1
+      m_XRotationBool: 0
+      m_YRotationBool: 1
+      m_ZRotationBool: 0
+      m_XScaleBool: 1
+      m_YScaleBool: 1
+      m_ZScaleBool: 0
+    name: rock_long
+  - gameObject: {fileID: 2477009057748474043, guid: 6e8962361f450fd43969bfd4641366c3,
+      type: 3}
+    settings:
+      m_Strength: 50
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 360, y: 360, z: 360}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 3, y: 5}
+      m_UniformBool: 1
+      m_XRotationBool: 1
+      m_YRotationBool: 1
+      m_ZRotationBool: 1
+      m_XScaleBool: 1
+      m_YScaleBool: 1
+      m_ZScaleBool: 0
+    name: rock_even
