@@ -26,15 +26,27 @@ public class Player : MonoBehaviour
     {
         if (_shadowRealm && !inShadowRealm)
         {
-            GetComponentInChildren<MeshRenderer>().material = ReferenceManager.Instance.shadowRealmMaterial;
             audioSource.PlayOneShot(deathSound);
         }
         else if (!_shadowRealm && inShadowRealm)
         {
-            GetComponentInChildren<MeshRenderer>().material = ReferenceManager.Instance.normalMaterial;
+            
         }
 
         inShadowRealm = _shadowRealm;
+        UpdateMaterial();
+    }
+
+    public void UpdateMaterial()
+    {
+        if (inShadowRealm)
+        {
+            GetComponentInChildren<MeshRenderer>().material = ReferenceManager.Instance.playerShadowRealmMaterials[playerID];
+        }
+        else
+        {
+            GetComponentInChildren<MeshRenderer>().material = ReferenceManager.Instance.playerMaterials[playerID];
+        }
     }
 
     public void ActivateVictoryCamera()

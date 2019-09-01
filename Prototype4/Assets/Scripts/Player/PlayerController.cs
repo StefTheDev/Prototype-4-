@@ -6,16 +6,12 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class PlayerController : MonoBehaviour
 {
-    public float moveForce = 10.0f;
     public GameObject airBlastPrefab;
-
-    public float movingDrag = 10.0f;
-    public float normalDrag = 1.0f;
 
     public float chargeTime = 1.0f;
     
     public float currentCharge = 0.0f;
-    private bool disabled = false;
+    public bool disabled = false;
 
     public float brakingForceMultiplier = 1.0f;
 
@@ -26,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveVector = Vector3.zero;
     private bool isCharging = false;
     private AudioSource audioSource;
+    private bool applyBrakingForce = false;
 
     private void Awake()
     {
@@ -56,15 +53,6 @@ public class PlayerController : MonoBehaviour
         if (isCharging)
         {
             currentCharge = Mathf.Clamp(currentCharge + (Time.deltaTime / chargeTime), 0.0f, 1.0f);
-        }
-
-        if (moveVector == Vector3.zero)
-        {
-            rigidBody.drag = normalDrag;
-        }
-        else
-        {
-            rigidBody.drag = movingDrag;
         }
     }
 
@@ -105,17 +93,29 @@ public class PlayerController : MonoBehaviour
         float moveModifier = 1.0f;
         if (isCharging) { moveModifier = 0.5f; }
 
-        rigidBody.AddForce(moveVector.normalized * moveForce * moveModifier);
+        rigidBody.AddForce(moveVector * moveModifier);
 
         if (moveVector != Vector3.zero)
         {
             transform.forward = moveVector;
         }
         // Apply braking force if there are no inputs
-        else
+        if (moveVector == Vector3.zero || applyBrakingForce)
         {
             rigidBody.AddForce(-rigidBody.velocity * brakingForceMultiplier);
         }
 
+        applyBrakingForce = false;
+    }
+
+    public void SetLook(Vector3 _lookDir)
+    {
+        _lookDir.y = 0.0f;
+        transform.forward = _lookDir;
+    }
+
+    public void ApplyBrakingForce()
+    {
+        applyBrakingForce = true;
     }
 }

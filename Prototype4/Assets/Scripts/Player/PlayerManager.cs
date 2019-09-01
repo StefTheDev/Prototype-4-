@@ -17,15 +17,30 @@ public class PlayerManager : MonoBehaviour
     private const string shadowRealmLayer = "Shadow Realm";
     private const string normalRealmLayer = "Normal Realm";
 
+    private string[] actionButtons = { "P1_Charge", "P2_Charge", "P3_Charge", "P4_Charge" };
+    private string[] backButtons = { "P1_Back", "P2_Back", "P3_Back", "P4_Back" };
+
     private const int spawnTries = 100;
 
     // ID of the last player that hit us
     private int lastHitBy = -1;
-    
 
     public void SetPlayerID(int _playerID)
     {
         playerID = _playerID;
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown(actionButtons[playerID]) && isAI)
+        {
+            HumanJoin();
+        }
+
+        if (Input.GetButtonDown(backButtons[playerID]) && !isAI)
+        {
+            HumanLeave();
+        }
     }
 
     public void SpawnPlayer()
@@ -43,6 +58,8 @@ public class PlayerManager : MonoBehaviour
         myPlayerComp = myPlayer.GetComponent<Player>();
 
         myPlayerComp.SetPlayerID(playerID);
+        myPlayerComp.inShadowRealm = this.inShadowRealm;
+        myPlayerComp.UpdateMaterial();
 
         RespawnPlayer();
     }
@@ -53,7 +70,6 @@ public class PlayerManager : MonoBehaviour
         {
             shadowKills++;
             SwitchRealm(false);
-            // RespawnPlayer();
         }
         else
         {
@@ -65,6 +81,7 @@ public class PlayerManager : MonoBehaviour
     {
         bool foundFreeSpawn = false;
         SpawnPoint spawnPoint;
+        lastHitBy = -1;
 
         var attempts = 0;
 
@@ -73,7 +90,7 @@ public class PlayerManager : MonoBehaviour
             // If failed 100 times, just spawn at the first spawn point, to prevent infinite loop
             if (attempts > spawnTries)
             {
-                spawnPoint = GameManager.Instance.spawnPoints.spawnPoints[0];
+                spawnPoint = GameManager.Instance.spawnPoints.GetRandom();
                 break;
             }
 
@@ -122,5 +139,38 @@ public class PlayerManager : MonoBehaviour
     public void SetLastHitBy(int _playerID)
     {
         lastHitBy = _playerID;
+    }
+
+    public void SetAI(bool _isAI)
+    {
+        isAI = _isAI;
+    }
+
+    private void HumanJoin()
+    {
+        isAI = false;
+        bool inputsDisabled = myPlayer.GetComponent<PlayerController>().disabled;
+        Destroy(myPlayer);
+        SpawnPlayer();
+        if (inputsDisabled)
+        {
+            myPlayer.GetComponent<PlayerController>().Disable();
+        }
+
+        ReferenceManager.Instance.joinPrompts[playerID].SetActive(false);
+    }
+
+    private void HumanLeave()
+    {
+        isAI = true;
+        bool inputsDisabled = myPlayer.GetComponent<PlayerController>().disabled;
+        Destroy(myPlayer);
+        SpawnPlayer();
+        if (inputsDisabled)
+        {
+            myPlayer.GetComponent<PlayerController>().Disable();
+        }
+
+        ReferenceManager.Instance.joinPrompts[playerID].SetActive(true);
     }
 }
