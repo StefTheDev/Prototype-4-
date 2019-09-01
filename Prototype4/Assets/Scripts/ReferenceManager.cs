@@ -13,8 +13,9 @@ public class ReferenceManager : MonoBehaviour
     public GameObject AIPrefab;
     public GameObject playerManagerPrefab;
 
-    public Material normalMaterial;
-    public Material shadowRealmMaterial;
+    public Material[] playerMaterials;
+    public Material[] playerShadowRealmMaterials;
+    public GameObject[] joinPrompts;
 
     private void Awake()
     {

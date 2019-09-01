@@ -7,12 +7,12 @@ public class AirBlast : MonoBehaviour
 {
     public static float blastSpeed = 1000.0f;
     public static float maxLifetime = 1.0f;
-    public static float blastForce = 500.0f;
+    public static float blastForce = 650.0f;
 
     private Rigidbody rigidBody;
     private Vector3 direction;
     private int playerIndex;
-    private float chargeAmount;
+    private float chargeAmount = 0.0f;
 
     private void Awake()
     {

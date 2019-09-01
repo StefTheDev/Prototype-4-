@@ -22,10 +22,6 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI timerText;
 
-    // [SerializeField]
-    // private Timer timer;
-    //private List<Player> players;
-
     public SpawnPoints spawnPoints;
 
     public float preGameLength = 5.0f;
@@ -59,6 +55,9 @@ public class GameManager : MonoBehaviour
         {
             var newManager = Instantiate(playerManagerPrefab, this.transform);
             var managerComp = newManager.GetComponent<PlayerManager>();
+
+            managerComp.SetAI(true);
+
             playerManagers.Add(newManager);
             managerComp.SetPlayerID(i);
             managerComp.SpawnPlayer();
@@ -146,6 +145,9 @@ public class GameManager : MonoBehaviour
             manager.GetComponent<PlayerManager>().myPlayer.GetComponent<PlayerController>().Disable();
         }
 
+        gameMusic.SetActive(false);
+        AudioManager.Instance.PlaySound("Victory");
+
         AirBlast.SetSuddenDeath(false);
 
         postGameTimer = postGameLength;
@@ -169,9 +171,18 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (playersInNormalRealm <= 1)
+        if (playersInNormalRealm == 1)
         {
             EndGame();
+
+            winner.transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+            winner.ActivateVictoryCamera();
+        }
+        else if (playersInNormalRealm == 0)
+        {
+            EndGame();
+            winner = playerManagers[0].GetComponent<PlayerManager>().myPlayer.GetComponent<Player>();
+
             winner.transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
             winner.ActivateVictoryCamera();
         }
