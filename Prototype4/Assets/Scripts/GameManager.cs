@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> playerManagers;
     public GameObject gameMusic;
     public GameObject timerObject;
+    public GameObject victoryCanvas;
 
     private void Awake()
     {
@@ -146,6 +147,7 @@ public class GameManager : MonoBehaviour
         }
 
         gameMusic.SetActive(false);
+        victoryCanvas.SetActive(true);
         AudioManager.Instance.PlaySound("Victory");
 
         AirBlast.SetSuddenDeath(false);
