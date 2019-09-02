@@ -41,14 +41,21 @@ public class Player : MonoBehaviour
 
     public void UpdateMaterial()
     {
+        var renderer = GetComponentInChildren<SkinnedMeshRenderer>();
+        Material newMat = null;
+        var rendererMaterials = renderer.materials;
+
         if (inShadowRealm)
         {
-            GetComponentInChildren<MeshRenderer>().material = ReferenceManager.Instance.playerShadowRealmMaterials[playerID];
+            newMat = ReferenceManager.Instance.playerShadowRealmMaterials[playerID];
         }
         else
         {
-            GetComponentInChildren<MeshRenderer>().material = ReferenceManager.Instance.playerMaterials[playerID];
+            newMat = ReferenceManager.Instance.playerMaterials[playerID];
         }
+
+        rendererMaterials[0] = newMat;
+        renderer.materials = rendererMaterials;
     }
 
     public void ActivateVictoryCamera()

@@ -26,10 +26,13 @@ public class PlayerController : MonoBehaviour
 
     private float maxSpeed = 10.0f;
 
+    private Animator animator;
+
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     public void Move(Vector3 _moveDirection)
@@ -56,6 +59,13 @@ public class PlayerController : MonoBehaviour
         {
             currentCharge = Mathf.Clamp(currentCharge + (Time.deltaTime / chargeTime), 0.0f, 1.0f);
         }
+
+        if (animator)
+        {
+            animator.SetBool("Inhaling", isCharging);
+            animator.SetFloat("Speed", rigidBody.velocity.magnitude);
+        }
+        
     }
 
     public void StartCharging()
