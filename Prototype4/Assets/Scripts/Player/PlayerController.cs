@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     private AudioSource audioSource;
     private bool applyBrakingForce = false;
 
+    private float maxSpeed = 10.0f;
+
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -93,7 +95,12 @@ public class PlayerController : MonoBehaviour
         float moveModifier = 1.0f;
         if (isCharging) { moveModifier = 0.5f; }
 
-        rigidBody.AddForce(moveVector * moveModifier);
+
+        // If the players new velocity would be over the speed cap, don't add force
+        if ((rigidBody.velocity + moveVector.normalized).magnitude < (maxSpeed + 1))
+        {
+            rigidBody.AddForce(moveVector * moveModifier);
+        }
 
         if (moveVector != Vector3.zero)
         {

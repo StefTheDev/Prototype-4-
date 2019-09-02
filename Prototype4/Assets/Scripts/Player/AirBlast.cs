@@ -7,7 +7,7 @@ public class AirBlast : MonoBehaviour
 {
     public static float blastSpeed = 1000.0f;
     public static float maxLifetime = 1.0f;
-    public static float blastForce = 650.0f;
+    public static float blastForce = 750.0f;
 
     private Rigidbody rigidBody;
     private Vector3 direction;

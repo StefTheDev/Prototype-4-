@@ -40,6 +40,9 @@ public class GameManager : MonoBehaviour
     public GameObject timerObject;
     public GameObject victoryCanvas;
 
+    public GameObject suddenDeathMusic;
+    public GameObject suddenDeathCanvas;
+
     private void Awake()
     {
         if (instance != null && instance != this) { Destroy(this.gameObject); }
@@ -135,6 +138,10 @@ public class GameManager : MonoBehaviour
     {
         gameState = GameState.suddenDeath;
         AirBlast.SetSuddenDeath(true);
+
+        gameMusic.SetActive(false);
+        suddenDeathCanvas.SetActive(true);
+        suddenDeathMusic.SetActive(true);
     }
 
     // Changes to the postGame state
@@ -149,6 +156,8 @@ public class GameManager : MonoBehaviour
         gameMusic.SetActive(false);
         victoryCanvas.SetActive(true);
         AudioManager.Instance.PlaySound("Victory");
+        suddenDeathCanvas.SetActive(false);
+        suddenDeathMusic.SetActive(false);
 
         AirBlast.SetSuddenDeath(false);
 
@@ -159,6 +168,8 @@ public class GameManager : MonoBehaviour
     // Gets called when a player is knocked out
     public void OnKnockout(int _knockedOutID)
     {
+        if (gameState == GameState.postGame) { return; }
+
         int playersInNormalRealm = 0;
         Player winner = null;
 

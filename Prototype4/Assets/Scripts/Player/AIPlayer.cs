@@ -76,7 +76,7 @@ public class AIPlayer : Player
             {
                 controller.ApplyBrakingForce();
                 controller.StartCharging();
-                attackTimer = Random.Range(0.5f, 0.99999f);
+                attackTimer = Random.Range(0.5f, 1.5f);
             }
             // If target is in range and we are charging an attack, keep looking at them
             else
