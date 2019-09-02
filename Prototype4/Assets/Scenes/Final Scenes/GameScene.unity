@@ -2589,6 +2589,12 @@ PrefabInstance:
       propertyPath: joinPrompts.Array.data[3]
       value: 
       objectReference: {fileID: 1786115122}
+    - target: {fileID: 8027016824054475359, guid: 37092314b8794e84c96818dde44aab8c,
+        type: 3}
+      propertyPath: humanPrefab
+      value: 
+      objectReference: {fileID: 8592417566694888781, guid: 2a349c59a635cbb4a99df32e38b8a356,
+        type: 3}
     - target: {fileID: 8027016824815337112, guid: 37092314b8794e84c96818dde44aab8c,
         type: 3}
       propertyPath: timerText
