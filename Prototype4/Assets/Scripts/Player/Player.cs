@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
 
     public AudioSource audioSource;
 
+    public bool isInvulnerable;
+
     public int GetPlayerID()
     {
         return playerID;
