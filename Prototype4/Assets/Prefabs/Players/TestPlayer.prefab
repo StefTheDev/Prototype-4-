@@ -480,11 +480,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: viking2_idle
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 5063a179e9a15974ab1fd9b0d109bdbb,
+    - target: {fileID: -927199367670048503, guid: 5063a179e9a15974ab1fd9b0d109bdbb,
         type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 4e8e0ed3a8c4c744a97dd640ef6e26bd, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5063a179e9a15974ab1fd9b0d109bdbb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -555,6 +555,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 5063a179e9a15974ab1fd9b0d109bdbb,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4e8e0ed3a8c4c744a97dd640ef6e26bd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5063a179e9a15974ab1fd9b0d109bdbb, type: 3}
 --- !u!4 &8005801794848463403 stripped

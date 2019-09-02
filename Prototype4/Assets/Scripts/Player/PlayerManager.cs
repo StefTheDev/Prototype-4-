@@ -52,7 +52,7 @@ public class PlayerManager : MonoBehaviour
         }
         else
         {
-            myPlayer = Instantiate(ReferenceManager.Instance.humanPrefab, Vector3.zero, Quaternion.identity, null);
+            myPlayer = Instantiate(ReferenceManager.Instance.humanPlayerPrefabs[playerID], Vector3.zero, Quaternion.identity, null);
         }
 
         myPlayerComp = myPlayer.GetComponent<Player>();

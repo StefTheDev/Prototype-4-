@@ -9,6 +9,7 @@ public class ReferenceManager : MonoBehaviour
 
     public static ReferenceManager Instance { get { return instance; } }
 
+    public GameObject[] humanPlayerPrefabs;
     public GameObject humanPrefab;
     public GameObject AIPrefab;
     public GameObject playerManagerPrefab;
