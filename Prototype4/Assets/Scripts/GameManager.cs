@@ -60,7 +60,8 @@ public class GameManager : MonoBehaviour
             var newManager = Instantiate(playerManagerPrefab, this.transform);
             var managerComp = newManager.GetComponent<PlayerManager>();
 
-            // managerComp.SetAI(true);
+            // Make all players AI
+            managerComp.SetAI(true);
 
             playerManagers.Add(newManager);
             managerComp.SetPlayerID(i);
