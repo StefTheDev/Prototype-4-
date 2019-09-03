@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8351691205478877823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8351691205478877822}
+  - component: {fileID: 8351691205478877817}
+  m_Layer: 0
+  m_Name: ReferenceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8351691205478877822
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8351691205478877823}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8351691205478877817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8351691205478877823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb6b93f52cf8cf4990590659e02b73b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  humanPrefab: {fileID: 6000394959823662806, guid: 547e5692493ecf6498745103af18a693,
+    type: 3}
+  AIPrefab: {fileID: 7053751132205501554, guid: dd8b85f779b35904ca08986d381c7dcc,
+    type: 3}
+  playerManagerPrefab: {fileID: 7838045451939687182, guid: 98b8828962dba914dafa58841e19aa2f,
+    type: 3}
+  playerMaterials:
+  - {fileID: 2100000, guid: 9c958ecdd6f9fcc4a9e153d909998486, type: 2}
+  - {fileID: 2100000, guid: ce07ba1bfb37de7489543a30a881d673, type: 2}
+  - {fileID: 2100000, guid: 864860a7c4073bb4196d7e2e5b3d0e0a, type: 2}
+  - {fileID: 2100000, guid: a1300daf2a6cc704e9dcdf0c0d659de2, type: 2}
+  playerShadowRealmMaterials:
+  - {fileID: 2100000, guid: 107473e06e479cc4aa6a7b9f4eeceb8d, type: 2}
+  - {fileID: 2100000, guid: 60447ee00572b4f4daf59f6029642991, type: 2}
+  - {fileID: 2100000, guid: 060f72137a4fba54ca9be7865952a408, type: 2}
+  - {fileID: 2100000, guid: 5d81d7010c221bc45bcb550f9a72fb3f, type: 2}
+  joinPrompts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
