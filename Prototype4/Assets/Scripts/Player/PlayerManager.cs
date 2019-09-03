@@ -48,7 +48,7 @@ public class PlayerManager : MonoBehaviour
         // Instantiate player
         if (isAI)
         {
-            myPlayer = Instantiate(ReferenceManager.Instance.AIPrefab, Vector3.zero, Quaternion.identity, null);
+            myPlayer = Instantiate(ReferenceManager.Instance.AIPlayerPrefabs[playerID], Vector3.zero, Quaternion.identity, null);
         }
         else
         {
