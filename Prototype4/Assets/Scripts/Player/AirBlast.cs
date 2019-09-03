@@ -22,6 +22,7 @@ public class AirBlast : MonoBehaviour
     public void Launch(Vector3 _launchDirection, float _chargeAmount, int _playerIndex)
     {
         rigidBody.AddForce(_launchDirection * _chargeAmount * blastSpeed);
+        this.transform.forward = _launchDirection;
         direction = _launchDirection;
         playerIndex = _playerIndex;
         chargeAmount = _chargeAmount;
