@@ -159,7 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   airBlastPrefab: {fileID: 4179661121999685344, guid: b8a7dd0bb7086bd498bf0059f94012cf,
     type: 3}
-  inhalePrefab: {fileID: 1836527888676097298, guid: 11fa308a3d9efed4e9a8139a8677c3fc,
+  inhalePrefab: {fileID: 8566727820859034940, guid: 11fa308a3d9efed4e9a8139a8677c3fc,
     type: 3}
   chargeTime: 1
   currentCharge: 0
