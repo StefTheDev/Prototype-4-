@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class UIOptions : MonoBehaviour
 {
-    public GameObject pause;
+    public GameObject pausePanel;
 
     public void Back()
     {
         gameObject.SetActive(false);
-        pause.SetActive(true);
+        pausePanel.SetActive(true);
     }
 }

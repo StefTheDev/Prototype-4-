@@ -63,7 +63,7 @@ public class Pause : MonoBehaviour
     public void OnOptions()
     {
         options.SetActive(true);
-        gameObject.SetActive(false);
+        panel.SetActive(false);
 
     }
 
