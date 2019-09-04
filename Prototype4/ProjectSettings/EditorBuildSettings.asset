@@ -8,7 +8,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Final Scenes/MainMenu.unity
     guid: 3f291f7478370fc49b37faf8d9394c17
-  - enabled: 1
-    path: Assets/Scenes/Test Scenes/TimScene.unity
-    guid: 9caf31417f348374893cf5fd46867a3d
   m_configObjects: {}
