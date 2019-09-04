@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class Pause : MonoBehaviour
 {
     public Image[] images;
-    public GameObject panel;
+    public GameObject panel, options;
     public Image image;
 
     public string menuLevel = "MenuScene";
@@ -27,7 +27,7 @@ public class Pause : MonoBehaviour
                 paused = false;
                 panel.SetActive(false);
 
-                image.color = images[0].color;
+                image.sprite = images[0].sprite;
             }
             else
             {
@@ -36,7 +36,7 @@ public class Pause : MonoBehaviour
                 paused = true;
                 panel.SetActive(true);
 
-                image.color = images[1].color;
+                image.sprite = images[1].sprite;
             }
         }
     } 
@@ -48,7 +48,13 @@ public class Pause : MonoBehaviour
         paused = false;
         panel.SetActive(false);
 
-        image.color = images[0].color;
+        image.sprite = images[0].sprite;
+    }
+
+    public void OnOptions()
+    {
+        options.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     public void OnQuit()
