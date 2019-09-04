@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
     public Image[] images;
-    public GameObject panel;
+    public GameObject panel, options, joinPrompts, timer;
     public Image image;
+
+    public string menuLevel = "MenuScene";
+
 
     private bool paused = false;
 
@@ -23,7 +27,10 @@ public class Pause : MonoBehaviour
                 paused = false;
                 panel.SetActive(false);
 
-                image.color = images[0].color;
+                joinPrompts.SetActive(true);
+                timer.SetActive(true);
+
+                image.sprite = images[0].sprite;
             }
             else
             {
@@ -32,7 +39,10 @@ public class Pause : MonoBehaviour
                 paused = true;
                 panel.SetActive(true);
 
-                image.color = images[1].color;
+                joinPrompts.SetActive(false);
+                timer.SetActive(false);
+
+                image.sprite = images[1].sprite;
             }
         }
     } 
@@ -44,6 +54,21 @@ public class Pause : MonoBehaviour
         paused = false;
         panel.SetActive(false);
 
-        image.color = images[0].color;
+        joinPrompts.SetActive(true);
+        timer.SetActive(true);
+
+        image.sprite = images[0].sprite;
+    }
+
+    public void OnOptions()
+    {
+        options.SetActive(true);
+        gameObject.SetActive(false);
+
+    }
+
+    public void OnQuit()
+    {
+        SceneManager.LoadScene(menuLevel);
     }
 }

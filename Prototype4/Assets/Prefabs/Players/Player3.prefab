@@ -67,7 +67,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6000394959823662812, guid: 547e5692493ecf6498745103af18a693,
+        type: 3}
+      propertyPath: inhalePrefab
+      value: 
+      objectReference: {fileID: 1836527888676097298, guid: 11fa308a3d9efed4e9a8139a8677c3fc,
+        type: 3}
+    - target: {fileID: 1747590843931820198, guid: 547e5692493ecf6498745103af18a693,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6431434422472828984, guid: 547e5692493ecf6498745103af18a693,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3902407840342454132, guid: 547e5692493ecf6498745103af18a693,
         type: 3}
       propertyPath: m_IsActive
       value: 0

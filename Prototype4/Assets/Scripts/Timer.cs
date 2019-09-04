@@ -18,7 +18,7 @@ public class Timer : MonoBehaviour
     private void FixedUpdate()
     {
         time -= Time.deltaTime;
-        label.text = time.ToString("#.##");
+        label.text = time.ToString("#");
     }
 
     public float GetTime()

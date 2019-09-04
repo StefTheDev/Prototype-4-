@@ -33,6 +33,14 @@ public class AirBlast : MonoBehaviour
     {
         var otherPlayer = other.GetComponent<Player>();
 
+        var otherAirBlast = other.GetComponent<AirBlast>();
+
+        if(otherAirBlast)
+        {
+            Destroy(otherAirBlast);
+            Destroy(this.gameObject);
+        }
+
         if (otherPlayer && otherPlayer.GetPlayerID() != playerIndex && !otherPlayer.isInvulnerable)
         {
             GameManager.Instance.playerManagers[otherPlayer.GetPlayerID()].GetComponent<PlayerManager>().SetLastHitBy(playerIndex);
