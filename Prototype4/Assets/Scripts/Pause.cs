@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class Pause : MonoBehaviour
 {
     public Image[] images;
-    public GameObject panel, options;
+    public GameObject panel, options, joinPrompts, timer;
     public Image image;
 
     public string menuLevel = "MenuScene";
@@ -27,6 +27,9 @@ public class Pause : MonoBehaviour
                 paused = false;
                 panel.SetActive(false);
 
+                joinPrompts.SetActive(true);
+                timer.SetActive(true);
+
                 image.sprite = images[0].sprite;
             }
             else
@@ -35,6 +38,9 @@ public class Pause : MonoBehaviour
 
                 paused = true;
                 panel.SetActive(true);
+
+                joinPrompts.SetActive(false);
+                timer.SetActive(false);
 
                 image.sprite = images[1].sprite;
             }
@@ -48,6 +54,9 @@ public class Pause : MonoBehaviour
         paused = false;
         panel.SetActive(false);
 
+        joinPrompts.SetActive(true);
+        timer.SetActive(true);
+
         image.sprite = images[0].sprite;
     }
 
@@ -55,6 +64,7 @@ public class Pause : MonoBehaviour
     {
         options.SetActive(true);
         gameObject.SetActive(false);
+
     }
 
     public void OnQuit()
