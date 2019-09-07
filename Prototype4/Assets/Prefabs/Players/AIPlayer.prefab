@@ -159,8 +159,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   airBlastPrefab: {fileID: 4179661121999685344, guid: b8a7dd0bb7086bd498bf0059f94012cf,
     type: 3}
+  inhalePrefab: {fileID: 8566727820859034940, guid: 11fa308a3d9efed4e9a8139a8677c3fc,
+    type: 3}
   chargeTime: 1
   currentCharge: 0
+  disabled: 0
   brakingForceMultiplier: 3
   exhaleSound: {fileID: 8300000, guid: 9277b7be358cb2c46baeab6bd772799c, type: 3}
   inhaleSound: {fileID: 8300000, guid: 9c8489f8c74ce2e44bacce5bf45fccb8, type: 3}
@@ -181,6 +184,7 @@ MonoBehaviour:
   victoryCamera: {fileID: 1963582859894358019}
   deathSound: {fileID: 8300000, guid: ba08b8fa442ac814cbaee878e8b07ff7, type: 3}
   audioSource: {fileID: 3926948354628447210}
+  isInvulnerable: 0
   arenaRadius: 10
   avoidDistance: 4
   targetPlayer: {fileID: 0}
@@ -385,21 +389,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7053751132205501566}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 3369db84f4c9c1847b92452ac2720f41,
-        type: 3}
-      propertyPath: m_Name
-      value: manuChibi
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 3369db84f4c9c1847b92452ac2720f41,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2462214943315995813, guid: 3369db84f4c9c1847b92452ac2720f41,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3369db84f4c9c1847b92452ac2720f41,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -454,6 +443,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 3369db84f4c9c1847b92452ac2720f41,
+        type: 3}
+      propertyPath: m_Name
+      value: manuChibi
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 3369db84f4c9c1847b92452ac2720f41,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462214943315995813, guid: 3369db84f4c9c1847b92452ac2720f41,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8377303644997871296, guid: 3369db84f4c9c1847b92452ac2720f41,
         type: 3}

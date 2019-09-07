@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class PlayerController : MonoBehaviour
 {
-    public GameObject airBlastPrefab;
+    public GameObject airBlastPrefab, inhalePrefab;
 
     public float chargeTime = 1.0f;
     
@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private float maxSpeed = 10.0f;
 
     private Animator animator;
+    private GameObject inhale;
 
     private void Awake()
     {
@@ -65,6 +66,8 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Inhaling", isCharging);
             animator.SetFloat("Speed", rigidBody.velocity.magnitude);
         }
+
+        if(inhale != null) inhale.transform.position = this.transform.position;
         
     }
 
@@ -74,6 +77,8 @@ public class PlayerController : MonoBehaviour
 
         isCharging = true;
         currentCharge = 0.0f;
+
+        inhale = Instantiate(inhalePrefab, this.transform.position, this.transform.rotation, null);
 
         audioSource.PlayOneShot(inhaleSound);
     }

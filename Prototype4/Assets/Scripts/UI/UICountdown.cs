@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Countdown : MonoBehaviour
+public class UICountdown : MonoBehaviour
 {
     public TextMeshProUGUI numText;
     public int countdownStart = 5;

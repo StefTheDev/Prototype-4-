@@ -21,7 +21,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.49
+    value: 2.39
   color:
     overrideState: 1
     value: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 1}
@@ -39,10 +39,10 @@ MonoBehaviour:
     value: -12
   thicknessModifier:
     overrideState: 1
-    value: 7.76
+    value: 3.48
   directLightingStrength:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 0.212
   radius:
     overrideState: 0
     value: 0.25
@@ -64,55 +64,7 @@ MonoBehaviour:
   settings:
   - {fileID: -3996098748595809963}
   - {fileID: 454687025198274546}
-  - {fileID: 7683016414335593030}
-  - {fileID: 131346601988836629}
---- !u!114 &131346601988836629
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48a79b01ea5641d4aa6daa2e23605641, type: 3}
-  m_Name: Bloom
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 1
-  intensity:
-    overrideState: 1
-    value: 1.12
-  threshold:
-    overrideState: 1
-    value: 1
-  softKnee:
-    overrideState: 1
-    value: 0.712
-  clamp:
-    overrideState: 1
-    value: 65472
-  diffusion:
-    overrideState: 0
-    value: 7
-  anamorphicRatio:
-    overrideState: 0
-    value: 0
-  color:
-    overrideState: 0
-    value: {r: 1, g: 1, b: 1, a: 1}
-  fastMode:
-    overrideState: 0
-    value: 0
-  dirtTexture:
-    overrideState: 0
-    value: {fileID: 0}
-    defaultState: 1
-  dirtIntensity:
-    overrideState: 0
-    value: 0
+  - {fileID: 6435188762504556735}
 --- !u!114 &454687025198274546
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -162,14 +114,14 @@ MonoBehaviour:
     value: {fileID: 0}
     defaultState: 4
   ldrLutContribution:
-    overrideState: 0
-    value: 1
+    overrideState: 1
+    value: 0.751
   temperature:
     overrideState: 1
-    value: 6
+    value: 16
   tint:
     overrideState: 1
-    value: 20
+    value: -8
   colorFilter:
     overrideState: 0
     value: {r: 1, g: 1, b: 1, a: 1}
@@ -178,19 +130,19 @@ MonoBehaviour:
     value: 0
   saturation:
     overrideState: 1
-    value: 12
+    value: 25
   brightness:
     overrideState: 0
     value: 0
   postExposure:
     overrideState: 1
-    value: 0.2
+    value: 1.04
   contrast:
     overrideState: 1
-    value: 0.9
+    value: -25
   mixerRedOutRedIn:
     overrideState: 1
-    value: 91
+    value: 123
   mixerRedOutGreenIn:
     overrideState: 0
     value: 0
@@ -1424,7 +1376,7 @@ MonoBehaviour:
       - 0.5
       - 0.5
       - 0.5
---- !u!114 &7683016414335593030
+--- !u!114 &6435188762504556735
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1433,16 +1385,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94fcd11afffcb142908bfcb1e261fba, type: 3}
-  m_Name: MotionBlur
+  m_Script: {fileID: 11500000, guid: 40b924e2dad56384a8df2a1e111bb675, type: 3}
+  m_Name: Vignette
   m_EditorClassIdentifier: 
   active: 1
   enabled:
     overrideState: 1
     value: 1
-  shutterAngle:
+  mode:
     overrideState: 1
-    value: 144
-  sampleCount:
+    value: 0
+  color:
     overrideState: 1
-    value: 10
+    value: {r: 0, g: 0, b: 0, a: 1}
+  center:
+    overrideState: 1
+    value: {x: 0.5, y: 0.5}
+  intensity:
+    overrideState: 1
+    value: 0.5
+  smoothness:
+    overrideState: 1
+    value: 0.178
+  roundness:
+    overrideState: 1
+    value: 0.971
+  rounded:
+    overrideState: 1
+    value: 0
+  mask:
+    overrideState: 0
+    value: {fileID: 0}
+    defaultState: 1
+  opacity:
+    overrideState: 0
+    value: 1
