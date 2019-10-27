@@ -44,7 +44,9 @@ public class AirBlast : MonoBehaviour
         if (otherPlayer && otherPlayer.GetPlayerID() != playerIndex && !otherPlayer.isInvulnerable)
         {
             GameManager.Instance.playerManagers[otherPlayer.GetPlayerID()].GetComponent<PlayerManager>().SetLastHitBy(playerIndex);
-            otherPlayer.GetComponent<Rigidbody>().AddForce(direction * blastForce * chargeAmount);
+			// Edit by Elijah
+			otherPlayer.GetComponent<ShieldPowerup>().ApplyAirBlast(direction * blastForce * chargeAmount);
+
             Destroy(this.gameObject);
         }
     }
