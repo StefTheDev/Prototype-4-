@@ -126,12 +126,22 @@ public class PlayerManager : MonoBehaviour
         
         if (inShadowRealm)
         {
-            myPlayer.layer = LayerMask.NameToLayer(shadowRealmLayer);
+            int newLayer = LayerMask.NameToLayer(shadowRealmLayer);
+            myPlayer.layer = newLayer;
+            foreach (Transform trans in gameObject.GetComponentsInChildren<Transform>(true))
+            {
+                trans.gameObject.layer = newLayer;
+            }
             myPlayerComp.ChangeRealm(true);
         }
         else
         {
-            myPlayer.layer = LayerMask.NameToLayer(normalRealmLayer);
+            int newLayer = LayerMask.NameToLayer(normalRealmLayer);
+            myPlayer.layer = newLayer;
+            foreach (Transform trans in gameObject.GetComponentsInChildren<Transform>(true))
+            {
+                trans.gameObject.layer = newLayer;
+            }
             myPlayerComp.ChangeRealm(false);
         }
     }
@@ -149,12 +159,15 @@ public class PlayerManager : MonoBehaviour
     private void HumanJoin()
     {
         isAI = false;
-        bool inputsDisabled = myPlayer.GetComponent<PlayerController>().disabled;
+
+        bool inputsDisabled = myPlayer.GetComponent<PlayerControllerRigidbody>().IsDisabled();
+
         Destroy(myPlayer);
         SpawnPlayer();
+
         if (inputsDisabled)
         {
-            myPlayer.GetComponent<PlayerController>().Disable();
+            myPlayer.GetComponent<PlayerControllerRigidbody>().SetDisabled(true);
         }
 
         ReferenceManager.Instance.joinPrompts[playerID].SetActive(false);
@@ -163,12 +176,13 @@ public class PlayerManager : MonoBehaviour
     private void HumanLeave()
     {
         isAI = true;
-        bool inputsDisabled = myPlayer.GetComponent<PlayerController>().disabled;
+        bool inputsDisabled = myPlayer.GetComponent<PlayerControllerRigidbody>().IsDisabled();
         Destroy(myPlayer);
         SpawnPlayer();
+
         if (inputsDisabled)
         {
-            myPlayer.GetComponent<PlayerController>().Disable();
+            myPlayer.GetComponent<PlayerControllerRigidbody>().SetDisabled(true);
         }
 
         ReferenceManager.Instance.joinPrompts[playerID].SetActive(true);

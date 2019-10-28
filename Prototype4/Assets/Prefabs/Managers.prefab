@@ -236,33 +236,56 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
+      propertyPath: AIPlayerPrefabs.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
+        type: 3}
       propertyPath: humanPlayerPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 8592417566694888781, guid: 2a349c59a635cbb4a99df32e38b8a356,
+      objectReference: {fileID: 5549077535386217237, guid: 9605ffa1ac275b644a62d2d2ee7760d6,
         type: 3}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
       propertyPath: humanPlayerPrefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 5458953296246362399, guid: b4f1c150e4cf28d47b455ee3685a3848,
+      objectReference: {fileID: 1265726957834163, guid: 4f17d546e5bf8b14ab0c44cfc337e117,
         type: 3}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
       propertyPath: humanPlayerPrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 7576946183203466914, guid: abba847631166564b9f8a4a3fdfbe936,
+      objectReference: {fileID: 6569724490274316926, guid: 6273c3a252e094d4bacebe4f12e3a5e0,
         type: 3}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
       propertyPath: humanPlayerPrefabs.Array.data[3]
       value: 
-      objectReference: {fileID: 263850931103241862, guid: a4d6aca5017d3174a87fd35f0f690e45,
+      objectReference: {fileID: 7870706215163506633, guid: 2a667a0c13384934f8d72b9ee4e36a64,
         type: 3}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
-      propertyPath: humanPrefab
+      propertyPath: AIPlayerPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 8592417566694888781, guid: 2a349c59a635cbb4a99df32e38b8a356,
+      objectReference: {fileID: 3815866813405743006, guid: 0737c93047b2cff47acf185bd7408fd6,
+        type: 3}
+    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
+        type: 3}
+      propertyPath: AIPlayerPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 5960596232563162811, guid: 124c3ceb5664d9947908db80dfd2d37e,
+        type: 3}
+    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
+        type: 3}
+      propertyPath: AIPlayerPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 3914222261384835638, guid: aa1d268000aa5be49b97573311b3d413,
+        type: 3}
+    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
+        type: 3}
+      propertyPath: AIPlayerPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 4722768194869378690, guid: 490d6fce98407544a913e05d837008c9,
         type: 3}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
