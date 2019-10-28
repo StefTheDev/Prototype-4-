@@ -101,7 +101,8 @@ public class PlayerControllerRigidbody : MonoBehaviour
 
     private void UpdateAnimator()
     {
-
+        animator.SetBool("Inhaling", isCharging);
+        animator.SetFloat("Speed", rigidBody.velocity.magnitude);
     }
 
     private void ApplyDrag(bool moveInputs)
