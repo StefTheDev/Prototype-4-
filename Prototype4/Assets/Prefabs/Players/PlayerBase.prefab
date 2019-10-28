@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4308378132460583196}
   - component: {fileID: 4308378132460583195}
   - component: {fileID: 4308378132460583194}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4308378132996414650}
   - component: {fileID: 4308378132996414651}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Victory Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,8 @@ GameObject:
   - component: {fileID: 4308378133125003115}
   - component: {fileID: 4308378133125003114}
   - component: {fileID: 4308378133125003113}
-  m_Layer: 0
+  - component: {fileID: 3957935963093050028}
+  m_Layer: 9
   m_Name: PlayerBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,3 +352,16 @@ MonoBehaviour:
     type: 3}
   exhaleSound: {fileID: 8300000, guid: 9277b7be358cb2c46baeab6bd772799c, type: 3}
   inhaleSound: {fileID: 8300000, guid: 9c8489f8c74ce2e44bacce5bf45fccb8, type: 3}
+--- !u!114 &3957935963093050028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4308378133125003112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ecbf4b949a351746b188047004beaca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shieldStartHealth: 1
