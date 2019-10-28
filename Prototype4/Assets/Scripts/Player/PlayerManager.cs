@@ -149,12 +149,15 @@ public class PlayerManager : MonoBehaviour
     private void HumanJoin()
     {
         isAI = false;
-        bool inputsDisabled = myPlayer.GetComponent<PlayerController>().disabled;
+
+        bool inputsDisabled = myPlayer.GetComponent<PlayerControllerRigidbody>().IsDisabled();
+
         Destroy(myPlayer);
         SpawnPlayer();
+
         if (inputsDisabled)
         {
-            myPlayer.GetComponent<PlayerController>().Disable();
+            myPlayer.GetComponent<PlayerControllerRigidbody>().SetDisabled(true);
         }
 
         ReferenceManager.Instance.joinPrompts[playerID].SetActive(false);
@@ -163,12 +166,13 @@ public class PlayerManager : MonoBehaviour
     private void HumanLeave()
     {
         isAI = true;
-        bool inputsDisabled = myPlayer.GetComponent<PlayerController>().disabled;
+        bool inputsDisabled = myPlayer.GetComponent<PlayerControllerRigidbody>().IsDisabled();
         Destroy(myPlayer);
         SpawnPlayer();
+
         if (inputsDisabled)
         {
-            myPlayer.GetComponent<PlayerController>().Disable();
+            myPlayer.GetComponent<PlayerControllerRigidbody>().SetDisabled(true);
         }
 
         ReferenceManager.Instance.joinPrompts[playerID].SetActive(true);

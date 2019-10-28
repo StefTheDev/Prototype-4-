@@ -6988,7 +6988,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: cf9ab401c9c83b443bb5e3d4269e8069,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: cf9ab401c9c83b443bb5e3d4269e8069,
         type: 3}
@@ -7025,7 +7025,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1676519608}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 2ad74cfde36d70442a8a5fa9b25dacb7, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -9438,11 +9438,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8027016824054475359, guid: 37092314b8794e84c96818dde44aab8c,
         type: 3}
-      propertyPath: AIPlayerPrefabs.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8027016824054475359, guid: 37092314b8794e84c96818dde44aab8c,
-        type: 3}
       propertyPath: joinPrompts.Array.data[0]
       value: 
       objectReference: {fileID: 2050777080}
@@ -9461,30 +9456,6 @@ PrefabInstance:
       propertyPath: joinPrompts.Array.data[3]
       value: 
       objectReference: {fileID: 1786115122}
-    - target: {fileID: 8027016824054475359, guid: 37092314b8794e84c96818dde44aab8c,
-        type: 3}
-      propertyPath: AIPlayerPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 5764247179648552535, guid: f3128cc44bd4e49429bac61cc67f5679,
-        type: 3}
-    - target: {fileID: 8027016824054475359, guid: 37092314b8794e84c96818dde44aab8c,
-        type: 3}
-      propertyPath: AIPlayerPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 4983709066590160179, guid: fd29742efc35ae74680c5170e027d839,
-        type: 3}
-    - target: {fileID: 8027016824054475359, guid: 37092314b8794e84c96818dde44aab8c,
-        type: 3}
-      propertyPath: AIPlayerPrefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 6918356479203472529, guid: 00492b597cbfdb84f86064abdc675f00,
-        type: 3}
-    - target: {fileID: 8027016824054475359, guid: 37092314b8794e84c96818dde44aab8c,
-        type: 3}
-      propertyPath: AIPlayerPrefabs.Array.data[3]
-      value: 
-      objectReference: {fileID: 2573558950082930578, guid: e00e77ad0c0600c439b07c2d89422d19,
-        type: 3}
     - target: {fileID: 8027016824815337112, guid: 37092314b8794e84c96818dde44aab8c,
         type: 3}
       propertyPath: timerText
