@@ -48,6 +48,9 @@ public class AirBlast : MonoBehaviour
             Vector3 launchForce = direction * blastForce * chargeAmount;
             launchForce.y = verticalBlastForce * chargeAmount;
             otherPlayer.GetComponent<Rigidbody>().AddForce(launchForce);
+			// Edit by Elijah
+			otherPlayer.GetComponent<ShieldPowerup>().ApplyAirBlast(direction * blastForce * chargeAmount);
+
             Destroy(this.gameObject);
         }
     }
