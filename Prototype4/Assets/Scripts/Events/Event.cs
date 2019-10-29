@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class Event : MonoBehaviour
+public abstract class Event
 {
     [SerializeField] private string name;
     private UnityEvent unityEvent;
 
-    private void Start()
+    public Event()
     {
-        if (unityEvent == null) unityEvent = new UnityEvent();
+        unityEvent = new UnityEvent();
         unityEvent.AddListener(OnEvent);
+        Debug.Log("Event created.");
     }
 
     public void Call()
     {
+        if(unityEvent == null) { Debug.Log("Event null"); }
         unityEvent.Invoke();
     }
 
