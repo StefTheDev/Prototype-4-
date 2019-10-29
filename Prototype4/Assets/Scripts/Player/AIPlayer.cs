@@ -96,7 +96,7 @@ public class AIPlayer : Player
         steeringForce = Vector3.ClampMagnitude(steeringForce, maxSteeringForce);
 
         currentForce = Vector3.ClampMagnitude(currentForce + steeringForce, maxVelocity);
-        controller.Move(currentForce, false);
+        controller.Move(currentForce);
     }
 
     private Vector3 Seek(Vector3 _seekPos)
