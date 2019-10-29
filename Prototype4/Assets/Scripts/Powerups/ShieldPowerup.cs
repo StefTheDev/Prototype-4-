@@ -3,6 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public struct ShotHitInfo
+{
+    public Vector3 point;
+    public Vector3 normal;
+
+    public ShotHitInfo(Vector3 point, Vector3 normal)
+    {
+        this.point = point;
+        this.normal = normal;
+    }
+}
+
 /*
  * The controller for the shield powerup's effects.
  * 
@@ -20,6 +32,7 @@ public class ShieldPowerup : MonoBehaviour
 	public event Action onBeginEffects;
 	public event Action<float> onHealthFractionChanged;
 	public event Action onEndEffects;
+    public event Action<ShotHitInfo> onHit;
 
     private AudioSource audioSource;
 
@@ -49,7 +62,7 @@ public class ShieldPowerup : MonoBehaviour
 		onEndEffects?.Invoke();
 	}
 
-	public void ApplyAirBlast(Vector3 force)
+	public void ApplyAirBlast(ShotHitInfo hit, Vector3 force)
 	{
 		if (!isPowerupActive)
 		{
@@ -69,5 +82,6 @@ public class ShieldPowerup : MonoBehaviour
 				onEndEffects?.Invoke();
 			}
 		}
+        onHit?.Invoke(hit);
 	}
 }
