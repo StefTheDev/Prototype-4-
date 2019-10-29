@@ -12,7 +12,7 @@ public class AIPlayer : Player
 
     public GameObject targetPlayer;
 
-    private PlayerController controller;
+    private PlayerControllerRigidbody controller;
     private Rigidbody rigidBody;
 
     private Vector3 currentDirection = Vector3.forward;
@@ -32,14 +32,19 @@ public class AIPlayer : Player
 
     private void Awake()
     {
-        controller = GetComponent<PlayerController>();
+        controller = GetComponent<PlayerControllerRigidbody>();
         rigidBody = GetComponent<Rigidbody>();
         changeTargetTimer = changeTargetCheck;
     }
 
     private void Update()
     {
-        if (!controller.enabled) { return; }
+        
+    }
+
+    private void FixedUpdate()
+    {
+        if (controller.IsDisabled()) { return; }
 
         steeringForce = Vector3.zero;
 
@@ -74,14 +79,14 @@ public class AIPlayer : Player
             // If target is in range and we are not charging an attack, start charging an attack
             else if (attackTimer < 0.0f)
             {
-                controller.ApplyBrakingForce();
+                // controller.ApplyBrakingForce();
                 controller.StartCharging();
                 attackTimer = Random.Range(0.5f, 1.5f);
             }
             // If target is in range and we are charging an attack, keep looking at them
             else
             {
-                controller.ApplyBrakingForce();
+                // controller.ApplyBrakingForce();
                 controller.SetLook(targetPlayer.transform.position - this.transform.position);
             }
         }

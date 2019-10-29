@@ -8,6 +8,7 @@ public class AirBlast : MonoBehaviour
     public static float blastSpeed = 1000.0f;
     public static float maxLifetime = 1.0f;
     public static float blastForce = 750.0f;
+    public static float verticalBlastForce = 100.0f;
 
     private Rigidbody rigidBody;
     private Vector3 direction;
@@ -35,7 +36,7 @@ public class AirBlast : MonoBehaviour
 
         var otherAirBlast = other.GetComponent<AirBlast>();
 
-        if(otherAirBlast)
+        if (otherAirBlast)
         {
             Destroy(otherAirBlast);
             Destroy(this.gameObject);
@@ -44,7 +45,17 @@ public class AirBlast : MonoBehaviour
         if (otherPlayer && otherPlayer.GetPlayerID() != playerIndex && !otherPlayer.isInvulnerable)
         {
             GameManager.Instance.playerManagers[otherPlayer.GetPlayerID()].GetComponent<PlayerManager>().SetLastHitBy(playerIndex);
-            otherPlayer.GetComponent<Rigidbody>().AddForce(direction * blastForce * chargeAmount);
+
+            Vector3 launchForce = direction * blastForce * chargeAmount;
+            // launchForce.y = verticalBlastForce * chargeAmount;
+            // otherPlayer.GetComponent<Rigidbody>().AddForce(launchForce);
+
+			// Edit by Elijah
+			otherPlayer.GetComponent<ShieldPowerup>().ApplyAirBlast(launchForce);
+
+            // Launch player vertically
+            otherPlayer.GetComponent<Rigidbody>().AddForce(Vector3.up * verticalBlastForce * chargeAmount);
+
             Destroy(this.gameObject);
         }
     }

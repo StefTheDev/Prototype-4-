@@ -61,13 +61,13 @@ public class GameManager : MonoBehaviour
             var managerComp = newManager.GetComponent<PlayerManager>();
 
             // Make all players AI
-            managerComp.SetAI(true);
+            //managerComp.SetAI(true);
 
             playerManagers.Add(newManager);
             managerComp.SetPlayerID(i);
             managerComp.SpawnPlayer();
             
-            managerComp.myPlayer.GetComponent<PlayerController>().Disable();
+            managerComp.myPlayer.GetComponent<PlayerControllerRigidbody>().SetDisabled(true);
         }
 
         preGameTimer = preGameLength;
@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
         // Enable player controls
         foreach (GameObject manager in playerManagers)
         {
-            manager.GetComponent<PlayerManager>().myPlayer.GetComponent<PlayerController>().Enable();
+            manager.GetComponent<PlayerManager>().myPlayer.GetComponent<PlayerControllerRigidbody>().SetDisabled(false);
         }
 
         gameMusic.SetActive(true);
@@ -151,7 +151,7 @@ public class GameManager : MonoBehaviour
         // Disable player controls
         foreach (GameObject manager in playerManagers)
         {
-            manager.GetComponent<PlayerManager>().myPlayer.GetComponent<PlayerController>().Disable();
+            manager.GetComponent<PlayerManager>().myPlayer.GetComponent<PlayerControllerRigidbody>().SetDisabled(true);
         }
 
         gameMusic.SetActive(false);
