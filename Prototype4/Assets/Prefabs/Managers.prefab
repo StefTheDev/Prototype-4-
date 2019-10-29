@@ -487,6 +487,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[4].name
+      value: ShieldPowerup
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[4].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 4a325b41010f9494b83055b33e9849c6, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a346d37d6edd9ec4f8d2cc4241592f95, type: 3}
 --- !u!4 &8027016824666364849 stripped

@@ -21,9 +21,12 @@ public class ShieldPowerup : MonoBehaviour
 	public event Action<float> onHealthFractionChanged;
 	public event Action onEndEffects;
 
+    private AudioSource audioSource;
+
 	private void Awake()
 	{
 		rigidBody = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
 	}
 
 	private void InvokeHealthFractionChanged()
@@ -36,6 +39,7 @@ public class ShieldPowerup : MonoBehaviour
 		this.shieldCurrentHealth = this.shieldStartHealth;
 		onBeginEffects?.Invoke();
 		onHealthFractionChanged?.Invoke(1.0f);
+        AudioManager.Instance.PlaySound("ShieldPowerup");
 	}
 
 	public void EndEffects()
