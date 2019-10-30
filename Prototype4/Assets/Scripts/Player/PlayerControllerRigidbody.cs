@@ -19,8 +19,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
 
     private float crouchingTime = 0.0f;
     private float crouchCooldownTimer = 0.0f;
-
-    private float maxSpeed = 10.0f;
+    
     private float dragCoefficient = 10.0f;
     private float currentDrag;
     private float moveSpeedModifier = 1.0f;

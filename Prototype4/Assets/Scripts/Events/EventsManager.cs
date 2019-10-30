@@ -7,15 +7,22 @@ public class EventsManager : MonoBehaviour
 {
     [SerializeField] private Slider slider;
     [SerializeField] private int delay = 10;
+    [SerializeField] private List<Event> events;
 
+    private Event lastEvent;
     private float time;
     private bool stop = true;
-    private Queue<Event> events;
+    private Queue<Event> eventQueue;
 
     private void Start()
     {
-        events = new Queue<Event>();
+        eventQueue = new Queue<Event>();
         time = delay;
+
+        foreach (Event @event in events)
+        {
+            eventQueue.Enqueue(@event);
+        }
     }
 
     private void Update()
@@ -27,13 +34,13 @@ public class EventsManager : MonoBehaviour
 
         if (time <= 0)
         {
-            if(events.Count <= 0)
+            if (eventQueue.Count > 1) time = delay;
+            if (eventQueue.Count > 0)
             {
-                //SUDDEN Death
-                return;
+                if(lastEvent != null) lastEvent.Call(EventState.END);
+                lastEvent = eventQueue.Dequeue();
+                lastEvent.Call(EventState.START);
             }
-            events.Dequeue().Call();
-            time = delay;
         }
     }
 
@@ -41,10 +48,5 @@ public class EventsManager : MonoBehaviour
     {
         stop = running;
         time = delay;
-    }
-
-    public Queue<Event> GetEvents()
-    {
-        return events;
     }
 }

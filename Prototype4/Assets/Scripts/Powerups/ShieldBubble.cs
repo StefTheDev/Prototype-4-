@@ -24,6 +24,7 @@ public class ShieldBubble : MonoBehaviour
 
 		controller.onBeginEffects += OnBeginEffects;
 		controller.onEndEffects += OnEndEffects;
+
 		controller.onHealthFractionChanged += OnHealthFractionChanged;
 	}
 
@@ -38,38 +39,43 @@ public class ShieldBubble : MonoBehaviour
 	}
 
 	private void OnHealthFractionChanged(float fraction)
-	{
-        //var main = particles.main;
-        //var s = main.startColor;
-        //var c = s.color;
-        //c.a = fraction;
-        //s.color = c;
-        //main.startColor = s;
+    {
+        if (!this) { return; }
+        try
+        {
+            //var main = particles.main;
+            //var s = main.startColor;
+            //var c = s.color;
+            //c.a = fraction;
+            //s.color = c;
+            //main.startColor = s;
 
-        var col = particles.colorOverLifetime;
-		var grad = col.color;
-		var keys = grad.gradient.colorKeys;
-        Color desiredColor = colorWrtHealthFraction.Evaluate(fraction);
-		for (int i = 0; i < keys.Length; ++i)
-		{
-			keys[i].color = desiredColor;
-		}
-		grad.gradient.colorKeys = keys;
+            var col = particles.colorOverLifetime;
+            var grad = col.color;
+            var keys = grad.gradient.colorKeys;
+            Color desiredColor = colorWrtHealthFraction.Evaluate(fraction);
+            for (int i = 0; i < keys.Length; ++i)
+            {
+                keys[i].color = desiredColor;
+            }
+            grad.gradient.colorKeys = keys;
 
-        //var alphaKeys = grad.gradient.alphaKeys;
-        //if (fraction > 0.0f)
-        //{
-        //    alphaKeys[1].alpha = 0.25f;
-        //    alphaKeys[2].alpha = 1.0f;
-        //}
-        //else
-        //{
-        //    alphaKeys[1].alpha = 0.0f;
-        //    alphaKeys[2].alpha = 0.0f;
-        //}
-        //grad.gradient.alphaKeys = alphaKeys;
+            //var alphaKeys = grad.gradient.alphaKeys;
+            //if (fraction > 0.0f)
+            //{
+            //    alphaKeys[1].alpha = 0.25f;
+            //    alphaKeys[2].alpha = 1.0f;
+            //}
+            //else
+            //{
+            //    alphaKeys[1].alpha = 0.0f;
+            //    alphaKeys[2].alpha = 0.0f;
+            //}
+            //grad.gradient.alphaKeys = alphaKeys;
 
-		col.color = grad;
+            col.color = grad;
+        }
+        catch (System.Exception e) { Debug.LogException(e); }
 	}
 
 	private void LateUpdate()
