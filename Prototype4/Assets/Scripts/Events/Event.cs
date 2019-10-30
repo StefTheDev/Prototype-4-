@@ -2,24 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
-public abstract class Event
+public enum EventState
 {
-    [SerializeField] private string name;
-    private UnityEvent unityEvent;
+    START,
+    END
+}
 
-    public Event()
+public abstract class Event : MonoBehaviour
+{
+    [SerializeField] private new string name;
+    [SerializeField] private Sprite sprite;
+
+    public void Call(EventState eventState)
     {
-        unityEvent = new UnityEvent();
-        unityEvent.AddListener(OnEvent);
-        Debug.Log("Event created.");
+        switch(eventState)
+        {
+            case EventState.START: OnStart();
+                break;
+            case EventState.END: OnEnd();
+                break;
+        }
     }
 
-    public void Call()
-    {
-        if(unityEvent == null) { Debug.Log("Event null"); }
-        unityEvent.Invoke();
-    }
+    public abstract void OnStart();
 
-    public abstract void OnEvent();
+    public abstract void OnEnd();
+
+    public Sprite GetSprite()
+    {
+        return sprite;
+    }
 }
