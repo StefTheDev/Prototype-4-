@@ -45,7 +45,12 @@ public class ShieldPowerup : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
 	}
 
-	private void InvokeHealthFractionChanged()
+    private void Start()
+    {
+        GameManager.Instance.onGameEnded += EndEffects;
+    }
+
+    private void InvokeHealthFractionChanged()
 	{
 		onHealthFractionChanged?.Invoke(shieldCurrentHealth / shieldStartHealth);
 	}
