@@ -495,7 +495,7 @@ PrefabInstance:
     - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
         type: 3}
       propertyPath: soundClips.Array.size
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
         type: 3}
@@ -507,6 +507,36 @@ PrefabInstance:
       propertyPath: soundClips.Array.data[4].sound
       value: 
       objectReference: {fileID: 8300000, guid: 4a325b41010f9494b83055b33e9849c6, type: 3}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[5].name
+      value: ShoutHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[5].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: f594caa0323dd0748bef42a494c4bd3a, type: 3}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[6].name
+      value: ShieldBreak
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[6].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: f66cade23f1780946b43985aed6c5622, type: 3}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[7].name
+      value: BarrelBreak
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[7].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 193a4032229d25b4cb3391923a4eb98b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a346d37d6edd9ec4f8d2cc4241592f95, type: 3}
 --- !u!4 &8027016824666364849 stripped
