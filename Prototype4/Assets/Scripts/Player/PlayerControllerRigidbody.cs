@@ -10,7 +10,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float moveForce = 10.0f;
     [SerializeField] private float inhalingMoveSpeedModifier = 0.5f;
-    [SerializeField] private float airbourneDrag = 0.1f;
+    [SerializeField] private float airborneDrag = 0.1f;
     [SerializeField] private float movingDrag = 0.5f;
     [SerializeField] private float stationaryDrag = 0.9f;
     [SerializeField] private float groundCheckDist = 0.1f;
@@ -26,10 +26,10 @@ public class PlayerControllerRigidbody : MonoBehaviour
     private float moveSpeedModifier = 1.0f;
     private bool isCrouching = false;
     private bool isDisabled = false;
-    private bool isGrounded = false;
+    public bool isGrounded = false;
     private float initialGroundCheckDist;
     private float startingMass;
-    private bool isFiring = false;
+    public bool isFiring = false;
 
     [Header("Shout")]
     [SerializeField] private float chargeTime = 1.0f;
@@ -130,7 +130,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
     private void ApplyDrag(bool moveInputs)
     {
         currentDrag = moveInputs ? movingDrag : stationaryDrag;
-        if (!isGrounded) { currentDrag = airbourneDrag; }
+        if (!isGrounded) { currentDrag = airborneDrag; }
         if (isCrouching) { currentDrag *= 1.3f; }
 
         var currentVelocity = rigidBody.velocity;
@@ -147,6 +147,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
     public void StartCharging()
     {
         if (isDisabled) { return; }
+        if (isFiring) { return; }
 
         isCharging = true;
         currentCharge = 0.0f;
@@ -245,6 +246,16 @@ public class PlayerControllerRigidbody : MonoBehaviour
     public bool IsCrouching()
     {
         return isCrouching;
+    }
+
+    public bool IsFiring()
+    {
+        return isFiring;
+    }
+
+    public bool IsCharging()
+    {
+        return isCharging;
     }
 
     private void CheckGrounded()

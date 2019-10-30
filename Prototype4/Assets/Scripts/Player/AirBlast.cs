@@ -44,9 +44,9 @@ public class AirBlast : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        if (otherPlayer && otherPlayer.GetPlayerID() != playerIndex && !otherPlayer.isInvulnerable)
+        if (otherPlayer && (otherPlayer.GetPlayerID() != playerIndex) && !otherPlayer.isInvulnerable)
         {
-            AudioManager.Instance.PlaySound("ShoutHit", 0.3f);
+            AudioManager.Instance.PlaySound("ShoutHit", 0.5f);
 
             // Always apply normal blast force to shadow realm players
             float blastForce = currentBlastForce;
