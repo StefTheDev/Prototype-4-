@@ -559,8 +559,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140735807}
-  m_LocalRotation: {x: 0.5660818, y: -0.0412159, z: 0.054330364, w: 0.82152355}
-  m_LocalPosition: {x: 0.1, y: 22.1, z: -8.82}
+  m_LocalRotation: {x: 0.5655429, y: 0, z: 0, w: 0.82471895}
+  m_LocalPosition: {x: 0.1, y: 32.451, z: -12.818}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2104,7 +2104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: -0.11102264, y: 36.669556, z: -23.069311}
+  m_FollowOffset: {x: -0.11102264, y: 46.959557, z: -27.044304}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -3211,6 +3211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 1079302656}
+  playButton: {fileID: 0}
 --- !u!1 &735522958
 GameObject:
   m_ObjectHideFlags: 0
@@ -6101,6 +6102,8 @@ MonoBehaviour:
   options: {fileID: 684429441}
   joinPrompts: {fileID: 926707338}
   timer: {fileID: 1468016010}
+  continueButton: {fileID: 0}
+  optionsBackButton: {fileID: 0}
   image: {fileID: 1837246954}
   menuLevel: MenuScene
 --- !u!1001 &1440265886
@@ -8916,14 +8919,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2081710847}
-  m_LocalRotation: {x: 0.5660818, y: -0.0412159, z: 0.054330364, w: 0.82152355}
-  m_LocalPosition: {x: 0.1, y: 22.1, z: -8.82}
+  m_LocalRotation: {x: 0.5655429, y: 0, z: 0, w: 0.82471895}
+  m_LocalPosition: {x: 0.1, y: 32.451, z: -12.818}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 529014860}
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 69.16, y: -1, z: 6.8780003}
+  m_LocalEulerAnglesHint: {x: 68.88, y: 0, z: 0}
 --- !u!1001 &2704964027824588482
 PrefabInstance:
   m_ObjectHideFlags: 0

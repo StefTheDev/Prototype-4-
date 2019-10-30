@@ -56,14 +56,14 @@ public class ShieldPowerup : MonoBehaviour
 		onBeginEffects?.Invoke();
 		onHealthFractionChanged?.Invoke(1.0f);
         AudioManager.Instance.PlaySound("ShieldPowerup");
-	}
+    }
 
 	public void EndEffects()
 	{
 		this.shieldCurrentHealth = 0.0f;
 		onHealthFractionChanged?.Invoke(0.0f);
 		onEndEffects?.Invoke();
-	}
+    }
 
 	public void ApplyAirBlast(ShotHitInfo hit, Vector3 force)
 	{
@@ -82,7 +82,8 @@ public class ShieldPowerup : MonoBehaviour
 			if (shieldCurrentHealth <= 0.0f)
 			{
 				onEndEffects?.Invoke();
-			}
+                AudioManager.Instance.PlaySound("ShieldBreak", 2.0f);
+            }
 		}
         onHit?.Invoke(hit);
 	}

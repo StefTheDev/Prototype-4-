@@ -30,7 +30,7 @@ public class ShieldBubble : MonoBehaviour
 	private void OnBeginEffects()
 	{
 		scaleRoot.DOScale(new Vector3(1, 1, 1), 1).SetEase(Ease.OutElastic);
-	}
+    }
 
 	private void OnEndEffects()
 	{

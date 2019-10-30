@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
             var managerComp = newManager.GetComponent<PlayerManager>();
 
             // Make all players AI
-            //managerComp.SetAI(true);
+            managerComp.SetAI(true);
 
             playerManagers.Add(newManager);
             managerComp.SetPlayerID(i);

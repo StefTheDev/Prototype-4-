@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 112000000, guid: a686f001896a3fa49a75852122ff0a58,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -559,7 +559,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140735807}
-  m_LocalRotation: {x: 0.5665344, y: -0.03404534, z: 0.0493884, w: 0.8218519}
+  m_LocalRotation: {x: 0.5675564, y: 0, z: 0, w: 0.8233346}
   m_LocalPosition: {x: 0, y: 27, z: -11.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1792,7 +1792,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300000, guid: 1c066f2d62e2e1a4bba71c9ab2fa1606,
       type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: 1c066f2d62e2e1a4bba71c9ab2fa1606, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -3211,6 +3211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 1079302656}
+  playButton: {fileID: 1574334700}
 --- !u!1 &735522958
 GameObject:
   m_ObjectHideFlags: 0
@@ -3643,7 +3644,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300000, guid: 1c066f2d62e2e1a4bba71c9ab2fa1606,
       type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: 1c066f2d62e2e1a4bba71c9ab2fa1606, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -5316,7 +5317,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300000, guid: b22dbb1d966d3fd438a89a51a155d1f5,
       type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: b22dbb1d966d3fd438a89a51a155d1f5, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -6101,6 +6102,8 @@ MonoBehaviour:
   options: {fileID: 684429441}
   joinPrompts: {fileID: 926707338}
   timer: {fileID: 1468016010}
+  continueButton: {fileID: 1574334700}
+  optionsBackButton: {fileID: 1684502053}
   image: {fileID: 1837246954}
   menuLevel: MenuScene
 --- !u!1001 &1440265886
@@ -6627,7 +6630,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300000, guid: 1c066f2d62e2e1a4bba71c9ab2fa1606,
       type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: 1c066f2d62e2e1a4bba71c9ab2fa1606, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -7240,7 +7243,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300000, guid: 1c066f2d62e2e1a4bba71c9ab2fa1606,
       type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: 1c066f2d62e2e1a4bba71c9ab2fa1606, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -8121,7 +8124,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300000, guid: b22dbb1d966d3fd438a89a51a155d1f5,
       type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: b22dbb1d966d3fd438a89a51a155d1f5, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -8205,7 +8208,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1907396416}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.01745245, z: 0, w: 0.99984777}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8220,7 +8223,7 @@ Transform:
   - {fileID: 635868277}
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 2, z: 0}
 --- !u!1 &1968998620
 GameObject:
   m_ObjectHideFlags: 0
@@ -8916,14 +8919,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2081710847}
-  m_LocalRotation: {x: 0.56653434, y: -0.034045335, z: 0.049388397, w: 0.82185185}
+  m_LocalRotation: {x: 0.5675564, y: 0, z: 0, w: 0.8233346}
   m_LocalPosition: {x: 0, y: 27, z: -11.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 529014860}
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 69.16, y: 0, z: 6.8780003}
+  m_LocalEulerAnglesHint: {x: 69.16, y: 0, z: 0}
 --- !u!1001 &2704964027824588482
 PrefabInstance:
   m_ObjectHideFlags: 0
