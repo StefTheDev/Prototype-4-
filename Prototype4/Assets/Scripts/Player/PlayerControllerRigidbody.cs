@@ -53,7 +53,6 @@ public class PlayerControllerRigidbody : MonoBehaviour
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
-        // Debug.Assert(rigidBody);
         animator = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
         playerComp = GetComponent<Player>();
