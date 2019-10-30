@@ -47,11 +47,11 @@ public class Player : MonoBehaviour
 
         if (inShadowRealm)
         {
-            newMat = ReferenceManager.Instance.playerShadowRealmMaterials[playerID];
+            newMat = new Material(ReferenceManager.Instance.playerShadowRealmMaterials[playerID]);
         }
         else
         {
-            newMat = ReferenceManager.Instance.playerMaterials[playerID];
+            newMat = new Material(ReferenceManager.Instance.playerMaterials[playerID]);
         }
 
         rendererMaterials[0] = newMat;

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Player4ChargedShadow
+  m_Shader: {fileID: -6465566751694194690, guid: 540fee938e778704a805e9a78b2d153e,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_FB8E9926:
+        m_Texture: {fileID: 2800000, guid: 80cf915eb0a2c764f842ead91620dd86, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_C560E9EF: 6
+    - Vector1_E75A95C: 0.15
+    - _ChargeAmount: 0
+    - _ChargedAmount: 0
+    m_Colors:
+    - Color_958A7B4F: {r: 2, g: 2, b: 2, a: 0}

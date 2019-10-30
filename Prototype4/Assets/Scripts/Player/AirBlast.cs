@@ -51,7 +51,7 @@ public class AirBlast : MonoBehaviour
             // otherPlayer.GetComponent<Rigidbody>().AddForce(launchForce);
 
 			// Edit by Elijah
-			otherPlayer.GetComponent<ShieldPowerup>().ApplyAirBlast(launchForce);
+			otherPlayer.GetComponent<ShieldPowerup>().ApplyAirBlast(new ShotHitInfo(transform.position, transform.forward), launchForce);
 
             // Launch player vertically
             otherPlayer.GetComponent<Rigidbody>().AddForce(Vector3.up * verticalBlastForce * chargeAmount);

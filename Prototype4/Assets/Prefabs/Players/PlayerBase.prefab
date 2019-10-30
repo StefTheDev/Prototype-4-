@@ -5006,6 +5006,7 @@ GameObject:
   - component: {fileID: 4308378133125003114}
   - component: {fileID: 4308378133125003113}
   - component: {fileID: 3957935963093050028}
+  - component: {fileID: 1732570178131539048}
   m_Layer: 9
   m_Name: PlayerBase
   m_TagString: Untagged
@@ -5196,4 +5197,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ecbf4b949a351746b188047004beaca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldStartHealth: 1
+  shieldStartHealth: 1000
+  resistance: 0.7
+--- !u!114 &1732570178131539048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4308378133125003112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bd33d018071d8540a8c0f001bf95c23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 3957935963093050028}
+  prefab: {fileID: 8614095058015402865, guid: 438d7c1f396283f48b597a727dc43720, type: 3}
