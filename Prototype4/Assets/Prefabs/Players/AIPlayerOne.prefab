@@ -91,7 +91,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1699132b9c26caf43888f579caf01225, type: 2}
+      objectReference: {fileID: 2100000, guid: 1fd861a8450cfa34993ad4d8ab6a2c2d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cecf3f5aab962be4b967513bc891fa4d, type: 3}
 --- !u!4 &9124548433228182690 stripped
@@ -107,11 +107,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 706339353276559640, guid: c17a09f32cf1c4946823bb57b608f8d1,
-        type: 3}
-      propertyPath: m_Name
-      value: AIPlayerOne
-      objectReference: {fileID: 0}
     - target: {fileID: 706339353276559645, guid: c17a09f32cf1c4946823bb57b608f8d1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -166,6 +161,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 706339353276559640, guid: c17a09f32cf1c4946823bb57b608f8d1,
+        type: 3}
+      propertyPath: m_Name
+      value: AIPlayerOne
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846693102787829202, guid: c17a09f32cf1c4946823bb57b608f8d1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c17a09f32cf1c4946823bb57b608f8d1, type: 3}
