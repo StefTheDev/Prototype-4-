@@ -5,50 +5,42 @@ using UnityEngine.UI;
 
 public class EventsManager : MonoBehaviour
 {
-    [SerializeField] private int delay = 10;
     [SerializeField] private Slider slider;
+    [SerializeField] private int delay = 10;
 
+    private float time;
     private bool stop = true;
     private Queue<Event> events;
 
     private void Start()
     {
         events = new Queue<Event>();
+        time = delay;
     }
 
     private void Update()
     {
-        
-    }
+        slider.value = time / delay;
 
-    public void Run()
-    {
-        stop = false;
-        //Select random events and enqueue them. 
+        if (stop) return;
+        time -= Time.deltaTime;
 
-        //Temp Code
-        for(int i = 0; i < 10; i++)
+        if (time <= 0)
         {
-
-        }
-
-        StartCoroutine(ExecuteAfterTime(delay));
-    }
-
-    public void Stop()
-    {
-        Debug.Log("Events Stopped.");
-        stop = true;
-    }
-
-    IEnumerator ExecuteAfterTime(float time)
-    {
-        yield return new WaitForSeconds(time);
-        if (events.Count <= 0) Stop();
-        if (!stop) { 
+            if(events.Count <= 0)
+            {
+                //SUDDEN Death
+                return;
+            }
             events.Dequeue().Call();
-            StartCoroutine(ExecuteAfterTime(time));
+            time = delay;
         }
+    }
+
+    public void Run(bool running)
+    {
+        stop = running;
+        time = delay;
     }
 
     public Queue<Event> GetEvents()
