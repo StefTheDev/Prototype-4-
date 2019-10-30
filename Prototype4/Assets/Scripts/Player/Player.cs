@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public int playerID;
     public bool inShadowRealm = false;
     public GameObject victoryCamera;
+    private GameObject fireParticles;
 
     public AudioClip deathSound;
 
@@ -29,10 +30,11 @@ public class Player : MonoBehaviour
         if (_shadowRealm && !inShadowRealm)
         {
             audioSource.PlayOneShot(deathSound);
+            fireParticles = Instantiate(ReferenceManager.Instance.fireParticlePrefabs[playerID], this.transform);
         }
         else if (!_shadowRealm && inShadowRealm)
         {
-            
+            if (fireParticles) { Destroy(fireParticles); }
         }
 
         inShadowRealm = _shadowRealm;
