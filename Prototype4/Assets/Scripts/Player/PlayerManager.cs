@@ -104,6 +104,8 @@ public class PlayerManager : MonoBehaviour
 
         spawnPoint.Teleport(myPlayer.transform);
         myPlayer.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+        myPlayer.GetComponent<ShieldPowerup>().EndEffects();
     }
 
     public void PlayerDeath()

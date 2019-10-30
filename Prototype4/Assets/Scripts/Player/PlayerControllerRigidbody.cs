@@ -10,7 +10,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float moveForce = 10.0f;
     [SerializeField] private float inhalingMoveSpeedModifier = 0.5f;
-    [SerializeField] private float airbourneDrag = 0.1f;
+    [SerializeField] private float airborneDrag = 0.1f;
     [SerializeField] private float movingDrag = 0.5f;
     [SerializeField] private float stationaryDrag = 0.9f;
     [SerializeField] private float groundCheckDist = 0.1f;
@@ -19,16 +19,16 @@ public class PlayerControllerRigidbody : MonoBehaviour
 
     private float crouchingTime = 0.0f;
     private float crouchCooldownTimer = 0.0f;
-
-    private float maxSpeed = 10.0f;
+    
     private float dragCoefficient = 10.0f;
     private float currentDrag;
     private float moveSpeedModifier = 1.0f;
     private bool isCrouching = false;
     private bool isDisabled = false;
-    private bool isGrounded = false;
+    public bool isGrounded = false;
     private float initialGroundCheckDist;
     private float startingMass;
+    public bool isFiring = false;
 
     [Header("Shout")]
     [SerializeField] private float chargeTime = 1.0f;
@@ -47,16 +47,21 @@ public class PlayerControllerRigidbody : MonoBehaviour
     private AudioSource audioSource;
     private GameObject inhale;
     private Player playerComp;
+    private SkinnedMeshRenderer meshRenderer;
 
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
-        // Debug.Assert(rigidBody);
         animator = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
         playerComp = GetComponent<Player>();
         initialGroundCheckDist = groundCheckDist;
         startingMass = rigidBody.mass;
+        meshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+
+        var mats = meshRenderer.materials;
+        mats[0] = new Material(mats[0]);
+        meshRenderer.materials = mats;
     }
 
     private void Start()
@@ -86,11 +91,13 @@ public class PlayerControllerRigidbody : MonoBehaviour
     // Call in fixed update
     public void Move(Vector3 move)
     {
+        if (isDisabled) { return; }
+
         if (move.magnitude > 1.0f) move.Normalize();
 
         CheckGrounded();
 
-        moveSpeedModifier = (isCharging) ? inhalingMoveSpeedModifier : 1.0f;
+        moveSpeedModifier = (isCharging || isFiring) ? inhalingMoveSpeedModifier : 1.0f;
 
         PlayerMovement(move);
 
@@ -115,12 +122,14 @@ public class PlayerControllerRigidbody : MonoBehaviour
     {
         animator.SetBool("Inhaling", isCharging);
         animator.SetFloat("Speed", rigidBody.velocity.magnitude);
+
+        meshRenderer.materials[0].SetFloat("_ChargeAmount", currentCharge / chargeTime);
     }
 
     private void ApplyDrag(bool moveInputs)
     {
         currentDrag = moveInputs ? movingDrag : stationaryDrag;
-        if (!isGrounded) { currentDrag = airbourneDrag; }
+        if (!isGrounded) { currentDrag = airborneDrag; }
         if (isCrouching) { currentDrag *= 1.3f; }
 
         var currentVelocity = rigidBody.velocity;
@@ -137,6 +146,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
     public void StartCharging()
     {
         if (isDisabled) { return; }
+        if (isFiring) { return; }
 
         isCharging = true;
         currentCharge = 0.0f;
@@ -152,6 +162,8 @@ public class PlayerControllerRigidbody : MonoBehaviour
         if (isDisabled) { return; }
 
         isCharging = false;
+        isFiring = true;
+        transform.DOLocalMove(this.transform.position, 0.7f).OnComplete(OnShoutAnimEnd);
 
         // Fire projectile
         var airBlast = Instantiate(airBlastPrefab, this.transform.position, Quaternion.identity, null);
@@ -165,6 +177,11 @@ public class PlayerControllerRigidbody : MonoBehaviour
 
         audioSource.Stop();
         audioSource.PlayOneShot(exhaleSound);
+    }
+
+    public void OnShoutAnimEnd()
+    {
+        isFiring = false;
     }
 
     public void StartCrouch()
@@ -228,6 +245,16 @@ public class PlayerControllerRigidbody : MonoBehaviour
     public bool IsCrouching()
     {
         return isCrouching;
+    }
+
+    public bool IsFiring()
+    {
+        return isFiring;
+    }
+
+    public bool IsCharging()
+    {
+        return isCharging;
     }
 
     private void CheckGrounded()

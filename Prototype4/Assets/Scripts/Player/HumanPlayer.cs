@@ -22,6 +22,8 @@ public class HumanPlayer : Player
 
     private void Update()
     {
+        if (controller.IsDisabled()) { return; }
+
         if (Input.GetButtonDown(chargeButtons[playerID]))
         {
             controller.StartCharging();
@@ -45,6 +47,8 @@ public class HumanPlayer : Player
 
     private void FixedUpdate()
     {
+        if (controller.IsDisabled()) { return; }
+
         float horMove = Input.GetAxisRaw(horizontalAxes[playerID]);
         float vertMove = Input.GetAxisRaw(verticalAxes[playerID]);
 
