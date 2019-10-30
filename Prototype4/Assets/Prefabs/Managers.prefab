@@ -291,42 +291,42 @@ PrefabInstance:
         type: 3}
       propertyPath: playerMaterials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1699132b9c26caf43888f579caf01225, type: 2}
+      objectReference: {fileID: 2100000, guid: 1fd861a8450cfa34993ad4d8ab6a2c2d, type: 2}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
       propertyPath: playerMaterials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 4598cf3c309476846a39301ba589931a, type: 2}
+      objectReference: {fileID: 2100000, guid: b8ad32ab7f42b1343a720ef209f312ec, type: 2}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
       propertyPath: playerMaterials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: 873942bfda6a8de4d95b5bc62e69cdee, type: 2}
+      objectReference: {fileID: 2100000, guid: 6f6af22948576c14d84dde80abb57c83, type: 2}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
       propertyPath: playerMaterials.Array.data[3]
       value: 
-      objectReference: {fileID: 2100000, guid: 7ee3db1e6e38cf645b1c6f71f9e3dbcf, type: 2}
+      objectReference: {fileID: 2100000, guid: 8c9b5642ce7f87948a706b6585c9603a, type: 2}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
       propertyPath: playerShadowRealmMaterials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 850c5e4963dfb83429b5d7f9f4fad1e3, type: 2}
+      objectReference: {fileID: 2100000, guid: bde0c3939dd0d314aac700c5ff3853d7, type: 2}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
       propertyPath: playerShadowRealmMaterials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 5c2526425db8b0e4197f8896fa8c4be8, type: 2}
+      objectReference: {fileID: 2100000, guid: a94051c95ad0cb641afa06bfe5dabb26, type: 2}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
       propertyPath: playerShadowRealmMaterials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: 2983bdd8c4fcdb04eb95465938a77def, type: 2}
+      objectReference: {fileID: 2100000, guid: a51ad42f4c4504f4f864f47e035e545b, type: 2}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
       propertyPath: playerShadowRealmMaterials.Array.data[3]
       value: 
-      objectReference: {fileID: 2100000, guid: b8d6c59048bd94f46a7d37f3734324af, type: 2}
+      objectReference: {fileID: 2100000, guid: d62f916fae262c04595faa3997773b53, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48192c751207127459d5194e211595f0, type: 3}
 --- !u!4 &8027016824054475352 stripped
