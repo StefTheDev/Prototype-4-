@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Action = System.Action;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -42,6 +43,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject suddenDeathMusic;
     public GameObject suddenDeathCanvas;
+
+    public Action onGameStarted;
+    public Action onGameEnded;
 
     private void Awake()
     {
@@ -132,6 +136,8 @@ public class GameManager : MonoBehaviour
 
         roundTimer = roundLength;
         gameState = GameState.inGame;
+
+        onGameStarted?.Invoke();
     }
 
     // Changes from the inGame state to the suddenDeath state
@@ -164,6 +170,8 @@ public class GameManager : MonoBehaviour
 
         postGameTimer = postGameLength;
         gameState = GameState.postGame;
+
+        onGameEnded?.Invoke();
     }
 
     // Gets called when a player is knocked out

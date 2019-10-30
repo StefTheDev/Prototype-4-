@@ -5197,7 +5197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ecbf4b949a351746b188047004beaca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldStartHealth: 1000
+  shieldStartHealth: 2.05
   resistance: 0.7
 --- !u!114 &1732570178131539048
 MonoBehaviour:

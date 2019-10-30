@@ -26,7 +26,7 @@ public class ShieldPowerup : MonoBehaviour
 	public bool isPowerupActive => shieldCurrentHealth > 0.0f;
 	public Rigidbody rigidBody { get; private set; }
 
-	public float shieldStartHealth = 700.0f;
+	public float shieldStartHealth = 2.05f;
 	public float shieldCurrentHealth { get; private set; } = 0.0f;
 
     [Range(0.0f, 1.0f)]
@@ -65,17 +65,17 @@ public class ShieldPowerup : MonoBehaviour
 		onEndEffects?.Invoke();
 	}
 
-	public void ApplyAirBlast(ShotHitInfo hit, Vector3 force)
+	public void ApplyAirBlast(ShotHitInfo hit, Vector3 force, float chargeAmount)
 	{
 		if (!isPowerupActive)
 		{
-			rigidBody.AddForce(force);
+			rigidBody.AddForce(force, ForceMode.Impulse);
 		}
 		else
 		{
-			rigidBody.AddForce(force * (1.0f - resistance));
+			rigidBody.AddForce(force * (1.0f - resistance), ForceMode.Impulse);
 
-			float damage = force.magnitude * resistance;
+			float damage = chargeAmount;
             print(damage);
 			shieldCurrentHealth = Mathf.Clamp(shieldCurrentHealth - damage, 0.0f, shieldStartHealth);
 			InvokeHealthFractionChanged();
