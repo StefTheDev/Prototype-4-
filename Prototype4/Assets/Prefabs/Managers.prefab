@@ -356,6 +356,12 @@ PrefabInstance:
       propertyPath: playerShadowRealmMaterials.Array.data[3]
       value: 
       objectReference: {fileID: 2100000, guid: d62f916fae262c04595faa3997773b53, type: 2}
+    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
+        type: 3}
+      propertyPath: airBlastCollisionParticle
+      value: 
+      objectReference: {fileID: 8614095058015402865, guid: 15cdf640328f9574db3a3faa9d760ee9,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48192c751207127459d5194e211595f0, type: 3}
 --- !u!4 &8027016824054475352 stripped
@@ -524,7 +530,7 @@ PrefabInstance:
     - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
         type: 3}
       propertyPath: soundClips.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
         type: 3}
@@ -566,6 +572,16 @@ PrefabInstance:
       propertyPath: soundClips.Array.data[7].sound
       value: 
       objectReference: {fileID: 8300000, guid: 193a4032229d25b4cb3391923a4eb98b, type: 3}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[8].name
+      value: AirBlastCollision
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[8].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: fae754737e250df4f95019f59211457c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a346d37d6edd9ec4f8d2cc4241592f95, type: 3}
 --- !u!4 &8027016824666364849 stripped

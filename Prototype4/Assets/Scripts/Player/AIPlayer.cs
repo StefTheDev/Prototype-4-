@@ -96,60 +96,6 @@ public class AIPlayer : Player
 
         currentForce = Vector3.ClampMagnitude(currentForce + steeringForce, maxVelocity);
         controller.Move(currentForce);
-
-        //if (controller.IsDisabled()) { return; }
-
-        //steeringForce = Vector3.zero;
-
-        //changeTargetTimer -= Time.deltaTime;
-        //attackTimer -= Time.deltaTime;
-
-        //// Check for a new target
-        //if (changeTargetTimer <= 0.0f)
-        //{
-        //    targetPlayer = FindClosestPlayer();
-        //    changeTargetTimer = changeTargetCheck;
-        //}
-
-        //if (attackTimer < 0.0f && targetPlayer && canFire)
-        //{
-        //    controller.SetLook(targetPlayer.transform.position - this.transform.position);
-        //    controller.FireProjectile();
-        //    canFire = false;
-        //}
-        //else if (attackTimer < 0.0f && !targetPlayer && canFire)
-        //{
-        //    attackTimer = 0.1f;
-        //}
-
-        //// If there is another player currently in the same realm
-        //if (targetPlayer)
-        //{
-        //    // If target is out of range, seek target
-        //    if ((this.transform.position - targetPlayer.transform.position).magnitude > attackDistance)
-        //    {
-        //        steeringForce += Seek(targetPlayer.transform.position);
-        //    }
-        //    // If target is in range and we are not charging an attack, start charging an attack
-        //    else if (attackTimer < 0.0f && !canFire)
-        //    {
-        //        controller.StartCharging();
-        //        attackTimer = Random.Range(0.5f, 1.5f);
-        //        canFire = true;
-        //    }
-        //    // If target is in range and we are charging an attack, keep looking at them
-        //    else
-        //    {
-        //        controller.SetLook(targetPlayer.transform.position - this.transform.position);
-        //    }
-        //}
-
-        //steeringForce += Containment();
-
-        //steeringForce = Vector3.ClampMagnitude(steeringForce, maxSteeringForce);
-
-        //currentForce = Vector3.ClampMagnitude(currentForce + steeringForce, maxVelocity);
-        //controller.Move(currentForce);
     }
 
     private Vector3 Seek(Vector3 _seekPos)
