@@ -296,25 +296,25 @@ PrefabInstance:
         type: 3}
       propertyPath: fireParticlePrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 4257305526741900187, guid: 403506f5768a6e54eb51d02d2da9ced9,
+      objectReference: {fileID: 344582781354820271, guid: 1d942936935732b4fb8b27816394d8a7,
         type: 3}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
       propertyPath: fireParticlePrefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 5902950940531802672, guid: 489904ea83f5a104e9f1909c5bd1c431,
+      objectReference: {fileID: 805963271710531290, guid: 3b83b0a95db95534086bdb5b972e8b0e,
         type: 3}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
       propertyPath: fireParticlePrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 3636748487590654741, guid: 39c7a73887ea9c84c93c67b3cc13bf71,
+      objectReference: {fileID: 8200244096457999376, guid: 6fe05e5ce8335eb46ad701f06660ec7c,
         type: 3}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
       propertyPath: fireParticlePrefabs.Array.data[3]
       value: 
-      objectReference: {fileID: 4508297676046532932, guid: a1a3c6ab55d1fa74aa8bb7ddf67f7179,
+      objectReference: {fileID: 3132534280919216546, guid: 4608614d951fe104e9b0166243097232,
         type: 3}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
