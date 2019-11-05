@@ -42,12 +42,16 @@ public class PlayerControllerRigidbody : MonoBehaviour
     [SerializeField] private AudioClip exhaleSound;
     [SerializeField] private AudioClip inhaleSound;
 
+    public GameObject ghostParticles;
+
     private Rigidbody rigidBody;
     private Animator animator;
     private AudioSource audioSource;
     private GameObject inhale;
     private Player playerComp;
     private SkinnedMeshRenderer meshRenderer;
+
+    private float[] pitches = { 0.95f, 0.98f, 1.02f, 1.05f };
 
     private void Awake()
     {
@@ -62,6 +66,8 @@ public class PlayerControllerRigidbody : MonoBehaviour
         var mats = meshRenderer.materials;
         mats[0] = new Material(mats[0]);
         meshRenderer.materials = mats;
+
+        audioSource.pitch = pitches[playerComp.playerID];
     }
 
     private void Start()
@@ -91,6 +97,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
     // Call in fixed update
     public void Move(Vector3 move)
     {
+        UpdateAnimator();
         if (isDisabled) { return; }
 
         if (move.magnitude > 1.0f) move.Normalize();
@@ -101,8 +108,9 @@ public class PlayerControllerRigidbody : MonoBehaviour
 
         PlayerMovement(move);
 
-        UpdateAnimator();
+        // UpdateAnimator();
 
+        if (ghostParticles) { ghostParticles.transform.position = this.transform.position; }
     }
 
     private void PlayerMovement(Vector3 move)
@@ -163,7 +171,9 @@ public class PlayerControllerRigidbody : MonoBehaviour
 
         isCharging = false;
         isFiring = true;
-        transform.DOLocalMove(this.transform.position, 0.7f).OnComplete(OnShoutAnimEnd);
+        // transform.DOLocalMove(this.transform.position, 0.7f).OnComplete(OnShoutAnimEnd);
+        var seq = DOTween.Sequence();
+        seq.AppendInterval(0.7f).OnComplete(OnShoutAnimEnd);
 
         // Fire projectile
         var airBlast = Instantiate(airBlastPrefab, this.transform.position, Quaternion.identity, null);
