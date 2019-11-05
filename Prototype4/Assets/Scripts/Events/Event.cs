@@ -14,6 +14,7 @@ public abstract class Event : MonoBehaviour
 {
     [SerializeField] private new string name;
     [SerializeField] private Sprite sprite;
+    [SerializeField] private int delay;
 
     public void Call(EventState eventState)
     {
@@ -33,5 +34,10 @@ public abstract class Event : MonoBehaviour
     public Sprite GetSprite()
     {
         return sprite;
+    }
+
+    public int GetDelay()
+    {
+        return delay;
     }
 }

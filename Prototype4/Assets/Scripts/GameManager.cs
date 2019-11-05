@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     public const int numPlayers = 4;
     public List<GameObject> playerManagers;
     public GameObject gameMusic;
+    public GameObject gameEvents;
     public GameObject timerObject;
     public GameObject victoryCanvas;
 
@@ -132,8 +133,9 @@ public class GameManager : MonoBehaviour
         }
 
         gameMusic.SetActive(true);
-        timerObject.SetActive(true);
-
+        //timerObject.SetActive(true);
+        gameEvents.SetActive(true);
+            
         roundTimer = roundLength;
         gameState = GameState.inGame;
 
