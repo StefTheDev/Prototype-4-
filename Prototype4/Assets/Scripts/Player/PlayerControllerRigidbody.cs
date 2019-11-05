@@ -51,6 +51,8 @@ public class PlayerControllerRigidbody : MonoBehaviour
     private Player playerComp;
     private SkinnedMeshRenderer meshRenderer;
 
+    private float[] pitches = { 0.95f, 0.98f, 1.02f, 1.05f };
+
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -64,6 +66,8 @@ public class PlayerControllerRigidbody : MonoBehaviour
         var mats = meshRenderer.materials;
         mats[0] = new Material(mats[0]);
         meshRenderer.materials = mats;
+
+        audioSource.pitch = pitches[playerComp.playerID];
     }
 
     private void Start()
