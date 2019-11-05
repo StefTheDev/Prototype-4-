@@ -5,27 +5,24 @@ using UnityEngine.SceneManagement;
 
 
 
-[RequireComponent(typeof(PlayerController))]
+[RequireComponent(typeof(PlayerControllerRigidbody))]
 public class HumanPlayer : Player
 {
-    public float moveForce = 12.0f;
+    private string[] horizontalAxes = { "P1_Horizontal", "P2_Horizontal", "P3_Horizontal", "P4_Horizontal", "P5_Horizontal", "P6_Horizontal", "P7_Horizontal", "P8_Horizontal" };
+    private string[] verticalAxes = { "P1_Vertical", "P2_Vertical", "P3_Vertical", "P4_Vertical", "P5_Vertical", "P6_Vertical", "P7_Vertical", "P8_Vertical" };
+    private string[] chargeButtons = { "P1_Charge", "P2_Charge", "P3_Charge", "P4_Charge", "P5_Charge", "P6_Charge", "P7_Charge", "P8_Charge" };
+    private string[] crouchButtons = { "P1_Crouch", "P2_Crouch", "P3_Crouch", "P4_Crouch", "P5_Crouch", "P6_Crouch", "P7_Crouch", "P8_Crouch" };
 
-    private string[] horizontalAxes = { "P1_Horizontal", "P2_Horizontal", "P3_Horizontal", "P4_Horizontal" };
-    private string[] verticalAxes = { "P1_Vertical", "P2_Vertical", "P3_Vertical", "P4_Vertical" };
-    private string[] chargeButtons = { "P1_Charge", "P2_Charge", "P3_Charge", "P4_Charge" };
-    
-
-    private PlayerController controller;
+    private PlayerControllerRigidbody controller;
 
     private void Awake()
     {
-        controller = GetComponent<PlayerController>();
+        controller = GetComponent<PlayerControllerRigidbody>();
     }
 
     private void Update()
     {
-        float horMove = Input.GetAxisRaw(horizontalAxes[playerID]);
-        float vertMove = Input.GetAxisRaw(verticalAxes[playerID]);
+        if (controller.IsDisabled()) { return; }
 
         if (Input.GetButtonDown(chargeButtons[playerID]))
         {
@@ -37,8 +34,33 @@ public class HumanPlayer : Player
             controller.FireProjectile();
         }
 
-        if (Input.GetKeyDown(KeyCode.R)) { SceneManager.LoadSceneAsync("TimScene"); }
+        if (Input.GetButtonDown(crouchButtons[playerID]))
+        {
+            controller.StartCrouch();
+        }
 
-        controller.Move(new Vector3(horMove, 0.0f, vertMove).normalized * moveForce);
+        if (Input.GetButtonUp(crouchButtons[playerID]))
+        {
+            if (controller.IsCrouching()) { controller.EndCrouch(); }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (controller.IsDisabled()) { return; }
+
+        float horMove = Input.GetAxisRaw(horizontalAxes[playerID]);
+        float vertMove = Input.GetAxisRaw(verticalAxes[playerID]);
+
+        // if (Input.GetKeyDown(KeyCode.R)) { SceneManager.LoadSceneAsync("TimScene"); }
+        Vector3 moveVector = new Vector3(horMove, 0.0f, vertMove).normalized;
+        bool crouch = Input.GetButton(crouchButtons[playerID]);
+
+        controller.Move(moveVector);
+        
+        if (moveVector != Vector3.zero)
+        {
+            this.transform.forward = moveVector;
+        }
     }
 }

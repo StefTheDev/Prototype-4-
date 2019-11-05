@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class UIOptions : MonoBehaviour
 {
-    public GameObject pause;
+    public GameObject pausePanel;
+    public GameObject playButton;
 
     public void Back()
     {
         gameObject.SetActive(false);
-        pause.SetActive(true);
+        pausePanel.SetActive(true);
+
+        FindObjectOfType<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(playButton);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Action = System.Action;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -37,11 +38,15 @@ public class GameManager : MonoBehaviour
     public const int numPlayers = 4;
     public List<GameObject> playerManagers;
     public GameObject gameMusic;
+    public GameObject gameEvents;
     public GameObject timerObject;
     public GameObject victoryCanvas;
 
     public GameObject suddenDeathMusic;
     public GameObject suddenDeathCanvas;
+
+    public Action onGameStarted;
+    public Action onGameEnded;
 
     private void Awake()
     {
@@ -67,7 +72,7 @@ public class GameManager : MonoBehaviour
             managerComp.SetPlayerID(i);
             managerComp.SpawnPlayer();
             
-            managerComp.myPlayer.GetComponent<PlayerController>().Disable();
+            managerComp.myPlayer.GetComponent<PlayerControllerRigidbody>().SetDisabled(true);
         }
 
         preGameTimer = preGameLength;
@@ -85,21 +90,6 @@ public class GameManager : MonoBehaviour
 
             case GameState.inGame:
             {
-                roundTimer -= Time.deltaTime;
-                timerText.text = roundTimer.ToString("#.##");
-
-                if (roundTimer <= 0.0f)
-                {
-                    StartSuddenDeath();
-                }
-
-                break;
-            }
-
-            case GameState.suddenDeath:
-            {
-                timerText.text = "0.00";
-
                 break;
             }
 
@@ -124,18 +114,21 @@ public class GameManager : MonoBehaviour
         // Enable player controls
         foreach (GameObject manager in playerManagers)
         {
-            manager.GetComponent<PlayerManager>().myPlayer.GetComponent<PlayerController>().Enable();
+            manager.GetComponent<PlayerManager>().myPlayer.GetComponent<PlayerControllerRigidbody>().SetDisabled(false);
         }
 
         gameMusic.SetActive(true);
-        timerObject.SetActive(true);
-
+        //timerObject.SetActive(true);
+        gameEvents.SetActive(true);
+            
         roundTimer = roundLength;
         gameState = GameState.inGame;
+
+        onGameStarted?.Invoke();
     }
 
     // Changes from the inGame state to the suddenDeath state
-    public void StartSuddenDeath()
+    /*public void StartSuddenDeath()
     {
         gameState = GameState.suddenDeath;
         AirBlast.SetSuddenDeath(true);
@@ -144,6 +137,7 @@ public class GameManager : MonoBehaviour
         suddenDeathCanvas.SetActive(true);
         suddenDeathMusic.SetActive(true);
     }
+    */
 
     // Changes to the postGame state
     public void EndGame()
@@ -151,7 +145,7 @@ public class GameManager : MonoBehaviour
         // Disable player controls
         foreach (GameObject manager in playerManagers)
         {
-            manager.GetComponent<PlayerManager>().myPlayer.GetComponent<PlayerController>().Disable();
+            manager.GetComponent<PlayerManager>().myPlayer.GetComponent<PlayerControllerRigidbody>().SetDisabled(true);
         }
 
         gameMusic.SetActive(false);
@@ -164,6 +158,8 @@ public class GameManager : MonoBehaviour
 
         postGameTimer = postGameLength;
         gameState = GameState.postGame;
+
+        onGameEnded?.Invoke();
     }
 
     // Gets called when a player is knocked out

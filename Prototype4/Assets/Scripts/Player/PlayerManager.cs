@@ -13,6 +13,7 @@ public class PlayerManager : MonoBehaviour
 
     public GameObject myPlayer;
     private Player myPlayerComp;
+    private PlayerControllerRigidbody controller;
 
     private const string shadowRealmLayer = "Shadow Realm";
     private const string normalRealmLayer = "Normal Realm";
@@ -60,6 +61,7 @@ public class PlayerManager : MonoBehaviour
         myPlayerComp.SetPlayerID(playerID);
         myPlayerComp.inShadowRealm = this.inShadowRealm;
         myPlayerComp.UpdateMaterial();
+        controller = myPlayer.GetComponent<PlayerControllerRigidbody>();
 
         RespawnPlayer();
     }
@@ -104,6 +106,8 @@ public class PlayerManager : MonoBehaviour
 
         spawnPoint.Teleport(myPlayer.transform);
         myPlayer.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+        myPlayer.GetComponent<ShieldPowerup>().EndEffects();
     }
 
     public void PlayerDeath()
@@ -126,12 +130,22 @@ public class PlayerManager : MonoBehaviour
         
         if (inShadowRealm)
         {
-            myPlayer.layer = LayerMask.NameToLayer(shadowRealmLayer);
+            int newLayer = LayerMask.NameToLayer(shadowRealmLayer);
+            myPlayer.layer = newLayer;
+            foreach (Transform trans in gameObject.GetComponentsInChildren<Transform>(true))
+            {
+                trans.gameObject.layer = newLayer;
+            }
             myPlayerComp.ChangeRealm(true);
         }
         else
         {
-            myPlayer.layer = LayerMask.NameToLayer(normalRealmLayer);
+            int newLayer = LayerMask.NameToLayer(normalRealmLayer);
+            myPlayer.layer = newLayer;
+            foreach (Transform trans in gameObject.GetComponentsInChildren<Transform>(true))
+            {
+                trans.gameObject.layer = newLayer;
+            }
             myPlayerComp.ChangeRealm(false);
         }
     }
@@ -149,12 +163,15 @@ public class PlayerManager : MonoBehaviour
     private void HumanJoin()
     {
         isAI = false;
-        bool inputsDisabled = myPlayer.GetComponent<PlayerController>().disabled;
+
+        bool inputsDisabled = myPlayer.GetComponent<PlayerControllerRigidbody>().IsDisabled();
+
         Destroy(myPlayer);
         SpawnPlayer();
+
         if (inputsDisabled)
         {
-            myPlayer.GetComponent<PlayerController>().Disable();
+            myPlayer.GetComponent<PlayerControllerRigidbody>().SetDisabled(true);
         }
 
         ReferenceManager.Instance.joinPrompts[playerID].SetActive(false);
@@ -163,12 +180,13 @@ public class PlayerManager : MonoBehaviour
     private void HumanLeave()
     {
         isAI = true;
-        bool inputsDisabled = myPlayer.GetComponent<PlayerController>().disabled;
+        bool inputsDisabled = myPlayer.GetComponent<PlayerControllerRigidbody>().IsDisabled();
         Destroy(myPlayer);
         SpawnPlayer();
+
         if (inputsDisabled)
         {
-            myPlayer.GetComponent<PlayerController>().Disable();
+            myPlayer.GetComponent<PlayerControllerRigidbody>().SetDisabled(true);
         }
 
         ReferenceManager.Instance.joinPrompts[playerID].SetActive(true);

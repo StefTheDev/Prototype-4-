@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("Speed", rigidBody.velocity.magnitude);
         }
 
-        inhale.transform.position = this.transform.position;
+        if(inhale != null) inhale.transform.position = this.transform.position;
         
     }
 

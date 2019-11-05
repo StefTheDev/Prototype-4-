@@ -5,23 +5,26 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class AirBlast : MonoBehaviour
 {
-    public static float blastSpeed = 1000.0f;
+
+    public static float blastSpeed = 10.0f;
     public static float maxLifetime = 1.0f;
-    public static float blastForce = 750.0f;
+    public static float normalBlastForce = 15.5f;//750.0f;
+    public static float suddenDeathBlastForce = 40.0f;//3000.0f;
+    public static float verticalBlastForce = 3.0f;
 
     private Rigidbody rigidBody;
     private Vector3 direction;
     private int playerIndex;
     private float chargeAmount = 0.0f;
+    private static float currentBlastForce = normalBlastForce;
 
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
     }
-
     public void Launch(Vector3 _launchDirection, float _chargeAmount, int _playerIndex)
     {
-        rigidBody.AddForce(_launchDirection * _chargeAmount * blastSpeed);
+        rigidBody.AddForce(_launchDirection * _chargeAmount * blastSpeed, ForceMode.VelocityChange);
         this.transform.forward = _launchDirection;
         direction = _launchDirection;
         playerIndex = _playerIndex;
@@ -35,17 +38,52 @@ public class AirBlast : MonoBehaviour
 
         var otherAirBlast = other.GetComponent<AirBlast>();
 
-        if(otherAirBlast)
+        if (otherAirBlast)
         {
+            AudioManager.Instance.PlaySound("AirBlastCollision", 2.0f);
+            var particles = Instantiate(ReferenceManager.Instance.airBlastCollisionParticle, this.transform.position, this.transform.rotation);
+            GameObject.Destroy(particles, 1.0f);
             Destroy(otherAirBlast);
             Destroy(this.gameObject);
+            return;
         }
+
+        float blastForce = currentBlastForce;
+        // Always apply normal blast force to shadow realm players
+        if (otherPlayer && otherPlayer.inShadowRealm) { blastForce = normalBlastForce; }
+
+        Vector3 launchForce = direction * blastForce * chargeAmount;
 
         if (otherPlayer && otherPlayer.GetPlayerID() != playerIndex && !otherPlayer.isInvulnerable)
         {
+            Debug.Log("AirBlast Hit Player!" + System.DateTime.Now.Ticks);
+
+            AudioManager.Instance.PlaySound("ShoutHit", 0.5f);
             GameManager.Instance.playerManagers[otherPlayer.GetPlayerID()].GetComponent<PlayerManager>().SetLastHitBy(playerIndex);
-            otherPlayer.GetComponent<Rigidbody>().AddForce(direction * blastForce * chargeAmount);
+            
+			// Edit by Elijah
+			otherPlayer.GetComponent<ShieldPowerup>().ApplyAirBlast(new ShotHitInfo(transform.position, transform.forward), launchForce, chargeAmount);
+
+            // Launch player vertically
+            otherPlayer.GetComponent<Rigidbody>().AddForce(Vector3.up * verticalBlastForce * chargeAmount, ForceMode.Impulse);
+
             Destroy(this.gameObject);
+        }
+
+        if (!otherPlayer)
+        {
+            var otherRigidbody = other.GetComponent<Rigidbody>();
+            if (otherRigidbody)
+            {
+                AudioManager.Instance.PlaySound("ShoutHit", 0.3f);
+                otherRigidbody.AddForce(launchForce, ForceMode.Impulse);
+            }
+
+            var barrel = other.GetComponent<Barrel>();
+            if (barrel)
+            {
+                barrel.Break();
+            }
         }
     }
 
@@ -53,11 +91,11 @@ public class AirBlast : MonoBehaviour
     {
         if (_isSuddenDeath)
         {
-            blastForce = 3000.0f;
+            currentBlastForce = suddenDeathBlastForce;
         }
         else
         {
-            blastForce = 500.0f;
+            currentBlastForce = normalBlastForce;
         }
     }
 }

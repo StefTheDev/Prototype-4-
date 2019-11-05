@@ -236,74 +236,132 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
+      propertyPath: AIPlayerPrefabs.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
+        type: 3}
+      propertyPath: fireParticlePrefabs.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
+        type: 3}
       propertyPath: humanPlayerPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 8592417566694888781, guid: 2a349c59a635cbb4a99df32e38b8a356,
+      objectReference: {fileID: 5549077535386217237, guid: 9605ffa1ac275b644a62d2d2ee7760d6,
         type: 3}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
       propertyPath: humanPlayerPrefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 5458953296246362399, guid: b4f1c150e4cf28d47b455ee3685a3848,
+      objectReference: {fileID: 1265726957834163, guid: 4f17d546e5bf8b14ab0c44cfc337e117,
         type: 3}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
       propertyPath: humanPlayerPrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 7576946183203466914, guid: abba847631166564b9f8a4a3fdfbe936,
+      objectReference: {fileID: 6569724490274316926, guid: 6273c3a252e094d4bacebe4f12e3a5e0,
         type: 3}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
       propertyPath: humanPlayerPrefabs.Array.data[3]
       value: 
-      objectReference: {fileID: 263850931103241862, guid: a4d6aca5017d3174a87fd35f0f690e45,
+      objectReference: {fileID: 7870706215163506633, guid: 2a667a0c13384934f8d72b9ee4e36a64,
         type: 3}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
-      propertyPath: humanPrefab
+      propertyPath: AIPlayerPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 8592417566694888781, guid: 2a349c59a635cbb4a99df32e38b8a356,
+      objectReference: {fileID: 3815866813405743006, guid: 0737c93047b2cff47acf185bd7408fd6,
+        type: 3}
+    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
+        type: 3}
+      propertyPath: AIPlayerPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 5960596232563162811, guid: 124c3ceb5664d9947908db80dfd2d37e,
+        type: 3}
+    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
+        type: 3}
+      propertyPath: AIPlayerPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 3914222261384835638, guid: aa1d268000aa5be49b97573311b3d413,
+        type: 3}
+    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
+        type: 3}
+      propertyPath: AIPlayerPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 4722768194869378690, guid: 490d6fce98407544a913e05d837008c9,
+        type: 3}
+    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
+        type: 3}
+      propertyPath: fireParticlePrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 344582781354820271, guid: 1d942936935732b4fb8b27816394d8a7,
+        type: 3}
+    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
+        type: 3}
+      propertyPath: fireParticlePrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 805963271710531290, guid: 3b83b0a95db95534086bdb5b972e8b0e,
+        type: 3}
+    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
+        type: 3}
+      propertyPath: fireParticlePrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 8200244096457999376, guid: 6fe05e5ce8335eb46ad701f06660ec7c,
+        type: 3}
+    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
+        type: 3}
+      propertyPath: fireParticlePrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 3132534280919216546, guid: 4608614d951fe104e9b0166243097232,
         type: 3}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
       propertyPath: playerMaterials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1699132b9c26caf43888f579caf01225, type: 2}
+      objectReference: {fileID: 2100000, guid: 1fd861a8450cfa34993ad4d8ab6a2c2d, type: 2}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
       propertyPath: playerMaterials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 4598cf3c309476846a39301ba589931a, type: 2}
+      objectReference: {fileID: 2100000, guid: b8ad32ab7f42b1343a720ef209f312ec, type: 2}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
       propertyPath: playerMaterials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: 873942bfda6a8de4d95b5bc62e69cdee, type: 2}
+      objectReference: {fileID: 2100000, guid: 6f6af22948576c14d84dde80abb57c83, type: 2}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
       propertyPath: playerMaterials.Array.data[3]
       value: 
-      objectReference: {fileID: 2100000, guid: 7ee3db1e6e38cf645b1c6f71f9e3dbcf, type: 2}
+      objectReference: {fileID: 2100000, guid: 8c9b5642ce7f87948a706b6585c9603a, type: 2}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
       propertyPath: playerShadowRealmMaterials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 850c5e4963dfb83429b5d7f9f4fad1e3, type: 2}
+      objectReference: {fileID: 2100000, guid: bde0c3939dd0d314aac700c5ff3853d7, type: 2}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
       propertyPath: playerShadowRealmMaterials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 5c2526425db8b0e4197f8896fa8c4be8, type: 2}
+      objectReference: {fileID: 2100000, guid: a94051c95ad0cb641afa06bfe5dabb26, type: 2}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
       propertyPath: playerShadowRealmMaterials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: 2983bdd8c4fcdb04eb95465938a77def, type: 2}
+      objectReference: {fileID: 2100000, guid: a51ad42f4c4504f4f864f47e035e545b, type: 2}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
       propertyPath: playerShadowRealmMaterials.Array.data[3]
       value: 
-      objectReference: {fileID: 2100000, guid: b8d6c59048bd94f46a7d37f3734324af, type: 2}
+      objectReference: {fileID: 2100000, guid: d62f916fae262c04595faa3997773b53, type: 2}
+    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
+        type: 3}
+      propertyPath: airBlastCollisionParticle
+      value: 
+      objectReference: {fileID: 8614095058015402865, guid: 15cdf640328f9574db3a3faa9d760ee9,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48192c751207127459d5194e211595f0, type: 3}
 --- !u!4 &8027016824054475352 stripped
@@ -378,6 +436,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794480756177605660, guid: acde3917766fec14da4336e89253bee4,
+        type: 3}
+      propertyPath: roundLength
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2794480756177605660, guid: acde3917766fec14da4336e89253bee4,
         type: 3}
@@ -464,6 +527,61 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[4].name
+      value: ShieldPowerup
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[4].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 4a325b41010f9494b83055b33e9849c6, type: 3}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[5].name
+      value: ShoutHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[5].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: f594caa0323dd0748bef42a494c4bd3a, type: 3}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[6].name
+      value: ShieldBreak
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[6].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: f66cade23f1780946b43985aed6c5622, type: 3}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[7].name
+      value: BarrelBreak
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[7].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 193a4032229d25b4cb3391923a4eb98b, type: 3}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[8].name
+      value: AirBlastCollision
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[8].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: fae754737e250df4f95019f59211457c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a346d37d6edd9ec4f8d2cc4241592f95, type: 3}
 --- !u!4 &8027016824666364849 stripped
