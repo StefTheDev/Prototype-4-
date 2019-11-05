@@ -14,24 +14,27 @@ public class BarrelThrower : MonoBehaviour
     public float angleMax = 55.0f;
     public float force = 100.0f;
 
+    public GameObject[] powerupItemPrefabs;
+
     private void Start()
     {
-        GameManager.Instance.onGameStarted += SpawnLots;
+        GameManager.Instance.onGameStarted += () => SpawnLots(3);
     }
 
-    private void SpawnLots()
+    public void SpawnLots(int num)
     {
-        SpawnBarrel();
-        SpawnBarrel();
-        SpawnBarrel();
+        for (int i = 0; i < num; i++)
+        {
+            SpawnRandomBarrel();
+        }
     }
 
-    private void SpawnBarrel()
+    public void SpawnRandomBarrel()
     {
         SpawnBarrel(arc: Random.Range(arcMin, arcMax), angle: Random.Range(angleMin, angleMax));
     }
 
-    private void SpawnBarrel(float arc, float angle)
+    public void SpawnBarrel(float arc, float angle)
     {
         Quaternion arcRotation = Quaternion.Euler(0, arc, 0);
         Quaternion angleRotation = Quaternion.Euler(-angle, 0, 0);
@@ -40,8 +43,18 @@ public class BarrelThrower : MonoBehaviour
         Vector3 localPosition = arcRotation * -Vector3.forward * range;
         Vector3 worldPosition = target.TransformPoint(localPosition);
         Vector3 forceVector = worldRotation * Vector3.forward * force;
+
         var rb = Instantiate(prefab, worldPosition, worldRotation, transform);
         rb.AddForce(forceVector, ForceMode.Impulse);
-        Debug.DrawRay(worldPosition, forceVector, Color.red, 5);
+
+        var barrel = rb.GetComponent<Barrel>();
+        if (!barrel) { Debug.LogError("barrel is null", this); }
+        else
+        {
+            if (powerupItemPrefabs.Length > 0)
+            {
+                barrel.powerupPrefab = powerupItemPrefabs[Random.Range(0, powerupItemPrefabs.Length - 1)];
+            }
+        }
     }
 }
