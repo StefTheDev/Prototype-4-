@@ -78,6 +78,12 @@ public class AirBlast : MonoBehaviour
                 AudioManager.Instance.PlaySound("ShoutHit", 0.3f);
                 otherRigidbody.AddForce(launchForce, ForceMode.Impulse);
             }
+
+            var barrel = other.GetComponent<Barrel>();
+            if (barrel)
+            {
+                barrel.Break();
+            }
         }
     }
 

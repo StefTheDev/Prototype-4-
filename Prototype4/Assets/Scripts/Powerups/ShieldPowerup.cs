@@ -81,7 +81,6 @@ public class ShieldPowerup : MonoBehaviour
 			rigidBody.AddForce(force * (1.0f - resistance), ForceMode.Impulse);
 
 			float damage = chargeAmount;
-            print(damage);
 			shieldCurrentHealth = Mathf.Clamp(shieldCurrentHealth - damage, 0.0f, shieldStartHealth);
 			InvokeHealthFractionChanged();
 			if (shieldCurrentHealth <= 0.0f)

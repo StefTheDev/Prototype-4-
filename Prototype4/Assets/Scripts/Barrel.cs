@@ -7,7 +7,7 @@ public class Barrel : MonoBehaviour
     public GameObject powerupPrefab;
     public ParticleSystem emitter;
 
-    private void OnCollisionEnter(Collision collision)
+    public void Break()
     {
         if (!this) { return; }
 
