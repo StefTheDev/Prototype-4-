@@ -89,6 +89,10 @@ public class AIPlayer : Player
                 controller.SetLook(targetPlayer.transform.position - this.transform.position);
             }
         }
+        else
+        {
+            controller.SetLook(rigidBody.velocity);
+        }
 
         steeringForce += Containment();
 

@@ -5187,6 +5187,7 @@ MonoBehaviour:
     type: 3}
   exhaleSound: {fileID: 8300000, guid: 47a05b99527da244f9b6a67ef9f9a02d, type: 3}
   inhaleSound: {fileID: 8300000, guid: 9c8489f8c74ce2e44bacce5bf45fccb8, type: 3}
+  respawnOnKillSound: {fileID: 8300000, guid: 912db2eef92453d4fbd185cf288c994d, type: 3}
   ghostParticles: {fileID: 0}
 --- !u!114 &3957935963093050028
 MonoBehaviour:
