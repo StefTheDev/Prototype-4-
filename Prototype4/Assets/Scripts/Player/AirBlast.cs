@@ -8,8 +8,8 @@ public class AirBlast : MonoBehaviour
 
     public static float blastSpeed = 10.0f;
     public static float maxLifetime = 1.0f;
-    public static float normalBlastForce = 7.5f;//750.0f;
-    public static float suddenDeathBlastForce = 30.0f;//3000.0f;
+    public static float normalBlastForce = 15.5f;//750.0f;
+    public static float suddenDeathBlastForce = 40.0f;//3000.0f;
     public static float verticalBlastForce = 3.0f;
 
     private Rigidbody rigidBody;
@@ -40,8 +40,12 @@ public class AirBlast : MonoBehaviour
 
         if (otherAirBlast)
         {
+            AudioManager.Instance.PlaySound("AirBlastCollision", 2.0f);
+            var particles = Instantiate(ReferenceManager.Instance.airBlastCollisionParticle, this.transform.position, this.transform.rotation);
+            GameObject.Destroy(particles, 1.0f);
             Destroy(otherAirBlast);
             Destroy(this.gameObject);
+            return;
         }
 
         float blastForce = currentBlastForce;
@@ -52,6 +56,8 @@ public class AirBlast : MonoBehaviour
 
         if (otherPlayer && otherPlayer.GetPlayerID() != playerIndex && !otherPlayer.isInvulnerable)
         {
+            Debug.Log("AirBlast Hit Player!" + System.DateTime.Now.Ticks);
+
             AudioManager.Instance.PlaySound("ShoutHit", 0.5f);
             GameManager.Instance.playerManagers[otherPlayer.GetPlayerID()].GetComponent<PlayerManager>().SetLastHitBy(playerIndex);
             

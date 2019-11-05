@@ -15,6 +15,13 @@ public class Player : MonoBehaviour
 
     public bool isInvulnerable;
 
+    private PlayerControllerRigidbody controller;
+
+    private void Start()
+    {
+        controller = GetComponent<PlayerControllerRigidbody>();
+    }
+
     public int GetPlayerID()
     {
         return playerID;
@@ -30,11 +37,11 @@ public class Player : MonoBehaviour
         if (_shadowRealm && !inShadowRealm)
         {
             audioSource.PlayOneShot(deathSound);
-            fireParticles = Instantiate(ReferenceManager.Instance.fireParticlePrefabs[playerID], this.transform);
+            controller.ghostParticles = Instantiate(ReferenceManager.Instance.fireParticlePrefabs[playerID], null);
         }
         else if (!_shadowRealm && inShadowRealm)
         {
-            if (fireParticles) { Destroy(fireParticles); }
+            if (controller.ghostParticles) { Destroy(controller.ghostParticles); }
         }
 
         inShadowRealm = _shadowRealm;

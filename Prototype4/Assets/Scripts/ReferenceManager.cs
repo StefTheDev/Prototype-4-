@@ -17,6 +17,7 @@ public class ReferenceManager : MonoBehaviour
     public Material[] playerMaterials;
     public Material[] playerShadowRealmMaterials;
     public GameObject[] joinPrompts;
+    public GameObject airBlastCollisionParticle;
 
     private void Awake()
     {

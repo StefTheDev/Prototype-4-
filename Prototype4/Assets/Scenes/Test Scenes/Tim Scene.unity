@@ -9530,7 +9530,7 @@ PrefabInstance:
     - target: {fileID: 6149287609355086685, guid: eaaf8832775185f4881e2688900ef6a7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.39
       objectReference: {fileID: 0}
     - target: {fileID: 6149287609355086685, guid: eaaf8832775185f4881e2688900ef6a7,
         type: 3}
@@ -9717,11 +9717,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8027016824054475359, guid: 37092314b8794e84c96818dde44aab8c,
         type: 3}
-      propertyPath: fireParticlePrefabs.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8027016824054475359, guid: 37092314b8794e84c96818dde44aab8c,
-        type: 3}
       propertyPath: joinPrompts.Array.data[0]
       value: 
       objectReference: {fileID: 2050777080}
@@ -9740,30 +9735,6 @@ PrefabInstance:
       propertyPath: joinPrompts.Array.data[3]
       value: 
       objectReference: {fileID: 1786115122}
-    - target: {fileID: 8027016824054475359, guid: 37092314b8794e84c96818dde44aab8c,
-        type: 3}
-      propertyPath: fireParticlePrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 4257305526741900187, guid: 403506f5768a6e54eb51d02d2da9ced9,
-        type: 3}
-    - target: {fileID: 8027016824054475359, guid: 37092314b8794e84c96818dde44aab8c,
-        type: 3}
-      propertyPath: fireParticlePrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 5902950940531802672, guid: 489904ea83f5a104e9f1909c5bd1c431,
-        type: 3}
-    - target: {fileID: 8027016824054475359, guid: 37092314b8794e84c96818dde44aab8c,
-        type: 3}
-      propertyPath: fireParticlePrefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 3636748487590654741, guid: 39c7a73887ea9c84c93c67b3cc13bf71,
-        type: 3}
-    - target: {fileID: 8027016824054475359, guid: 37092314b8794e84c96818dde44aab8c,
-        type: 3}
-      propertyPath: fireParticlePrefabs.Array.data[3]
-      value: 
-      objectReference: {fileID: 4508297676046532932, guid: a1a3c6ab55d1fa74aa8bb7ddf67f7179,
-        type: 3}
     - target: {fileID: 8027016824815337112, guid: 37092314b8794e84c96818dde44aab8c,
         type: 3}
       propertyPath: timerText
@@ -9789,10 +9760,5 @@ PrefabInstance:
       propertyPath: suddenDeathCanvas
       value: 
       objectReference: {fileID: 5817799952590494287}
-    - target: {fileID: 8027016824815337112, guid: 37092314b8794e84c96818dde44aab8c,
-        type: 3}
-      propertyPath: preGameLength
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37092314b8794e84c96818dde44aab8c, type: 3}
