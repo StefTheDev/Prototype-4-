@@ -12,13 +12,11 @@ public class StormEvent : Event
     {
         Debug.Log("Storm Event Started.");
         lightning.SetActive(true);
-        rain.SetActive(true);
     }
 
     public override void OnEnd()
     {
         Debug.Log("Storm Event Ended.");
         lightning.SetActive(false);
-        rain.SetActive(false);
     }
 }
