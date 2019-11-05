@@ -159,7 +159,8 @@ public class PlayerControllerRigidbody : MonoBehaviour
         isCharging = true;
         currentCharge = 0.0f;
 
-        inhale = Instantiate(inhalePrefab, this.transform.position, this.transform.rotation, null);
+        // inhale = Instantiate(inhalePrefab, this.transform.position, this.transform.rotation, null);
+        inhale = Instantiate(inhalePrefab, this.transform);
         GameObject.Destroy(inhale, 1.0f);
 
         audioSource.PlayOneShot(inhaleSound);
