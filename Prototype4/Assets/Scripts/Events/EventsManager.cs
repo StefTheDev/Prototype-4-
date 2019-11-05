@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class EventsManager : MonoBehaviour
 {
     [SerializeField] private Slider slider;
     [SerializeField] private List<Event> events;
+    [SerializeField] private TMP_Text text;
+    [SerializeField] private Image overlay;
 
     private Event currentEvent;
     private float time;
@@ -24,6 +27,7 @@ public class EventsManager : MonoBehaviour
         currentEvent = eventQueue.Dequeue();
         currentEvent.Call(EventState.START);
         time = currentEvent.GetDelay();
+        text.text = currentEvent.GetDescription();
 
         slider.gameObject.SetActive(true);
         slider.image.sprite = eventQueue.Peek().GetSprite();
@@ -41,6 +45,7 @@ public class EventsManager : MonoBehaviour
             {
                 if(currentEvent != null) currentEvent.Call(EventState.END);
                 currentEvent = eventQueue.Dequeue();
+                text.text = currentEvent.GetDescription();
                 currentEvent.Call(EventState.START);
             }
         }
