@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 112000000, guid: 41fb918737552444b94f625e1b494216,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -542,6 +542,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: tempbg
       objectReference: {fileID: 0}
+    - target: {fileID: -4742240857619012440, guid: be05293111ae1a943aeb4839552b8f7f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e307dcc1a4350ac4da4afdedcf3689e8, type: 2}
     - target: {fileID: -4216859302048453862, guid: be05293111ae1a943aeb4839552b8f7f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -597,11 +602,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -4742240857619012440, guid: be05293111ae1a943aeb4839552b8f7f,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f90de25d204a64142819388eb30a4f89, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be05293111ae1a943aeb4839552b8f7f, type: 3}
 --- !u!1001 &1836527887727370475
