@@ -5170,12 +5170,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveForce: 60
   inhalingMoveSpeedModifier: 0.5
-  airbourneDrag: 0.1
+  airborneDrag: 0.1
   movingDrag: 0.5
   stationaryDrag: 0.9
   groundCheckDist: 0.8
   maxCrouchDuration: 0.5
   crouchCooldown: 0.5
+  isGrounded: 0
+  isFiring: 0
   chargeTime: 1
   currentCharge: 0
   isCharging: 0
@@ -5183,8 +5185,9 @@ MonoBehaviour:
     type: 3}
   inhalePrefab: {fileID: 8566727820859034940, guid: 11fa308a3d9efed4e9a8139a8677c3fc,
     type: 3}
-  exhaleSound: {fileID: 8300000, guid: 9277b7be358cb2c46baeab6bd772799c, type: 3}
+  exhaleSound: {fileID: 8300000, guid: 47a05b99527da244f9b6a67ef9f9a02d, type: 3}
   inhaleSound: {fileID: 8300000, guid: 9c8489f8c74ce2e44bacce5bf45fccb8, type: 3}
+  ghostParticles: {fileID: 0}
 --- !u!114 &3957935963093050028
 MonoBehaviour:
   m_ObjectHideFlags: 0
