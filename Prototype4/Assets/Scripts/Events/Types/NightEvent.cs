@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NightEvent : MonoBehaviour
+public class NightEvent : Event
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void OnEnd()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnStart()
     {
-        
+
     }
 }
