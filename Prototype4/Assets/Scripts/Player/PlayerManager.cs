@@ -13,6 +13,7 @@ public class PlayerManager : MonoBehaviour
 
     public GameObject myPlayer;
     private Player myPlayerComp;
+    private PlayerControllerRigidbody controller;
 
     private const string shadowRealmLayer = "Shadow Realm";
     private const string normalRealmLayer = "Normal Realm";
@@ -60,6 +61,7 @@ public class PlayerManager : MonoBehaviour
         myPlayerComp.SetPlayerID(playerID);
         myPlayerComp.inShadowRealm = this.inShadowRealm;
         myPlayerComp.UpdateMaterial();
+        controller = myPlayer.GetComponent<PlayerControllerRigidbody>();
 
         RespawnPlayer();
     }
@@ -70,6 +72,7 @@ public class PlayerManager : MonoBehaviour
         {
             shadowKills++;
             SwitchRealm(false);
+            controller.PlayReturnOnKillSound();
         }
         else
         {
@@ -104,6 +107,8 @@ public class PlayerManager : MonoBehaviour
 
         spawnPoint.Teleport(myPlayer.transform);
         myPlayer.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+        myPlayer.GetComponent<ShieldPowerup>().EndEffects();
     }
 
     public void PlayerDeath()

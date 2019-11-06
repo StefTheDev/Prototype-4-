@@ -13,7 +13,7 @@ public class ShieldPowerupItem : MonoBehaviour
 	private void OnTriggerEnter(Collider other)
 	{
 		var collector = other.GetComponentInParent<ShieldPowerup>();
-		if (collector)
+		if (collector && collector.gameObject.layer == LayerMask.NameToLayer("Normal Realm"))
 		{
 			collector.BeginEffects();
 			Destroy(gameObject);

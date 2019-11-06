@@ -12,7 +12,7 @@ public class AIPlayer : Player
 
     public GameObject targetPlayer;
 
-    private PlayerControllerRigidbody controller;
+    private PlayerControllerRigidbody myController;
     private Rigidbody rigidBody;
 
     private Vector3 currentDirection = Vector3.forward;
@@ -32,9 +32,10 @@ public class AIPlayer : Player
 
     private void Awake()
     {
-        controller = GetComponent<PlayerControllerRigidbody>();
+        myController = GetComponent<PlayerControllerRigidbody>();
         rigidBody = GetComponent<Rigidbody>();
         changeTargetTimer = changeTargetCheck;
+        attackTimer = Random.Range(0.5f, 1.5f);
     }
 
     private void Update()
@@ -44,51 +45,53 @@ public class AIPlayer : Player
 
     private void FixedUpdate()
     {
-        if (controller.IsDisabled()) { return; }
+        if (myController.IsDisabled()) { return; }
 
         steeringForce = Vector3.zero;
 
-        changeTargetTimer -= Time.deltaTime;
-        attackTimer -= Time.deltaTime;
+        changeTargetTimer -= Time.fixedDeltaTime;
+        attackTimer -= Time.fixedDeltaTime;
 
         // Check for a new target
-        if (changeTargetTimer <= 0.0f)
+        if (changeTargetTimer < 0.0f)
         {
             targetPlayer = FindClosestPlayer();
             changeTargetTimer = changeTargetCheck;
         }
 
-        if (attackTimer < 0.0f && targetPlayer)
-        {
-            controller.SetLook(targetPlayer.transform.position - this.transform.position);
-            controller.FireProjectile();
-        }
-        else if (attackTimer < 0.0f && !targetPlayer)
-        {
-            attackTimer = 0.1f;
-        }
-
-        // If there is another player currently in the same realm
+        // If we have a target player
         if (targetPlayer)
         {
-            // If target is out of range, seek target
+            // If out of range, seek
             if ((this.transform.position - targetPlayer.transform.position).magnitude > attackDistance)
             {
                 steeringForce += Seek(targetPlayer.transform.position);
+                myController.SetLook(targetPlayer.transform.position - this.transform.position);
             }
-            // If target is in range and we are not charging an attack, start charging an attack
             else if (attackTimer < 0.0f)
             {
-                // controller.ApplyBrakingForce();
-                controller.StartCharging();
-                attackTimer = Random.Range(0.5f, 1.5f);
+                // If not charging or firing, start charging
+                if (!myController.IsCharging() && !myController.IsFiring())
+                {
+                    myController.StartCharging();
+                    attackTimer = Random.Range(0.5f, 1.5f);
+                }
+                // If not firing and are charging, fire
+                else if (!myController.IsFiring() && myController.IsCharging())
+                {
+                    myController.SetLook(targetPlayer.transform.position - this.transform.position);
+                    myController.FireProjectile();
+                }
+
             }
-            // If target is in range and we are charging an attack, keep looking at them
             else
             {
-                // controller.ApplyBrakingForce();
-                controller.SetLook(targetPlayer.transform.position - this.transform.position);
+                myController.SetLook(targetPlayer.transform.position - this.transform.position);
             }
+        }
+        else
+        {
+            myController.SetLook(rigidBody.velocity);
         }
 
         steeringForce += Containment();
@@ -96,7 +99,7 @@ public class AIPlayer : Player
         steeringForce = Vector3.ClampMagnitude(steeringForce, maxSteeringForce);
 
         currentForce = Vector3.ClampMagnitude(currentForce + steeringForce, maxVelocity);
-        controller.Move(currentForce);
+        myController.Move(currentForce);
     }
 
     private Vector3 Seek(Vector3 _seekPos)

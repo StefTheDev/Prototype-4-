@@ -10,7 +10,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float moveForce = 10.0f;
     [SerializeField] private float inhalingMoveSpeedModifier = 0.5f;
-    [SerializeField] private float airbourneDrag = 0.1f;
+    [SerializeField] private float airborneDrag = 0.1f;
     [SerializeField] private float movingDrag = 0.5f;
     [SerializeField] private float stationaryDrag = 0.9f;
     [SerializeField] private float groundCheckDist = 0.1f;
@@ -19,16 +19,16 @@ public class PlayerControllerRigidbody : MonoBehaviour
 
     private float crouchingTime = 0.0f;
     private float crouchCooldownTimer = 0.0f;
-
-    private float maxSpeed = 10.0f;
+    
     private float dragCoefficient = 10.0f;
     private float currentDrag;
     private float moveSpeedModifier = 1.0f;
     private bool isCrouching = false;
     private bool isDisabled = false;
-    private bool isGrounded = false;
+    public bool isGrounded = false;
     private float initialGroundCheckDist;
     private float startingMass;
+    public bool isFiring = false;
 
     [Header("Shout")]
     [SerializeField] private float chargeTime = 1.0f;
@@ -41,23 +41,38 @@ public class PlayerControllerRigidbody : MonoBehaviour
     [SerializeField] private GameObject inhalePrefab;
     [SerializeField] private AudioClip exhaleSound;
     [SerializeField] private AudioClip inhaleSound;
+    [SerializeField] private AudioClip respawnOnKillSound; // Sound that plays when you return from the shadow realm after getting a kill
+
+
+    public GameObject ghostParticles;
 
     private Rigidbody rigidBody;
     private Animator animator;
     private AudioSource audioSource;
     private GameObject inhale;
     private Player playerComp;
+    private SkinnedMeshRenderer meshRenderer;
+
+    private float[] pitches = { 0.95f, 0.98f, 1.02f, 1.05f };
 
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
-        // Debug.Assert(rigidBody);
         animator = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
         playerComp = GetComponent<Player>();
         initialGroundCheckDist = groundCheckDist;
         startingMass = rigidBody.mass;
+        meshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+
+        var mats = meshRenderer.materials;
+        mats[0] = new Material(mats[0]);
+        meshRenderer.materials = mats;
+
+        audioSource.pitch = pitches[playerComp.playerID];
     }
+
+
 
     private void Start()
     {
@@ -86,16 +101,20 @@ public class PlayerControllerRigidbody : MonoBehaviour
     // Call in fixed update
     public void Move(Vector3 move)
     {
+        UpdateAnimator();
+        if (isDisabled) { return; }
+
         if (move.magnitude > 1.0f) move.Normalize();
 
         CheckGrounded();
 
-        moveSpeedModifier = (isCharging) ? inhalingMoveSpeedModifier : 1.0f;
+        moveSpeedModifier = (isCharging || isFiring) ? inhalingMoveSpeedModifier : 1.0f;
 
         PlayerMovement(move);
 
-        UpdateAnimator();
+        // UpdateAnimator();
 
+        if (ghostParticles) { ghostParticles.transform.position = this.transform.position; }
     }
 
     private void PlayerMovement(Vector3 move)
@@ -115,12 +134,14 @@ public class PlayerControllerRigidbody : MonoBehaviour
     {
         animator.SetBool("Inhaling", isCharging);
         animator.SetFloat("Speed", rigidBody.velocity.magnitude);
+
+        meshRenderer.materials[0].SetFloat("_ChargeAmount", currentCharge / chargeTime);
     }
 
     private void ApplyDrag(bool moveInputs)
     {
         currentDrag = moveInputs ? movingDrag : stationaryDrag;
-        if (!isGrounded) { currentDrag = airbourneDrag; }
+        if (!isGrounded) { currentDrag = airborneDrag; }
         if (isCrouching) { currentDrag *= 1.3f; }
 
         var currentVelocity = rigidBody.velocity;
@@ -137,11 +158,13 @@ public class PlayerControllerRigidbody : MonoBehaviour
     public void StartCharging()
     {
         if (isDisabled) { return; }
+        if (isFiring) { return; }
 
         isCharging = true;
         currentCharge = 0.0f;
 
-        inhale = Instantiate(inhalePrefab, this.transform.position, this.transform.rotation, null);
+        // inhale = Instantiate(inhalePrefab, this.transform.position, this.transform.rotation, null);
+        inhale = Instantiate(inhalePrefab, this.transform);
         GameObject.Destroy(inhale, 1.0f);
 
         audioSource.PlayOneShot(inhaleSound);
@@ -152,19 +175,53 @@ public class PlayerControllerRigidbody : MonoBehaviour
         if (isDisabled) { return; }
 
         isCharging = false;
+        isFiring = true;
+        // transform.DOLocalMove(this.transform.position, 0.7f).OnComplete(OnShoutAnimEnd);
+        var seq = DOTween.Sequence();
+        seq.AppendInterval(0.7f).OnComplete(OnShoutAnimEnd);
+        
+        var battlecry = GetComponent<BattlecryPowerupHolder>();
+        if (battlecry && battlecry.hasPowerup)
+        {
+            battlecry.hasPowerup = false;
 
+            for (float angle = 0.0f; angle < 360.0f; angle += 30.001f)
+            {
+                Vector3 localDir = Quaternion.Euler(0, angle, 0) * Vector3.forward;
+                Vector3 direction = transform.TransformDirection(localDir);
+                InstantiateProjectile(direction);
+            }
+
+            audioSource.Stop();
+            audioSource.PlayOneShot(exhaleSound);
+        }
+        else
+        {
+            // Fire projectile
+            InstantiateProjectile(this.transform.forward);
+
+            audioSource.Stop();
+            audioSource.PlayOneShot(exhaleSound);
+        }
+
+        currentCharge = 0.0f;
+    }
+
+    private GameObject InstantiateProjectile(Vector3 direction)
+    {
         // Fire projectile
         var airBlast = Instantiate(airBlastPrefab, this.transform.position, Quaternion.identity, null);
-        airBlast.GetComponent<AirBlast>().Launch(this.transform.forward, currentCharge, playerComp.GetPlayerID());
+        airBlast.GetComponent<AirBlast>().Launch(direction, currentCharge, playerComp.GetPlayerID());
         if (playerComp.inShadowRealm)
         {
             airBlast.layer = LayerMask.NameToLayer("Shadow Realm");
         }
+        return airBlast;
+    }
 
-        currentCharge = 0.0f;
-
-        audioSource.Stop();
-        audioSource.PlayOneShot(exhaleSound);
+    public void OnShoutAnimEnd()
+    {
+        isFiring = false;
     }
 
     public void StartCrouch()
@@ -230,6 +287,16 @@ public class PlayerControllerRigidbody : MonoBehaviour
         return isCrouching;
     }
 
+    public bool IsFiring()
+    {
+        return isFiring;
+    }
+
+    public bool IsCharging()
+    {
+        return isCharging;
+    }
+
     private void CheckGrounded()
     {
         RaycastHit hitInfo;
@@ -244,6 +311,13 @@ public class PlayerControllerRigidbody : MonoBehaviour
             isGrounded = false;
             groundCheckDist = initialGroundCheckDist;
         }
+    }
+
+    public void PlayReturnOnKillSound()
+    {
+        audioSource.PlayOneShot(respawnOnKillSound);
+        var respawnEffect = Instantiate(ReferenceManager.Instance.respawnOnKillParticle, this.transform);
+        GameObject.Destroy(respawnEffect, 2.0f);
     }
 
     private void OnDrawGizmosSelected()

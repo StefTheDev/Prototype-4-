@@ -7,12 +7,20 @@ public class Player : MonoBehaviour
     public int playerID;
     public bool inShadowRealm = false;
     public GameObject victoryCamera;
+    private GameObject fireParticles;
 
     public AudioClip deathSound;
 
     public AudioSource audioSource;
 
     public bool isInvulnerable;
+
+    private PlayerControllerRigidbody controller;
+
+    private void Start()
+    {
+        controller = GetComponent<PlayerControllerRigidbody>();
+    }
 
     public int GetPlayerID()
     {
@@ -29,10 +37,11 @@ public class Player : MonoBehaviour
         if (_shadowRealm && !inShadowRealm)
         {
             audioSource.PlayOneShot(deathSound);
+            controller.ghostParticles = Instantiate(ReferenceManager.Instance.fireParticlePrefabs[playerID], null);
         }
         else if (!_shadowRealm && inShadowRealm)
         {
-            
+            if (controller.ghostParticles) { Destroy(controller.ghostParticles); }
         }
 
         inShadowRealm = _shadowRealm;
@@ -47,11 +56,11 @@ public class Player : MonoBehaviour
 
         if (inShadowRealm)
         {
-            newMat = ReferenceManager.Instance.playerShadowRealmMaterials[playerID];
+            newMat = new Material(ReferenceManager.Instance.playerShadowRealmMaterials[playerID]);
         }
         else
         {
-            newMat = ReferenceManager.Instance.playerMaterials[playerID];
+            newMat = new Material(ReferenceManager.Instance.playerMaterials[playerID]);
         }
 
         rendererMaterials[0] = newMat;

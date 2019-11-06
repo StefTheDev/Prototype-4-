@@ -12,10 +12,13 @@ public class ReferenceManager : MonoBehaviour
     public GameObject[] humanPlayerPrefabs;
     public GameObject[] AIPlayerPrefabs;
     public GameObject playerManagerPrefab;
+    public GameObject[] fireParticlePrefabs;
 
     public Material[] playerMaterials;
     public Material[] playerShadowRealmMaterials;
     public GameObject[] joinPrompts;
+    public GameObject airBlastCollisionParticle;
+    public GameObject respawnOnKillParticle;
 
     private void Awake()
     {

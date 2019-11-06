@@ -3,6 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public struct ShotHitInfo
+{
+    public Vector3 point;
+    public Vector3 normal;
+
+    public ShotHitInfo(Vector3 point, Vector3 normal)
+    {
+        this.point = point;
+        this.normal = normal;
+    }
+}
+
 /*
  * The controller for the shield powerup's effects.
  * 
@@ -14,19 +26,31 @@ public class ShieldPowerup : MonoBehaviour
 	public bool isPowerupActive => shieldCurrentHealth > 0.0f;
 	public Rigidbody rigidBody { get; private set; }
 
-	public float shieldStartHealth = 1.0f;
+	public float shieldStartHealth = 2.05f;
 	public float shieldCurrentHealth { get; private set; } = 0.0f;
 
-	public event Action onBeginEffects;
+    [Range(0.0f, 1.0f)]
+    public float resistance = 0.7f;
+
+    public event Action onBeginEffects;
 	public event Action<float> onHealthFractionChanged;
 	public event Action onEndEffects;
+    public event Action<ShotHitInfo> onHit;
+
+    private AudioSource audioSource;
 
 	private void Awake()
 	{
 		rigidBody = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
 	}
 
-	private void InvokeHealthFractionChanged()
+    private void Start()
+    {
+        GameManager.Instance.onGameEnded += EndEffects;
+    }
+
+    private void InvokeHealthFractionChanged()
 	{
 		onHealthFractionChanged?.Invoke(shieldCurrentHealth / shieldStartHealth);
 	}
@@ -36,34 +60,35 @@ public class ShieldPowerup : MonoBehaviour
 		this.shieldCurrentHealth = this.shieldStartHealth;
 		onBeginEffects?.Invoke();
 		onHealthFractionChanged?.Invoke(1.0f);
-	}
+        AudioManager.Instance.PlaySound("ShieldPowerup");
+    }
 
 	public void EndEffects()
 	{
 		this.shieldCurrentHealth = 0.0f;
 		onHealthFractionChanged?.Invoke(0.0f);
 		onEndEffects?.Invoke();
-	}
+    }
 
-	public void ApplyAirBlast(Vector3 force)
+	public void ApplyAirBlast(ShotHitInfo hit, Vector3 force, float chargeAmount)
 	{
 		if (!isPowerupActive)
 		{
-			rigidBody.AddForce(force);
+			rigidBody.AddForce(force, ForceMode.Impulse);
 		}
 		else
 		{
-			float amount = 0.3f;
-			rigidBody.AddForce(force * amount);
+			rigidBody.AddForce(force * (1.0f - resistance), ForceMode.Impulse);
 
-			float damage = force.magnitude * (1.0f - amount) * 0.0005f;
-			Debug.Log("damage: " + damage);
+			float damage = chargeAmount;
 			shieldCurrentHealth = Mathf.Clamp(shieldCurrentHealth - damage, 0.0f, shieldStartHealth);
 			InvokeHealthFractionChanged();
 			if (shieldCurrentHealth <= 0.0f)
 			{
 				onEndEffects?.Invoke();
-			}
+                AudioManager.Instance.PlaySound("ShieldBreak", 2.0f);
+            }
 		}
+        onHit?.Invoke(hit);
 	}
 }
