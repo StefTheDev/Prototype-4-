@@ -20117,6 +20117,12 @@ PrefabInstance:
       propertyPath: joinPrompts.Array.data[3]
       value: 
       objectReference: {fileID: 1786115122}
+    - target: {fileID: 8027016824054475359, guid: 37092314b8794e84c96818dde44aab8c,
+        type: 3}
+      propertyPath: muzzleFlashParticle
+      value: 
+      objectReference: {fileID: 3110707150723707677, guid: 059e3e1676e753444a9aa966ea47d8ac,
+        type: 3}
     - target: {fileID: 8027016824815337112, guid: 37092314b8794e84c96818dde44aab8c,
         type: 3}
       propertyPath: timerText
