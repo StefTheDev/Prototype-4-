@@ -60,7 +60,7 @@ public class ShieldPowerup : MonoBehaviour
 		this.shieldCurrentHealth = this.shieldStartHealth;
 		onBeginEffects?.Invoke();
 		onHealthFractionChanged?.Invoke(1.0f);
-        AudioManager.Instance.PlaySound("ShieldPowerup");
+        AudioManager.Instance.PlaySound("PowerupPickup");
 
         var battlecry = GetComponent<BattlecryPowerupHolder>();
         if (battlecry) battlecry.EndEffects();

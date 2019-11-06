@@ -43,6 +43,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
     [SerializeField] private AudioClip exhaleSound;
     [SerializeField] private AudioClip inhaleSound;
     [SerializeField] private AudioClip respawnOnKillSound; // Sound that plays when you return from the shadow realm after getting a kill
+
 #pragma warning restore CS0649
 
 

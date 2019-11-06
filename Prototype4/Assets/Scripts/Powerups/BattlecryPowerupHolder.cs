@@ -22,6 +22,7 @@ public class BattlecryPowerupHolder : MonoBehaviour
     {
         hasPowerup = true;
 
+        AudioManager.Instance.PlaySound("PowerupPickup");
         var shield = GetComponent<ShieldPowerup>();
         if (shield) shield.EndEffects();
     }

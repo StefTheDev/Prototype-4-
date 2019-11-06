@@ -8503,6 +8503,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PH_ground
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: cf9ab401c9c83b443bb5e3d4269e8069,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 6006980741346443709, guid: cf9ab401c9c83b443bb5e3d4269e8069,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: cf9ab401c9c83b443bb5e3d4269e8069,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10375,57 +10385,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8027016824054475359, guid: 37092314b8794e84c96818dde44aab8c,
-        type: 3}
-      propertyPath: joinPrompts.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8027016824054475359, guid: 37092314b8794e84c96818dde44aab8c,
-        type: 3}
-      propertyPath: joinPrompts.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8027016824054475359, guid: 37092314b8794e84c96818dde44aab8c,
-        type: 3}
-      propertyPath: joinPrompts.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8027016824054475359, guid: 37092314b8794e84c96818dde44aab8c,
-        type: 3}
-      propertyPath: joinPrompts.Array.data[3]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8027016824054475359, guid: 37092314b8794e84c96818dde44aab8c,
-        type: 3}
-      propertyPath: muzzleFlashParticle
-      value: 
-      objectReference: {fileID: 3110707150723707677, guid: 059e3e1676e753444a9aa966ea47d8ac,
-        type: 3}
-    - target: {fileID: 8027016824815337112, guid: 37092314b8794e84c96818dde44aab8c,
-        type: 3}
-      propertyPath: timerText
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8027016824815337112, guid: 37092314b8794e84c96818dde44aab8c,
         type: 3}
       propertyPath: spawnPoints
       value: 
       objectReference: {fileID: 270449216}
-    - target: {fileID: 8027016824815337112, guid: 37092314b8794e84c96818dde44aab8c,
-        type: 3}
-      propertyPath: timerObject
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8027016824815337112, guid: 37092314b8794e84c96818dde44aab8c,
-        type: 3}
-      propertyPath: victoryCanvas
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8027016824815337112, guid: 37092314b8794e84c96818dde44aab8c,
-        type: 3}
-      propertyPath: suddenDeathCanvas
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 832454717, guid: 37092314b8794e84c96818dde44aab8c, type: 3}
       propertyPath: slider
       value: 
@@ -10451,7 +10415,7 @@ PrefabInstance:
     - target: {fileID: 8925600572976248797, guid: f8bd6916ad9893c438ce612467f61822,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8925600572976248787, guid: f8bd6916ad9893c438ce612467f61822,
         type: 3}
@@ -10507,6 +10471,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8925600572976248796, guid: f8bd6916ad9893c438ce612467f61822,
+        type: 3}
+      propertyPath: spawnCooldown
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8bd6916ad9893c438ce612467f61822, type: 3}

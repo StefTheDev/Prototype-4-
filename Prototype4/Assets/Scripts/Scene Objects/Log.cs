@@ -5,6 +5,7 @@ using UnityEngine;
 public class Log : MonoBehaviour
 {
 
+    private Vector3 velocityBeforeCollision;
     private Rigidbody rigidBody;
 
     private void Awake()
@@ -12,18 +13,20 @@ public class Log : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
     }
 
+    private void FixedUpdate()
+    {
+        velocityBeforeCollision = rigidBody.velocity;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         float pushForce = 2.0f;
 
-
         if (collision.gameObject.tag == "Player")
         {
-            float vel = rigidBody.velocity.magnitude;
+            float vel = velocityBeforeCollision.magnitude;
 
             if (vel < 1.0f) { return; }
-
-            
 
             // 
             pushForce *= vel;
@@ -32,7 +35,7 @@ public class Log : MonoBehaviour
             bool pinch = false;
 
             float angle = 90.0f - Mathf.Rad2Deg * Mathf.Acos(Vector3.Dot(Vector3.down, dir));
-            Debug.Log(angle);
+            // Debug.Log(angle);
             if (angle < 30.0f && angle > 0.0f)
             {
                 Debug.Log("Pinch angle");
@@ -50,6 +53,15 @@ public class Log : MonoBehaviour
 
             collision.gameObject.GetComponent<Rigidbody>().AddForce(dir * pushForce, ForceMode.Impulse);
             AudioManager.Instance.PlaySound("ShoutHit");
+        }
+        else if (collision.gameObject.tag == "Ground")
+        {
+            float vel = velocityBeforeCollision.magnitude;
+            Debug.Log(vel);
+
+            if (vel < 1.0f) { return; }
+
+            AudioManager.Instance.PlaySound("LogBounce");
         }
     }
 }

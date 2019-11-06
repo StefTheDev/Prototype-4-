@@ -8,10 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Final Scenes/MenuScene.unity
     guid: 5416619cdf9558449b53c4ae8710c97b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Final Scenes/GameScene.unity
     guid: d29fa9fc826e2d146baf1c4da152fa63
   - enabled: 0
-    path: Assets/Scenes/Test Scenes/Tim Scene.unity
+    path: Assets/__DELETED_GUID_Trash/d9be9db84b57ea4439307bd31f8b437a
     guid: d9be9db84b57ea4439307bd31f8b437a
+  - enabled: 1
+    path: Assets/Scenes/Test Scenes/Tim Scene.unity
+    guid: 39dff616c79dcb6499c54c6b7b81528e
   m_configObjects: {}

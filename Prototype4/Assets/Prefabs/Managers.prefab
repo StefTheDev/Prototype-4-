@@ -45,10 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Storm
+  description: 
   sprite: {fileID: 21300000, guid: 00423eea9cb42f246b02622abd7f80cd, type: 3}
   delay: 30
   lightning: {fileID: 2037511148}
   rain: {fileID: 0}
+  indicator: {fileID: 0}
   includeChildren: 0
 --- !u!1 &832454716
 GameObject:
@@ -97,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 0}
+  text: {fileID: 0}
   events:
   - {fileID: 1230020723}
   - {fileID: 495153106}
@@ -5112,6 +5115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Start Event
+  description: 
   sprite: {fileID: 0}
   delay: 10
 --- !u!1 &2037511148
@@ -10100,6 +10104,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d62f916fae262c04595faa3997773b53, type: 2}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
+      propertyPath: muzzleFlashParticle
+      value: 
+      objectReference: {fileID: 3110707150723707677, guid: 059e3e1676e753444a9aa966ea47d8ac,
+        type: 3}
+    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
+        type: 3}
       propertyPath: airBlastCollisionParticle
       value: 
       objectReference: {fileID: 8614095058015402865, guid: 15cdf640328f9574db3a3faa9d760ee9,
@@ -10283,7 +10293,7 @@ PrefabInstance:
     - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
         type: 3}
       propertyPath: soundClips.Array.size
-      value: 9
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
         type: 3}
@@ -10335,6 +10345,36 @@ PrefabInstance:
       propertyPath: soundClips.Array.data[8].sound
       value: 
       objectReference: {fileID: 8300000, guid: fae754737e250df4f95019f59211457c, type: 3}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[9].name
+      value: LightningStrike
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[9].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 16212755120fb264d9ae21d6c2278478, type: 3}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[10].name
+      value: PowerupPickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[10].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 02ac1932661e42d43829aa8eebbb55a9, type: 3}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[11].name
+      value: LogBounce
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[11].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 01206265bb0d62740b4c141682fd7b32, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a346d37d6edd9ec4f8d2cc4241592f95, type: 3}
 --- !u!4 &8027016824666364849 stripped
