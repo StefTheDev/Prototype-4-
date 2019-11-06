@@ -12,6 +12,6 @@ public class PostGameEvent : Event
 
     public override void OnStart()
     {
-        throw new System.NotImplementedException();
+
     }
 }

@@ -6883,7 +6883,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1517096664}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &521313415
 MonoBehaviour:
@@ -6897,6 +6897,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db6fcc28976e4844f8927f5bb2eac1d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  description: 'Darkness has fallen. '
+  sprite: {fileID: 0}
+  delay: 15
 --- !u!1 &529014859
 GameObject:
   m_ObjectHideFlags: 3
@@ -9306,7 +9310,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1517096664}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &894571093
 MonoBehaviour:
@@ -9321,9 +9325,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Start Event
-  description: 
+  description: A fresh new day has arisen.
   sprite: {fileID: 0}
-  delay: 10
+  delay: 15
 --- !u!1 &915110659
 GameObject:
   m_ObjectHideFlags: 0
@@ -10816,7 +10820,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1517096664}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1265032079
 MonoBehaviour:
@@ -10830,10 +10834,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5767cf52249705d489f95cb811293cb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
-  description: 
+  name: Debris
+  description: The gods are pretty dirty ngl
   sprite: {fileID: 0}
-  delay: 0
+  delay: 15
 --- !u!1 &1300318721
 GameObject:
   m_ObjectHideFlags: 0
@@ -11374,7 +11378,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1517096664}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1411381052
 MonoBehaviour:
@@ -11388,10 +11392,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587bf30e2660df44483c10d724f6409f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
-  description: 
+  name: Sudden Death
+  description: Die or live, your choice!
   sprite: {fileID: 0}
-  delay: 0
+  delay: 60
 --- !u!1 &1418432465
 GameObject:
   m_ObjectHideFlags: 0
@@ -11483,7 +11487,7 @@ Transform:
   m_Children:
   - {fileID: 316210036}
   m_Father: {fileID: 1517096664}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1432792336
 MonoBehaviour:
@@ -11498,11 +11502,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Storm
-  description: Thou shalt be smited by thor
+  description: Thou shalt be smited by Thor
   sprite: {fileID: 21300000, guid: 00423eea9cb42f246b02622abd7f80cd, type: 3}
-  delay: 30
+  delay: 15
   lightning: {fileID: 316210035}
   rain: {fileID: 0}
+  indicator: {fileID: 0}
   includeChildren: 0
 --- !u!1001 &1440265886
 PrefabInstance:
@@ -11511,6 +11516,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1907396417}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 3369db84f4c9c1847b92452ac2720f41,
+        type: 3}
+      propertyPath: m_Name
+      value: manuChibi
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 3369db84f4c9c1847b92452ac2720f41,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3369db84f4c9c1847b92452ac2720f41,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11564,16 +11579,6 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 3369db84f4c9c1847b92452ac2720f41,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 3369db84f4c9c1847b92452ac2720f41,
-        type: 3}
-      propertyPath: m_Name
-      value: manuChibi
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 3369db84f4c9c1847b92452ac2720f41,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8377303644997871296, guid: 3369db84f4c9c1847b92452ac2720f41,
@@ -16590,12 +16595,12 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1432792335}
   - {fileID: 894571092}
-  - {fileID: 1411381051}
   - {fileID: 1265032078}
-  - {fileID: 1736448255}
+  - {fileID: 1432792335}
   - {fileID: 521313414}
+  - {fileID: 1411381051}
+  - {fileID: 1736448255}
   m_Father: {fileID: 1259542826}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16612,11 +16617,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1491834791}
+  text: {fileID: 1409614786}
   events:
   - {fileID: 894571093}
+  - {fileID: 1265032079}
   - {fileID: 1432792336}
-  text: {fileID: 1409614786}
-  overlay: {fileID: 745024722}
+  - {fileID: 521313415}
+  - {fileID: 1411381052}
+  - {fileID: 1736448256}
 --- !u!1 &1542609596
 GameObject:
   m_ObjectHideFlags: 0
@@ -17741,7 +17749,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1517096664}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1736448256
 MonoBehaviour:
@@ -17756,7 +17764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: 
-  description: 
+  description: 'The gods are cleaning up your stink hole. '
   sprite: {fileID: 0}
   delay: 5
 --- !u!1 &1740754423
