@@ -183,7 +183,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
         var battlecry = GetComponent<BattlecryPowerupHolder>();
         if (battlecry && battlecry.hasPowerup)
         {
-            battlecry.hasPowerup = false;
+            battlecry.EndEffects();
 
             for (float angle = 0.0f; angle < 360.0f; angle += 30.001f)
             {
