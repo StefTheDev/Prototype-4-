@@ -24,12 +24,17 @@ public class BarrelThrower : MonoBehaviour
         GameManager.Instance.onGameStarted += () => {
             if (spawnOnStart)
             {
-                SpawnLots(numToSpawn);
+                SpawnBarrels();
             }
         };
     }
 
-    public void SpawnLots(int num)
+    public void SpawnBarrels()
+    {
+        SpawnBarrels(numToSpawn);
+    }
+
+    public void SpawnBarrels(int num)
     {
         for (int i = 0; i < num; i++)
         {
@@ -50,6 +55,8 @@ public class BarrelThrower : MonoBehaviour
 
     public void SpawnBarrel(float arc, float angle, GameObject powerupItemPrefab)
     {
+        if (!target) { target = transform; }
+
         Quaternion arcRotation = Quaternion.Euler(0, arc, 0);
         Quaternion angleRotation = Quaternion.Euler(-angle, 0, 0);
         Quaternion localRotation = arcRotation * angleRotation;

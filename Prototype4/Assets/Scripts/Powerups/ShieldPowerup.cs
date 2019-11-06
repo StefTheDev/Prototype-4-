@@ -61,6 +61,9 @@ public class ShieldPowerup : MonoBehaviour
 		onBeginEffects?.Invoke();
 		onHealthFractionChanged?.Invoke(1.0f);
         AudioManager.Instance.PlaySound("ShieldPowerup");
+
+        var battlecry = GetComponent<BattlecryPowerupHolder>();
+        if (battlecry) battlecry.EndEffects();
     }
 
 	public void EndEffects()

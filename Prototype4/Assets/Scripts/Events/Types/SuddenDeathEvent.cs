@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class SuddenDeathEvent : Event
 {
-    private GameManager gameManager = GameManager.Instance;
-
     public override void OnEnd()
     {
 
@@ -14,6 +12,7 @@ public class SuddenDeathEvent : Event
 
     public override void OnStart()
     {
+        GameManager gameManager = GameManager.Instance;
         gameManager.gameState = GameState.suddenDeath;
         AirBlast.SetSuddenDeath(true);
 
