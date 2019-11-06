@@ -8,6 +8,7 @@ public class EventsManager : MonoBehaviour
 {
     [SerializeField] private Slider slider;
     [SerializeField] private TMP_Text text;
+    [SerializeField] private Animator animator;
     [SerializeField] private List<Event> events;
 
     private Event currentEvent;
@@ -35,8 +36,10 @@ public class EventsManager : MonoBehaviour
 
     private void Update()
     {
-        slider.value = time / currentEvent.GetDelay();
         time -= Time.deltaTime;
+        slider.value = time / currentEvent.GetDelay();
+
+        if (time <= currentEvent.GetDelay() / 2) animator.SetBool("Open", false);
 
         if (time <= 0)
         {
@@ -48,6 +51,7 @@ public class EventsManager : MonoBehaviour
 
                 time = currentEvent.GetDelay();
                 text.text = currentEvent.GetDescription();
+                animator.SetBool("Open", true);
             }
         }
     }
