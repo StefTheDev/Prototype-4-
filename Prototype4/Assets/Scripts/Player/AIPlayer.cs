@@ -12,7 +12,7 @@ public class AIPlayer : Player
 
     public GameObject targetPlayer;
 
-    private PlayerControllerRigidbody controller;
+    private PlayerControllerRigidbody myController;
     private Rigidbody rigidBody;
 
     private Vector3 currentDirection = Vector3.forward;
@@ -32,7 +32,7 @@ public class AIPlayer : Player
 
     private void Awake()
     {
-        controller = GetComponent<PlayerControllerRigidbody>();
+        myController = GetComponent<PlayerControllerRigidbody>();
         rigidBody = GetComponent<Rigidbody>();
         changeTargetTimer = changeTargetCheck;
         attackTimer = Random.Range(0.5f, 1.5f);
@@ -45,7 +45,7 @@ public class AIPlayer : Player
 
     private void FixedUpdate()
     {
-        if (controller.IsDisabled()) { return; }
+        if (myController.IsDisabled()) { return; }
 
         steeringForce = Vector3.zero;
 
@@ -66,32 +66,32 @@ public class AIPlayer : Player
             if ((this.transform.position - targetPlayer.transform.position).magnitude > attackDistance)
             {
                 steeringForce += Seek(targetPlayer.transform.position);
-                controller.SetLook(targetPlayer.transform.position - this.transform.position);
+                myController.SetLook(targetPlayer.transform.position - this.transform.position);
             }
             else if (attackTimer < 0.0f)
             {
                 // If not charging or firing, start charging
-                if (!controller.IsCharging() && !controller.IsFiring())
+                if (!myController.IsCharging() && !myController.IsFiring())
                 {
-                    controller.StartCharging();
+                    myController.StartCharging();
                     attackTimer = Random.Range(0.5f, 1.5f);
                 }
                 // If not firing and are charging, fire
-                else if (!controller.IsFiring() && controller.IsCharging())
+                else if (!myController.IsFiring() && myController.IsCharging())
                 {
-                    controller.SetLook(targetPlayer.transform.position - this.transform.position);
-                    controller.FireProjectile();
+                    myController.SetLook(targetPlayer.transform.position - this.transform.position);
+                    myController.FireProjectile();
                 }
 
             }
             else
             {
-                controller.SetLook(targetPlayer.transform.position - this.transform.position);
+                myController.SetLook(targetPlayer.transform.position - this.transform.position);
             }
         }
         else
         {
-            controller.SetLook(rigidBody.velocity);
+            myController.SetLook(rigidBody.velocity);
         }
 
         steeringForce += Containment();
@@ -99,7 +99,7 @@ public class AIPlayer : Player
         steeringForce = Vector3.ClampMagnitude(steeringForce, maxSteeringForce);
 
         currentForce = Vector3.ClampMagnitude(currentForce + steeringForce, maxVelocity);
-        controller.Move(currentForce);
+        myController.Move(currentForce);
     }
 
     private Vector3 Seek(Vector3 _seekPos)
