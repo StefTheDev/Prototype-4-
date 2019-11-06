@@ -37,11 +37,13 @@ public class PlayerControllerRigidbody : MonoBehaviour
     public bool isCharging = false;
 
     [Header("References")]
+#pragma warning disable CS0649
     [SerializeField] private GameObject airBlastPrefab;
     [SerializeField] private GameObject inhalePrefab;
     [SerializeField] private AudioClip exhaleSound;
     [SerializeField] private AudioClip inhaleSound;
     [SerializeField] private AudioClip respawnOnKillSound; // Sound that plays when you return from the shadow realm after getting a kill
+#pragma warning restore CS0649
 
 
     public GameObject ghostParticles;
@@ -188,7 +190,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
         var battlecry = GetComponent<BattlecryPowerupHolder>();
         if (battlecry && battlecry.hasPowerup)
         {
-            battlecry.hasPowerup = false;
+            battlecry.EndEffects();
 
             for (float angle = 0.0f; angle < 360.0f; angle += 30.001f)
             {

@@ -9,7 +9,7 @@ public class BattlecryPowerupItem : MonoBehaviour
         var collector = other.GetComponentInParent<BattlecryPowerupHolder>();
         if (collector && collector.gameObject.layer == LayerMask.NameToLayer("Normal Realm"))
         {
-            collector.hasPowerup = true;
+            collector.BeginEffects();
             Destroy(gameObject);
         }
     }
