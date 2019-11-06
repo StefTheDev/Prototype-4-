@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0.24862051, g: 0.32347617, b: 0.3490566, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.005
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 1.0592737, g: 1.0592737, b: 1.0592737, a: 1}
@@ -609,7 +609,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 20
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -634,8 +634,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140735807}
-  m_LocalRotation: {x: 0.5675564, y: 0, z: 0, w: 0.8233346}
-  m_LocalPosition: {x: 0, y: 27, z: -11.6}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: 0, y: 21.5, z: -40.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6943,7 +6943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: -0.11102264, y: 36.669556, z: -23.069311}
+  m_FollowOffset: {x: -0.11102264, y: 2.779562, z: -28.569374}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -11511,16 +11511,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1907396417}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 3369db84f4c9c1847b92452ac2720f41,
-        type: 3}
-      propertyPath: m_Name
-      value: manuChibi
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 3369db84f4c9c1847b92452ac2720f41,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3369db84f4c9c1847b92452ac2720f41,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11574,6 +11564,16 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 3369db84f4c9c1847b92452ac2720f41,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 3369db84f4c9c1847b92452ac2720f41,
+        type: 3}
+      propertyPath: m_Name
+      value: manuChibi
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 3369db84f4c9c1847b92452ac2720f41,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8377303644997871296, guid: 3369db84f4c9c1847b92452ac2720f41,
@@ -19312,7 +19312,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 20
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -19335,14 +19335,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2081710847}
-  m_LocalRotation: {x: 0.5675564, y: 0, z: 0, w: 0.8233346}
-  m_LocalPosition: {x: 0, y: 27, z: -11.6}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: 0, y: 21.5, z: -40.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 529014860}
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 69.16, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!1001 &2704964027824588482
 PrefabInstance:
   m_ObjectHideFlags: 0
