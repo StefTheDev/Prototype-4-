@@ -72,6 +72,7 @@ public class PlayerManager : MonoBehaviour
         {
             shadowKills++;
             SwitchRealm(false);
+            controller.PlayReturnOnKillSound();
         }
         else
         {

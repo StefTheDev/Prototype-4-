@@ -13,9 +13,9 @@ public class Barrel : MonoBehaviour
 
         var go = Instantiate(powerupPrefab, transform.position, Quaternion.identity, transform.parent);
 
-        emitter.transform.SetParent(transform.parent);
-        emitter.transform.localRotation = Quaternion.Euler(-90, 0, 0);
-        emitter.gameObject.SetActive(true);
+        //emitter.transform.SetParent(transform.parent);
+        //emitter.transform.localRotation = Quaternion.Euler(-90, 0, 0);
+        //emitter.gameObject.SetActive(true);
 
         Destroy(gameObject);
     }

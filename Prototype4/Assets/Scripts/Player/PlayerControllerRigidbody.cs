@@ -41,6 +41,8 @@ public class PlayerControllerRigidbody : MonoBehaviour
     [SerializeField] private GameObject inhalePrefab;
     [SerializeField] private AudioClip exhaleSound;
     [SerializeField] private AudioClip inhaleSound;
+    [SerializeField] private AudioClip respawnOnKillSound; // Sound that plays when you return from the shadow realm after getting a kill
+
 
     public GameObject ghostParticles;
 
@@ -69,6 +71,8 @@ public class PlayerControllerRigidbody : MonoBehaviour
 
         audioSource.pitch = pitches[playerComp.playerID];
     }
+
+
 
     private void Start()
     {
@@ -307,6 +311,13 @@ public class PlayerControllerRigidbody : MonoBehaviour
             isGrounded = false;
             groundCheckDist = initialGroundCheckDist;
         }
+    }
+
+    public void PlayReturnOnKillSound()
+    {
+        audioSource.PlayOneShot(respawnOnKillSound);
+        var respawnEffect = Instantiate(ReferenceManager.Instance.respawnOnKillParticle, this.transform);
+        GameObject.Destroy(respawnEffect, 2.0f);
     }
 
     private void OnDrawGizmosSelected()
