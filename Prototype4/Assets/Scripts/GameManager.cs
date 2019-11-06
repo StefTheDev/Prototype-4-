@@ -90,21 +90,6 @@ public class GameManager : MonoBehaviour
 
             case GameState.inGame:
             {
-                roundTimer -= Time.deltaTime;
-                timerText.text = roundTimer.ToString("#.##");
-
-                if (roundTimer <= 0.0f)
-                {
-                    StartSuddenDeath();
-                }
-
-                break;
-            }
-
-            case GameState.suddenDeath:
-            {
-                timerText.text = "0.00";
-
                 break;
             }
 
@@ -143,7 +128,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Changes from the inGame state to the suddenDeath state
-    public void StartSuddenDeath()
+    /*public void StartSuddenDeath()
     {
         gameState = GameState.suddenDeath;
         AirBlast.SetSuddenDeath(true);
@@ -152,6 +137,7 @@ public class GameManager : MonoBehaviour
         suddenDeathCanvas.SetActive(true);
         suddenDeathMusic.SetActive(true);
     }
+    */
 
     // Changes to the postGame state
     public void EndGame()

@@ -12,7 +12,7 @@ public enum EventState
 
 public abstract class Event : MonoBehaviour
 {
-    [SerializeField] private new string name;
+    [SerializeField] private new string name, description;
     [SerializeField] private Sprite sprite;
     [SerializeField] private int delay;
 
@@ -39,5 +39,10 @@ public abstract class Event : MonoBehaviour
     public int GetDelay()
     {
         return delay;
+    }
+
+    public string GetDescription()
+    {
+        return description;
     }
 }
