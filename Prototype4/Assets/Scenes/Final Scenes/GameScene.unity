@@ -8557,6 +8557,9 @@ MonoBehaviour:
   force: 10
   powerupItemPrefabs:
   - {fileID: 3158911667443402170, guid: e85a3a1c8ccc59c489372dbfa8cb16d9, type: 3}
+  - {fileID: 3158911667443402170, guid: 4a1597eb3bed7aa4fa7fc1d5be5eaf5f, type: 3}
+  spawnOnStart: 1
+  numToSpawn: 5
 --- !u!4 &760481236
 Transform:
   m_ObjectHideFlags: 0

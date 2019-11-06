@@ -175,19 +175,44 @@ public class PlayerControllerRigidbody : MonoBehaviour
         // transform.DOLocalMove(this.transform.position, 0.7f).OnComplete(OnShoutAnimEnd);
         var seq = DOTween.Sequence();
         seq.AppendInterval(0.7f).OnComplete(OnShoutAnimEnd);
+        
+        var battlecry = GetComponent<BattlecryPowerupHolder>();
+        if (battlecry && battlecry.hasPowerup)
+        {
+            battlecry.hasPowerup = false;
 
+            for (float angle = 0.0f; angle < 360.0f; angle += 30.001f)
+            {
+                Vector3 localDir = Quaternion.Euler(0, angle, 0) * Vector3.forward;
+                Vector3 direction = transform.TransformDirection(localDir);
+                InstantiateProjectile(direction);
+            }
+
+            audioSource.Stop();
+            audioSource.PlayOneShot(exhaleSound);
+        }
+        else
+        {
+            // Fire projectile
+            InstantiateProjectile(this.transform.forward);
+
+            audioSource.Stop();
+            audioSource.PlayOneShot(exhaleSound);
+        }
+
+        currentCharge = 0.0f;
+    }
+
+    private GameObject InstantiateProjectile(Vector3 direction)
+    {
         // Fire projectile
         var airBlast = Instantiate(airBlastPrefab, this.transform.position, Quaternion.identity, null);
-        airBlast.GetComponent<AirBlast>().Launch(this.transform.forward, currentCharge, playerComp.GetPlayerID());
+        airBlast.GetComponent<AirBlast>().Launch(direction, currentCharge, playerComp.GetPlayerID());
         if (playerComp.inShadowRealm)
         {
             airBlast.layer = LayerMask.NameToLayer("Shadow Realm");
         }
-
-        currentCharge = 0.0f;
-
-        audioSource.Stop();
-        audioSource.PlayOneShot(exhaleSound);
+        return airBlast;
     }
 
     public void OnShoutAnimEnd()

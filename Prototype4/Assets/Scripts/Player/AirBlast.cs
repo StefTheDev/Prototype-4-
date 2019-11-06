@@ -40,6 +40,8 @@ public class AirBlast : MonoBehaviour
 
         if (otherAirBlast)
         {
+            if (otherAirBlast.playerIndex == this.playerIndex) { return; }
+
             AudioManager.Instance.PlaySound("AirBlastCollision", 2.0f);
             var particles = Instantiate(ReferenceManager.Instance.airBlastCollisionParticle, this.transform.position, this.transform.rotation);
             GameObject.Destroy(particles, 1.0f);

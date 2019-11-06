@@ -83,25 +83,40 @@ public class PlayerController : MonoBehaviour
         audioSource.PlayOneShot(inhaleSound);
     }
 
-    public void FireProjectile()
-    {
-        if (disabled) { return; }
+    //public void FireProjectile()
+    //{
+    //    if (disabled) { return; }
 
-        isCharging = false;
+    //    isCharging = false;
 
-        // Fire projectile
-        var airBlast = Instantiate(airBlastPrefab, this.transform.position, Quaternion.identity, null);
-        airBlast.GetComponent<AirBlast>().Launch(this.transform.forward, currentCharge, this.GetComponent<Player>().GetPlayerID());
-        if (GetComponent<Player>().inShadowRealm)
-        {
-            airBlast.layer = LayerMask.NameToLayer("Shadow Realm");
-        }
+    //    Player player = GetComponent<Player>();
 
-        currentCharge = 0.0f;
+    //    var battlecry = GetComponent<BattlecryPowerupHolder>();
+    //    if (battlecry && battlecry.hasPowerup)
+    //    {
+    //        for (float angle = 0.0f; angle < 360.0f; angle += 45.001f)
+    //        {
+    //            Vector3 localDir = Quaternion.Euler(0, angle, 0) * Vector3.forward;
+    //            Vector3 direction = transform.TransformDirection(localDir);
+    //            InstantiateProjectile(player, currentCharge, direction);
+    //        }
 
-        audioSource.Stop();
-        audioSource.PlayOneShot(exhaleSound);
-    }
+    //        currentCharge = 0.0f;
+
+    //        audioSource.Stop();
+    //        audioSource.PlayOneShot(exhaleSound);
+    //    }
+    //    else
+    //    {
+    //        // Fire projectile
+    //        InstantiateProjectile(player, currentCharge, transform.forward);
+
+    //        currentCharge = 0.0f;
+
+    //        audioSource.Stop();
+    //        audioSource.PlayOneShot(exhaleSound);
+    //    }
+    //}
 
     private void FixedUpdate()
     {
