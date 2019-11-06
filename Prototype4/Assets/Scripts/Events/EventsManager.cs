@@ -7,9 +7,8 @@ using TMPro;
 public class EventsManager : MonoBehaviour
 {
     [SerializeField] private Slider slider;
-    [SerializeField] private List<Event> events;
     [SerializeField] private TMP_Text text;
-    [SerializeField] private Image overlay;
+    [SerializeField] private List<Event> events;
 
     private Event currentEvent;
     private float time;
@@ -26,6 +25,7 @@ public class EventsManager : MonoBehaviour
 
         currentEvent = eventQueue.Dequeue();
         currentEvent.Call(EventState.START);
+
         time = currentEvent.GetDelay();
         text.text = currentEvent.GetDescription();
 
@@ -40,13 +40,14 @@ public class EventsManager : MonoBehaviour
 
         if (time <= 0)
         {
-            if (eventQueue.Count > 1) time = eventQueue.Peek().GetDelay();
             if (eventQueue.Count > 0)
             {
                 if(currentEvent != null) currentEvent.Call(EventState.END);
                 currentEvent = eventQueue.Dequeue();
-                text.text = currentEvent.GetDescription();
                 currentEvent.Call(EventState.START);
+
+                time = currentEvent.GetDelay();
+                text.text = currentEvent.GetDescription();
             }
         }
     }

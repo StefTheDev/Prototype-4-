@@ -5,6 +5,9 @@ using UnityEngine;
 public class StormEvent : Event
 {
     [SerializeField] private GameObject lightning, rain;
+    [SerializeField] private ParticleSystem indicator;
+
+    private ParticleSystem.Particle[] particles;
 
     public bool includeChildren = true;
 
@@ -18,5 +21,13 @@ public class StormEvent : Event
     {
         Debug.Log("Storm Event Ended.");
         lightning.SetActive(false);
+    }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        if(other.GetType() == typeof(Player))
+        {
+            Debug.Log("Player has been hit");
+        }
     }
 }
