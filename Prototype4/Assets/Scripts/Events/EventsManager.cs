@@ -38,6 +38,8 @@ public class EventsManager : MonoBehaviour
         slider.value = time / currentEvent.GetDelay();
         time -= Time.deltaTime;
 
+        if (Input.GetKey(KeyCode.T)) { time -= Time.deltaTime * 14; }
+
         if (time <= 0)
         {
             if (eventQueue.Count > 0)

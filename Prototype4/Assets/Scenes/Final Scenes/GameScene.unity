@@ -6883,7 +6883,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1517096664}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &521313415
 MonoBehaviour:
@@ -8522,62 +8522,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 746328950}
   m_CullTransparentMesh: 0
---- !u!1 &760481234
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 760481236}
-  - component: {fileID: 760481235}
-  m_Layer: 0
-  m_Name: BarrelThrower
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &760481235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 760481234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c150356bacdd2145ae8440a9719a2b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 7994337678903753082, guid: 2f04d2ad37765234bb209ef36f9c25bb, type: 3}
-  target: {fileID: 760481236}
-  range: 15
-  arcMin: 0
-  arcMax: 360
-  angleMin: 35
-  angleMax: 55
-  force: 10
-  powerupItemPrefabs:
-  - {fileID: 3158911667443402170, guid: e85a3a1c8ccc59c489372dbfa8cb16d9, type: 3}
-  - {fileID: 3158911667443402170, guid: 4a1597eb3bed7aa4fa7fc1d5be5eaf5f, type: 3}
-  spawnOnStart: 1
-  numToSpawn: 5
---- !u!4 &760481236
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 760481234}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &764462196 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 3369db84f4c9c1847b92452ac2720f41,
@@ -9630,6 +9574,79 @@ MonoBehaviour:
   m_Spacing: {x: 10, y: 10}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!1 &926724416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 926724417}
+  - component: {fileID: 926724419}
+  - component: {fileID: 926724418}
+  m_Layer: 0
+  m_Name: Barrels Event
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &926724417
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926724416}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1517096664}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &926724418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926724416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c150356bacdd2145ae8440a9719a2b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 7994337678903753082, guid: 2f04d2ad37765234bb209ef36f9c25bb, type: 3}
+  target: {fileID: 0}
+  range: 15
+  arcMin: 0
+  arcMax: 360
+  angleMin: 35
+  angleMax: 55
+  force: 10
+  powerupItemPrefabs:
+  - {fileID: 3158911667443402170, guid: e85a3a1c8ccc59c489372dbfa8cb16d9, type: 3}
+  - {fileID: 3158911667443402170, guid: 4a1597eb3bed7aa4fa7fc1d5be5eaf5f, type: 3}
+  spawnOnStart: 0
+  numToSpawn: 5
+--- !u!114 &926724419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926724416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5f8d88d97117d04e9c2d6cd8d69f78a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Barrels
+  description: Break these for powerups
+  sprite: {fileID: 0}
+  delay: 5
 --- !u!1 &929621375
 GameObject:
   m_ObjectHideFlags: 0
@@ -11381,7 +11398,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1517096664}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1411381052
 MonoBehaviour:
@@ -16601,6 +16618,7 @@ Transform:
   - {fileID: 894571092}
   - {fileID: 1265032078}
   - {fileID: 1432792335}
+  - {fileID: 926724417}
   - {fileID: 521313414}
   - {fileID: 1411381051}
   - {fileID: 1736448255}
@@ -16625,6 +16643,7 @@ MonoBehaviour:
   - {fileID: 894571093}
   - {fileID: 1265032079}
   - {fileID: 1432792336}
+  - {fileID: 926724419}
   - {fileID: 521313415}
   - {fileID: 1411381052}
   - {fileID: 1736448256}
@@ -17752,7 +17771,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1517096664}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1736448256
 MonoBehaviour:
