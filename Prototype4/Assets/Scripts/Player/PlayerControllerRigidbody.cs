@@ -112,6 +112,8 @@ public class PlayerControllerRigidbody : MonoBehaviour
 
         PlayerMovement(move);
 
+        FallingOffUpdate();
+
         // UpdateAnimator();
 
         if (ghostParticles) { ghostParticles.transform.position = this.transform.position; }
@@ -179,7 +181,10 @@ public class PlayerControllerRigidbody : MonoBehaviour
         // transform.DOLocalMove(this.transform.position, 0.7f).OnComplete(OnShoutAnimEnd);
         var seq = DOTween.Sequence();
         seq.AppendInterval(0.7f).OnComplete(OnShoutAnimEnd);
-        
+
+        var muzzleFlash = Instantiate(ReferenceManager.Instance.muzzleFlashParticle, this.transform);
+        GameObject.Destroy(muzzleFlash, 2.0f);
+
         var battlecry = GetComponent<BattlecryPowerupHolder>();
         if (battlecry && battlecry.hasPowerup)
         {
@@ -226,39 +231,42 @@ public class PlayerControllerRigidbody : MonoBehaviour
 
     public void StartCrouch()
     {
-        if (crouchCooldownTimer > 0.0f)
-        {
-            return;
-        }
+        return;
+        //if (crouchCooldownTimer > 0.0f)
+        //{
+        //    return;
+        //}
 
-        transform.DOKill();
-        transform.DOScaleY(0.3f, 0.01f);
+        //transform.DOKill();
+        //transform.DOScaleY(0.3f, 0.01f);
 
-        rigidBody.mass = startingMass * 1.3f;
+        //rigidBody.mass = startingMass * 1.3f;
 
-        isCrouching = true;
-        crouchingTime = 0.0f;
+        //isCrouching = true;
+        //crouchingTime = 0.0f;
     }
 
     private void UpdateCrouch()
     {
-        crouchingTime += Time.deltaTime;
+        return;
+        //crouchingTime += Time.deltaTime;
 
-        if (crouchingTime >= maxCrouchDuration)
-        {
-            EndCrouch();
-        }
+        //if (crouchingTime >= maxCrouchDuration)
+        //{
+        //    EndCrouch();
+        //}
     }
 
     public void EndCrouch()
     {
-        isCrouching = false;
-        crouchCooldownTimer = crouchCooldown;
+        return;
+        //isCrouching = false;
+        //crouchCooldownTimer = crouchCooldown;
 
-        transform.DOKill();
-        transform.DOScaleY(1.0f, 0.01f);
+        //transform.DOKill();
+        //transform.DOScaleY(1.0f, 0.01f);
 
-        rigidBody.mass = startingMass;
+        //rigidBody.mass = startingMass;
     }
 
     public void SetLook(Vector3 lookDir)
@@ -311,6 +319,34 @@ public class PlayerControllerRigidbody : MonoBehaviour
             isGrounded = false;
             groundCheckDist = initialGroundCheckDist;
         }
+    }
+
+    private void FallingOffUpdate()
+    {
+        const float waterY = -12.0f;
+        const float arenaRadius = 10.0f;
+
+        Vector3 pos = this.transform.position;
+        float posMag = pos.magnitude;
+
+        // If off arena edge
+        if (posMag > arenaRadius + 0.2f)
+        {
+            if (pos.y < 0.0f)
+            {
+                float newScale = 1.0f - pos.y / waterY;
+                this.transform.localScale = new Vector3(newScale, newScale, newScale);
+            }
+
+            var currentVelocity = rigidBody.velocity;
+            currentVelocity.y = 0.0f;
+            currentVelocity *= -0.05f;
+            rigidBody.velocity += currentVelocity;
+        }
+
+        // Scale down 
+
+
     }
 
     public void PlayReturnOnKillSound()

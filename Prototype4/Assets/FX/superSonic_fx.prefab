@@ -985,7 +985,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 0.4793396
           inSlope: 0.22342065
           outSlope: 0.22342065
           tangentMode: 0
