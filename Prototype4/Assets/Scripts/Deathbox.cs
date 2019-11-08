@@ -7,11 +7,13 @@ using UnityEngine;
 
 public class Deathbox : MonoBehaviour
 {
+#pragma warning disable CS0649
     [SerializeField, ReadOnly]
     private List<GameObject> vulnerable;
 
     [SerializeField]
     private SpawnPoints spawnPoints;
+#pragma warning restore CS0649
 
     private void OnTriggerStay(Collider other)
     {

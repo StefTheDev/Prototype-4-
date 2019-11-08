@@ -11,11 +11,24 @@ public class BattlecryPowerupHolder : MonoBehaviour
     public bool hasPowerup
     {
         get { return m_hasPowerup; }
-        set
+        private set
         {
             m_hasPowerup = value;
             if (visuals) visuals.SetActive(value);
         }
+    }
+
+    public void BeginEffects()
+    {
+        hasPowerup = true;
+
+        var shield = GetComponent<ShieldPowerup>();
+        if (shield) shield.EndEffects();
+    }
+
+    public void EndEffects()
+    {
+        hasPowerup = false;
     }
 
     private void Start()

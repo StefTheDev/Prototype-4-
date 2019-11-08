@@ -105,6 +105,7 @@ public class PlayerManager : MonoBehaviour
         }
         while (!foundFreeSpawn);
 
+        myPlayerComp.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         spawnPoint.Teleport(myPlayer.transform);
         myPlayer.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
