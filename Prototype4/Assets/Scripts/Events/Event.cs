@@ -12,12 +12,10 @@ public enum EventState
 
 public abstract class Event : MonoBehaviour
 {
-#pragma warning disable CS0649
     [SerializeField] private new string name;
     [SerializeField] private string description;
     [SerializeField] private Sprite sprite;
     [SerializeField] private int delay;
-#pragma warning restore CS0649
 
     public void Call(EventState eventState)
     {

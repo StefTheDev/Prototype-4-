@@ -6,12 +6,10 @@ using TMPro;
 
 public class EventsManager : MonoBehaviour
 {
-#pragma warning disable CS0649
     [SerializeField] private Slider slider;
     [SerializeField] private TMP_Text text;
     [SerializeField] private Animator animator;
     [SerializeField] private List<Event> events;
-#pragma warning restore CS0649
 
     private Event currentEvent;
     private float time;
@@ -34,6 +32,7 @@ public class EventsManager : MonoBehaviour
 
         slider.gameObject.SetActive(true);
         slider.image.sprite = eventQueue.Peek().GetSprite();
+        Debug.Log(eventQueue.Peek().GetSprite().name);
     }
 
     private void Update()
@@ -55,6 +54,8 @@ public class EventsManager : MonoBehaviour
 
                 time = currentEvent.GetDelay();
                 text.text = currentEvent.GetDescription();
+
+                if (eventQueue.Count > 0) slider.image.sprite = eventQueue.Peek().GetSprite();
                 animator.SetBool("Open", true);
             }
         }

@@ -6,7 +6,7 @@ public class StartEvent : Event
 {
     public override void OnEnd()
     {
-        //Nothing...?
+        //Wait for the countdown to end.
     }
 
     public override void OnStart()

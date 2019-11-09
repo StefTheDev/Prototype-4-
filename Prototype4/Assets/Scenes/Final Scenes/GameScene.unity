@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: c6c372acce3ca1c4bb770106c97f771d, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -2145,8 +2145,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   description: 'Darkness has fallen. '
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 445a85a933f8b28419f3f93b25533bb2, type: 3}
   delay: 15
+  volume: {fileID: 140735812}
 --- !u!1 &529014859
 GameObject:
   m_ObjectHideFlags: 3
@@ -3557,7 +3558,7 @@ GameObject:
   m_Component:
   - component: {fileID: 742886480}
   - component: {fileID: 742886481}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Status Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3573,15 +3574,15 @@ RectTransform:
   m_GameObject: {fileID: 742886479}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.50416666, y: 0.50416666, z: 0.50416666}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1892690005}
-  m_Father: {fileID: 1491834790}
-  m_RootOrder: 3
+  m_Father: {fileID: 1364064401}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -30}
+  m_AnchoredPosition: {x: 0, y: 464}
   m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &742886481
@@ -6122,7 +6123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Debris
   description: The gods are pretty dirty ngl
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 6fd9b11cee0230a47931ad33b4614320, type: 3}
   delay: 15
 --- !u!1 &1300318721
 GameObject:
@@ -6263,6 +6264,43 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2691288305444725050, guid: f2d348558ff1df749a2ce651a03dc140, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f2d348558ff1df749a2ce651a03dc140, type: 3}
+--- !u!1 &1364064400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1364064401}
+  m_Layer: 5
+  m_Name: Event Bar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1364064401
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364064400}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 742886480}
+  - {fileID: 1491834790}
+  m_Father: {fileID: 1391784044}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.000030518, y: -0.05687}
+  m_SizeDelta: {x: 1920, y: 1079.6}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1389251418
 GameObject:
   m_ObjectHideFlags: 0
@@ -6324,7 +6362,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1491834790}
+  - {fileID: 1364064401}
   - {fileID: 323554178}
   - {fileID: 684429442}
   - {fileID: 1468016013}
@@ -6680,7 +6718,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Sudden Death
   description: Die or live, your choice!
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 445a85a933f8b28419f3f93b25533bb2, type: 3}
   delay: 60
 --- !u!1 &1418432465
 GameObject:
@@ -6790,10 +6828,6 @@ MonoBehaviour:
   description: Thou shalt be smited by Thor
   sprite: {fileID: 21300000, guid: 00423eea9cb42f246b02622abd7f80cd, type: 3}
   delay: 15
-  lightning: {fileID: 0}
-  rain: {fileID: 0}
-  indicator: {fileID: 0}
-  includeChildren: 0
 --- !u!1001 &1440265886
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6980,9 +7014,8 @@ RectTransform:
   - {fileID: 1542609597}
   - {fileID: 305867082}
   - {fileID: 1170477489}
-  - {fileID: 742886480}
-  m_Father: {fileID: 1391784044}
-  m_RootOrder: 0
+  m_Father: {fileID: 1364064401}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7096,12 +7129,8 @@ MonoBehaviour:
   animator: {fileID: 742886481}
   events:
   - {fileID: 894571093}
-  - {fileID: 1265032079}
-  - {fileID: 1432792336}
-  - {fileID: 926724419}
   - {fileID: 521313415}
   - {fileID: 1411381052}
-  - {fileID: 1736448256}
 --- !u!1 &1542609596
 GameObject:
   m_ObjectHideFlags: 0
