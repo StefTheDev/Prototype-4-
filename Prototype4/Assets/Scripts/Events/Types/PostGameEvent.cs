@@ -7,6 +7,7 @@ public class PostGameEvent : Event
 {
     public override void OnEnd()
     {
+        //reloads the current scene. 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

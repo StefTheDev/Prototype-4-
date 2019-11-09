@@ -139,6 +139,7 @@ public class PlayerManager : MonoBehaviour
                 trans.gameObject.layer = newLayer;
             }
             myPlayerComp.ChangeRealm(true);
+            //Set prompt to have dark realm sprite
         }
         else
         {
@@ -149,6 +150,7 @@ public class PlayerManager : MonoBehaviour
                 trans.gameObject.layer = newLayer;
             }
             myPlayerComp.ChangeRealm(false);
+            //Set prompt to have normal realm sprite
         }
     }
 
@@ -171,12 +173,10 @@ public class PlayerManager : MonoBehaviour
         Destroy(myPlayer);
         SpawnPlayer();
 
-        if (inputsDisabled)
-        {
-            myPlayer.GetComponent<PlayerControllerRigidbody>().SetDisabled(true);
-        }
+        if (inputsDisabled) myPlayer.GetComponent<PlayerControllerRigidbody>().SetDisabled(true);
 
-        ReferenceManager.Instance.joinPrompts[playerID].SetActive(false);
+        PromptManager.Instance.GetPrompts()[playerID].gameObject.SetActive(false);
+        //ReferenceManager.Instance.joinPrompts[playerID].SetActive(false);
     }
 
     private void HumanLeave()
@@ -191,6 +191,7 @@ public class PlayerManager : MonoBehaviour
             myPlayer.GetComponent<PlayerControllerRigidbody>().SetDisabled(true);
         }
 
-        ReferenceManager.Instance.joinPrompts[playerID].SetActive(true);
+        PromptManager.Instance.GetPrompts()[playerID].gameObject.SetActive(true);
+        //ReferenceManager.Instance.joinPrompts[playerID].SetActive(true);
     }
 }

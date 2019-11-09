@@ -4,25 +4,34 @@ using UnityEngine;
 
 public class StormEvent : Event
 {
-#pragma warning disable CS0649
-    [SerializeField] private GameObject lightning, rain;
-    [SerializeField] private ParticleSystem indicator;
-#pragma warning restore CS0649
+    //Storm Event
 
-    private ParticleSystem.Particle[] particles;
+    //1. Lightning
+    //a. Indicator circle to display
+    //b. Once the indicator finished, hit lightning at position
+    //2. Rain 
+    //a. Will start before the lightning maybe 5-10 seconds
+    //b. Slowly fades once it reaches close to the end of the event
+    //3. Fog
+    //a. Will fall before the rain
+    //b. Also fades away but before the rain cancels out. 
 
+    //[SerializeField] private GameObject lightning, rain;
+
+    /*private ParticleSystem.Particle[] particles;
     public bool includeChildren = true;
+    */
 
     public override void OnStart()
     {
         Debug.Log("Storm Event Started.");
-        lightning.SetActive(true);
+        //lightning.SetActive(true);
     }
 
     public override void OnEnd()
     {
         Debug.Log("Storm Event Ended.");
-        lightning.SetActive(false);
+        //lightning.SetActive(false);
     }
 
     private void OnParticleCollision(GameObject other)
