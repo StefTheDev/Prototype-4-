@@ -355,7 +355,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
     public void PlayReturnOnKillSound()
     {
         audioSource.PlayOneShot(respawnOnKillSound);
-        var respawnEffect = Instantiate(ReferenceManager.Instance.respawnOnKillParticle, this.transform);
+        var respawnEffect = Instantiate(ReferenceManager.Instance.respawnParticle[playerComp.playerID], this.transform);
         GameObject.Destroy(respawnEffect, 2.0f);
     }
 

@@ -10,22 +10,22 @@ PrefabInstance:
     - target: {fileID: 4881696752855588365, guid: cfec1a1a9756a6646854d0c5e06a087b,
         type: 3}
       propertyPath: m_Name
-      value: player_spawn_yellow
+      value: player_spawn_yellow Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4881696752855588370, guid: cfec1a1a9756a6646854d0c5e06a087b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.0700097
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4881696752855588370, guid: cfec1a1a9756a6646854d0c5e06a087b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.42
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4881696752855588370, guid: cfec1a1a9756a6646854d0c5e06a087b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.0685818
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4881696752855588370, guid: cfec1a1a9756a6646854d0c5e06a087b,
         type: 3}

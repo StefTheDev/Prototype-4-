@@ -19,7 +19,7 @@ public class ReferenceManager : MonoBehaviour
     public GameObject[] joinPrompts;
     public GameObject muzzleFlashParticle;
     public GameObject airBlastCollisionParticle;
-    public GameObject respawnOnKillParticle;
+    public GameObject[] respawnParticle;
 
     private void Awake()
     {

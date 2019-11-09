@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 4881696752855588365, guid: cfec1a1a9756a6646854d0c5e06a087b,
         type: 3}
       propertyPath: m_Name
-      value: player_spawn_red
+      value: player_spawn_red Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4881696752855588370, guid: cfec1a1a9756a6646854d0c5e06a087b,
         type: 3}
@@ -20,7 +20,7 @@ PrefabInstance:
     - target: {fileID: 4881696752855588370, guid: cfec1a1a9756a6646854d0c5e06a087b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.182
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4881696752855588370, guid: cfec1a1a9756a6646854d0c5e06a087b,
         type: 3}

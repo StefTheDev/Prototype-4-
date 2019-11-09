@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1426813943620131106}
   - component: {fileID: 1426813943620131133}
   m_Layer: 0
-  m_Name: player_respawn_from_ghost
+  m_Name: player_respawn_from_ghost_fx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426813943620131132}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.182, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 0.5392715, y: 0.5392715, z: 0.5392715}
   m_Children:
   - {fileID: 1426813944044250045}
@@ -9535,7 +9535,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2507290488433500862}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2459082, y: 1.5022439, z: -0.027020913}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.8543537, y: 1.8543546, z: 1.8543546}
   m_Children: []
   m_Father: {fileID: 1426813943620131107}
@@ -9793,7 +9793,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.25
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -10255,7 +10255,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.73
       mode: 0
       spread: 0
       speed:
