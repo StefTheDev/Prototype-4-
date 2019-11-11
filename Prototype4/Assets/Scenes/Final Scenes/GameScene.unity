@@ -2100,54 +2100,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 88.884, y: -36.421, z: 1.7760001}
---- !u!1 &521313413
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 521313414}
-  - component: {fileID: 521313415}
-  m_Layer: 0
-  m_Name: Night Event
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &521313414
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 521313413}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1517096664}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &521313415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 521313413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db6fcc28976e4844f8927f5bb2eac1d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: 
-  description: 'Darkness has fallen. '
-  sprite: {fileID: 21300000, guid: 445a85a933f8b28419f3f93b25533bb2, type: 3}
-  delay: 15
-  volume: {fileID: 140735812}
 --- !u!1 &529014859
 GameObject:
   m_ObjectHideFlags: 3
@@ -4179,6 +4131,18 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3074136723085298594, guid: d1e3fe0e8fecdb449ba1806bde6d6605, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d1e3fe0e8fecdb449ba1806bde6d6605, type: 3}
+--- !u!114 &805985613 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 758295319146026262, guid: 37092314b8794e84c96818dde44aab8c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8027016823407330739}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db6fcc28976e4844f8927f5bb2eac1d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &828924100
 GameObject:
   m_ObjectHideFlags: 0
@@ -4337,6 +4301,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 828924100}
   m_CullTransparentMesh: 0
+--- !u!114 &862786370 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1281380708880949909, guid: 37092314b8794e84c96818dde44aab8c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8027016823407330739}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5f8d88d97117d04e9c2d6cd8d69f78a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &865198010
 GameObject:
   m_ObjectHideFlags: 0
@@ -4495,53 +4471,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 865198010}
   m_CullTransparentMesh: 0
---- !u!1 &894571091
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 894571092}
-  - component: {fileID: 894571093}
-  m_Layer: 0
-  m_Name: Start Event
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &894571092
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 894571091}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1517096664}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &894571093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 894571091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da950a54fde0c644eb54d6f9c1595f9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: Start Event
-  description: A fresh new day has arisen.
-  sprite: {fileID: 0}
-  delay: 15
 --- !u!1 &915110659
 GameObject:
   m_ObjectHideFlags: 0
@@ -4841,79 +4770,6 @@ MonoBehaviour:
   m_Spacing: {x: 10, y: 10}
   m_Constraint: 0
   m_ConstraintCount: 2
---- !u!1 &926724416
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 926724417}
-  - component: {fileID: 926724419}
-  - component: {fileID: 926724418}
-  m_Layer: 0
-  m_Name: Barrels Event
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &926724417
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 926724416}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1517096664}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &926724418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 926724416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c150356bacdd2145ae8440a9719a2b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 7994337678903753082, guid: 2f04d2ad37765234bb209ef36f9c25bb, type: 3}
-  target: {fileID: 0}
-  range: 15
-  arcMin: 0
-  arcMax: 360
-  angleMin: 35
-  angleMax: 55
-  force: 10
-  powerupItemPrefabs:
-  - {fileID: 3158911667443402170, guid: e85a3a1c8ccc59c489372dbfa8cb16d9, type: 3}
-  - {fileID: 3158911667443402170, guid: 4a1597eb3bed7aa4fa7fc1d5be5eaf5f, type: 3}
-  spawnOnStart: 0
-  numToSpawn: 5
---- !u!114 &926724419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 926724416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5f8d88d97117d04e9c2d6cd8d69f78a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: Barrels
-  description: Break these for powerups
-  sprite: {fileID: 0}
-  delay: 5
 --- !u!1 &929621375
 GameObject:
   m_ObjectHideFlags: 0
@@ -6072,59 +5928,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1236151013}
   m_Mesh: {fileID: -9010193167645078742, guid: 08a962663cabbe84ebde24f0625fae89, type: 3}
---- !u!4 &1259542826 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8027016823354626250, guid: 37092314b8794e84c96818dde44aab8c,
-    type: 3}
-  m_PrefabInstance: {fileID: 8027016823407330739}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1265032077
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1265032078}
-  - component: {fileID: 1265032079}
-  m_Layer: 0
-  m_Name: Debris Event
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1265032078
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1265032077}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1517096664}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1265032079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1265032077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5767cf52249705d489f95cb811293cb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: Debris
-  description: The gods are pretty dirty ngl
-  sprite: {fileID: 21300000, guid: 6fd9b11cee0230a47931ad33b4614320, type: 3}
-  delay: 15
 --- !u!1 &1300318721
 GameObject:
   m_ObjectHideFlags: 0
@@ -6673,53 +6476,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1409741063}
   m_CullTransparentMesh: 0
---- !u!1 &1411381050
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1411381051}
-  - component: {fileID: 1411381052}
-  m_Layer: 0
-  m_Name: Sudden Death
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1411381051
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1411381050}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1517096664}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1411381052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1411381050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 587bf30e2660df44483c10d724f6409f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: Sudden Death
-  description: Die or live, your choice!
-  sprite: {fileID: 21300000, guid: 445a85a933f8b28419f3f93b25533bb2, type: 3}
-  delay: 60
 --- !u!1 &1418432465
 GameObject:
   m_ObjectHideFlags: 0
@@ -6781,53 +6537,6 @@ MonoBehaviour:
   optionsBackButton: {fileID: 1684502053}
   image: {fileID: 1837246954}
   menuLevel: MenuScene
---- !u!1 &1432792334
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1432792335}
-  - component: {fileID: 1432792336}
-  m_Layer: 0
-  m_Name: Storm Event
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1432792335
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1432792334}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1517096664}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1432792336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1432792334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 146358220528e684dbd0458fc840e3ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: Storm
-  description: Thou shalt be smited by Thor
-  sprite: {fileID: 21300000, guid: 00423eea9cb42f246b02622abd7f80cd, type: 3}
-  delay: 15
 --- !u!1001 &1440265886
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6835,6 +6544,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1907396417}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 3369db84f4c9c1847b92452ac2720f41,
+        type: 3}
+      propertyPath: m_Name
+      value: manuChibi
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 3369db84f4c9c1847b92452ac2720f41,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3369db84f4c9c1847b92452ac2720f41,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6888,16 +6607,6 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 3369db84f4c9c1847b92452ac2720f41,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 3369db84f4c9c1847b92452ac2720f41,
-        type: 3}
-      propertyPath: m_Name
-      value: manuChibi
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 3369db84f4c9c1847b92452ac2720f41,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8377303644997871296, guid: 3369db84f4c9c1847b92452ac2720f41,
@@ -7074,63 +6783,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!1 &1517096663
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1517096664}
-  - component: {fileID: 1517096665}
-  m_Layer: 0
-  m_Name: Events Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1517096664
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517096663}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 894571092}
-  - {fileID: 1265032078}
-  - {fileID: 1432792335}
-  - {fileID: 926724417}
-  - {fileID: 521313414}
-  - {fileID: 1411381051}
-  - {fileID: 1736448255}
-  m_Father: {fileID: 1259542826}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1517096665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517096663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abd6efb84f89b5543ad8cea9b2b387e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 1491834791}
-  text: {fileID: 1409614786}
-  animator: {fileID: 742886481}
-  events:
-  - {fileID: 894571093}
-  - {fileID: 521313415}
-  - {fileID: 1411381052}
 --- !u!1 &1542609596
 GameObject:
   m_ObjectHideFlags: 0
@@ -8049,6 +7701,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -835627763931190347, guid: cf9ab401c9c83b443bb5e3d4269e8069, type: 3}
+--- !u!114 &1677639023 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1385217791383466823, guid: 37092314b8794e84c96818dde44aab8c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8027016823407330739}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587bf30e2660df44483c10d724f6409f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1684502053
 GameObject:
   m_ObjectHideFlags: 0
@@ -8226,53 +7890,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1676519607}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1736448254
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1736448255}
-  - component: {fileID: 1736448256}
-  m_Layer: 0
-  m_Name: Post Game Event
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1736448255
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1736448254}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1517096664}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1736448256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1736448254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c3ce6cc493ec464e94ae153eecc3872, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: 
-  description: 'The gods are cleaning up your stink hole. '
-  sprite: {fileID: 0}
-  delay: 5
 --- !u!1 &1740754423
 GameObject:
   m_ObjectHideFlags: 0
@@ -10636,7 +10253,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gameEvents
       value: 
-      objectReference: {fileID: 1517096663}
+      objectReference: {fileID: 0}
     - target: {fileID: 832454718, guid: 37092314b8794e84c96818dde44aab8c, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -10689,5 +10306,51 @@ PrefabInstance:
       propertyPath: InitialModule.startLifetime.minMaxState
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2350451343517981870, guid: 37092314b8794e84c96818dde44aab8c,
+        type: 3}
+      propertyPath: events.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350451343517981870, guid: 37092314b8794e84c96818dde44aab8c,
+        type: 3}
+      propertyPath: slider
+      value: 
+      objectReference: {fileID: 1491834791}
+    - target: {fileID: 2350451343517981870, guid: 37092314b8794e84c96818dde44aab8c,
+        type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 1409614786}
+    - target: {fileID: 2350451343517981870, guid: 37092314b8794e84c96818dde44aab8c,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 742886481}
+    - target: {fileID: 2350451343517981870, guid: 37092314b8794e84c96818dde44aab8c,
+        type: 3}
+      propertyPath: events.Array.data[3]
+      value: 
+      objectReference: {fileID: 1677639023}
+    - target: {fileID: 2350451343517981870, guid: 37092314b8794e84c96818dde44aab8c,
+        type: 3}
+      propertyPath: events.Array.data[1]
+      value: 
+      objectReference: {fileID: 862786370}
+    - target: {fileID: 2350451343517981870, guid: 37092314b8794e84c96818dde44aab8c,
+        type: 3}
+      propertyPath: events.Array.data[2]
+      value: 
+      objectReference: {fileID: 805985613}
+    - target: {fileID: 758295319146026262, guid: 37092314b8794e84c96818dde44aab8c,
+        type: 3}
+      propertyPath: volume
+      value: 
+      objectReference: {fileID: 140735812}
+    - target: {fileID: 1558745743870054217, guid: 37092314b8794e84c96818dde44aab8c,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 8453353790993311778, guid: 61824b7a13bcd9c41997d3dda0ee3904,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37092314b8794e84c96818dde44aab8c, type: 3}
