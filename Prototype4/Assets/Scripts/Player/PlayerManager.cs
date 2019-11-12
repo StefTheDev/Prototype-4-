@@ -109,7 +109,9 @@ public class PlayerManager : MonoBehaviour
         spawnPoint.Teleport(myPlayer.transform);
         myPlayer.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
+        myPlayer.GetComponent<PlayerControllerRigidbody>().CancelCharging();
         myPlayer.GetComponent<ShieldPowerup>().EndEffects();
+        myPlayer.GetComponent<BattlecryPowerupHolder>().EndEffects();
     }
 
     public void PlayerDeath()
@@ -175,8 +177,8 @@ public class PlayerManager : MonoBehaviour
 
         if (inputsDisabled) myPlayer.GetComponent<PlayerControllerRigidbody>().SetDisabled(true);
 
-        PromptManager.Instance.GetPrompts()[playerID].gameObject.SetActive(false);
-        //ReferenceManager.Instance.joinPrompts[playerID].SetActive(false);
+        //PromptManager.Instance.GetPrompts()[playerID].gameObject.SetActive(false);
+        ReferenceManager.Instance.ActivateHuman(playerID);
     }
 
     private void HumanLeave()
@@ -191,7 +193,6 @@ public class PlayerManager : MonoBehaviour
             myPlayer.GetComponent<PlayerControllerRigidbody>().SetDisabled(true);
         }
 
-        PromptManager.Instance.GetPrompts()[playerID].gameObject.SetActive(true);
-        //ReferenceManager.Instance.joinPrompts[playerID].SetActive(true);
+        ReferenceManager.Instance.ActivateAI(playerID);
     }
 }

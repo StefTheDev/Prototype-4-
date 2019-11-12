@@ -164,6 +164,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
     {
         if (isDisabled) { return; }
         if (isFiring) { return; }
+        if (isCharging) { return; }
 
         isCharging = true;
         currentCharge = 0.0f;
@@ -175,6 +176,12 @@ public class PlayerControllerRigidbody : MonoBehaviour
         audioSource.PlayOneShot(inhaleSound);
     }
 
+    public void CancelCharging()
+    {
+        isCharging = false;
+        currentCharge = 0.0f;
+    }
+
     public void FireProjectile()
     {
         if (isDisabled) { return; }
@@ -183,7 +190,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
         isFiring = true;
         // transform.DOLocalMove(this.transform.position, 0.7f).OnComplete(OnShoutAnimEnd);
         var seq = DOTween.Sequence();
-        seq.AppendInterval(0.7f).OnComplete(OnShoutAnimEnd);
+        seq.AppendInterval(0.35f).OnComplete(OnShoutAnimEnd);
 
         var muzzleFlash = Instantiate(ReferenceManager.Instance.muzzleFlashParticle, this.transform);
         GameObject.Destroy(muzzleFlash, 2.0f);
@@ -200,8 +207,9 @@ public class PlayerControllerRigidbody : MonoBehaviour
                 InstantiateProjectile(direction);
             }
 
-            audioSource.Stop();
-            audioSource.PlayOneShot(exhaleSound);
+            // audioSource.Stop();
+            // audioSource.PlayOneShot(exhaleSound);
+            AudioManager.Instance.PlaySound("Battlecry");
         }
         else
         {
@@ -219,7 +227,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
     {
         // Fire projectile
         var airBlast = Instantiate(airBlastPrefab, this.transform.position, Quaternion.identity, null);
-        airBlast.GetComponent<AirBlast>().Launch(direction, currentCharge, playerComp.GetPlayerID());
+        airBlast.GetComponent<AirBlast>().Launch(direction, currentCharge, playerComp.GetPlayerID(), playerComp.inShadowRealm);
         if (playerComp.inShadowRealm)
         {
             airBlast.layer = LayerMask.NameToLayer("Shadow Realm");

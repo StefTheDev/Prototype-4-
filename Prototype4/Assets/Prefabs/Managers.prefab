@@ -172,7 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   description: 'Darkness has fallen. '
-  sprite: {fileID: 21300000, guid: 445a85a933f8b28419f3f93b25533bb2, type: 3}
+  sprite: {fileID: 21300000, guid: 7e84bf40f424060438a920a87174518b, type: 3}
   delay: 15
   volume: {fileID: 0}
 --- !u!1 &437903104834491294
@@ -285,7 +285,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7488301963481570452
 Transform:
   m_ObjectHideFlags: 0
@@ -324,8 +324,11 @@ MonoBehaviour:
   animator: {fileID: 0}
   events:
   - {fileID: 3103971508744945412}
+  - {fileID: 9063220331588936259}
+  - {fileID: 6475034694108800697}
   - {fileID: 758295319146026262}
   - {fileID: 1385217791383466823}
+  - {fileID: 7809251964459285306}
 --- !u!1 &2996300568722971094
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,8 +436,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c150356bacdd2145ae8440a9719a2b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 7994337678903753082, guid: 2f04d2ad37765234bb209ef36f9c25bb, type: 3}
-  target: {fileID: 0}
+  barrelPrefab: {fileID: 0}
+  target: {fileID: 8453353790993311778, guid: 61824b7a13bcd9c41997d3dda0ee3904, type: 3}
   range: 15
   arcMin: 0
   arcMax: 360
@@ -805,6 +808,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2689279263446547178, guid: 4bddc2bacbf5c454889919a6964779b6,
         type: 3}
+    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
+        type: 3}
+      propertyPath: logPrefab
+      value: 
+      objectReference: {fileID: 699079500605745404, guid: a7e0804e6b904c94491898ed7f823961,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48192c751207127459d5194e211595f0, type: 3}
 --- !u!4 &8027016824054475352 stripped
@@ -978,7 +987,7 @@ PrefabInstance:
     - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
         type: 3}
       propertyPath: soundClips.Array.size
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
         type: 3}
@@ -1060,6 +1069,16 @@ PrefabInstance:
       propertyPath: soundClips.Array.data[11].sound
       value: 
       objectReference: {fileID: 8300000, guid: 01206265bb0d62740b4c141682fd7b32, type: 3}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[12].name
+      value: Battlecry
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[12].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: cd20ab647615bf546b5e5f9f4f2785b8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a346d37d6edd9ec4f8d2cc4241592f95, type: 3}
 --- !u!4 &8027016824666364849 stripped

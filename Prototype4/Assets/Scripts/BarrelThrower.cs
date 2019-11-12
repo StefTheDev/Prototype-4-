@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BarrelThrower : MonoBehaviour
 {
-    public Rigidbody prefab;
+    // public Rigidbody prefab;
+    public GameObject barrelPrefab;
 
     public Transform target;
     public float range = 10.0f;
@@ -65,10 +66,12 @@ public class BarrelThrower : MonoBehaviour
         Vector3 worldPosition = target.TransformPoint(localPosition);
         Vector3 forceVector = worldRotation * Vector3.forward * force;
 
-        var rb = Instantiate(prefab, worldPosition, worldRotation, transform);
+        var newBarrel = Instantiate(barrelPrefab, worldPosition, worldRotation, transform);
+        // var rb = Instantiate(prefab, worldPosition, worldRotation, transform);
+        var rb = newBarrel.GetComponentInChildren<Rigidbody>();
         rb.AddForce(forceVector, ForceMode.Impulse);
 
-        var barrel = rb.GetComponent<Barrel>();
+        var barrel = newBarrel.GetComponent<Barrel>();
         if (!barrel) { Debug.LogError("barrel is null", this); }
         else
         {

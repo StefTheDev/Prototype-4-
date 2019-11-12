@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ReferenceManager : MonoBehaviour
 {
@@ -16,14 +17,57 @@ public class ReferenceManager : MonoBehaviour
 
     public Material[] playerMaterials;
     public Material[] playerShadowRealmMaterials;
-    public GameObject[] joinPrompts;
+
+    public GameObject promptParent;
+
     public GameObject muzzleFlashParticle;
     public GameObject airBlastCollisionParticle;
     public GameObject[] respawnParticle;
+    public GameObject logPrefab;
 
     private void Awake()
     {
         if (instance != null && instance != this) { Destroy(this.gameObject); }
         else { instance = this; }
+    }
+
+
+    private GameObject[] humanPrompts;
+    private GameObject[] aiPrompts;
+
+    private GameObject[] activatedPrompts = new GameObject[4];
+   
+    private GridLayout gridLayout;
+
+    private void Start()
+    {
+        humanPrompts = Resources.LoadAll<GameObject>("AI Prompts");
+        aiPrompts = Resources.LoadAll<GameObject>("AI Prompts");
+
+        for(int i = 0; i < 4; i++) ActivateAI(i);
+    }
+
+
+    public void ActivateHuman(int index)
+    {
+        if (activatedPrompts[index] != null)
+        {
+            Destroy(activatedPrompts[index]);
+            Debug.Log("Human Destroyed");
+        }
+
+        activatedPrompts[index] = Instantiate(humanPrompts[index], promptParent.transform);
+        activatedPrompts[index].GetComponentInChildren<TMP_Text>().text = "Human";
+    }
+
+    public void ActivateAI(int index)
+    {
+        if (activatedPrompts[index] != null)
+        {
+            Destroy(activatedPrompts[index]);
+            Debug.Log("AI Destroyed");
+        }
+        activatedPrompts[index] = Instantiate(humanPrompts[index], promptParent.transform);
+        activatedPrompts[index].GetComponentInChildren<TMP_Text>().text = "AI";
     }
 }
