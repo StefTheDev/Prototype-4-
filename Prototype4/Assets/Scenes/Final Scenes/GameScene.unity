@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 112000000, guid: a686f001896a3fa49a75852122ff0a58,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5826,6 +5826,95 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 107473e06e479cc4aa6a7b9f4eeceb8d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3369db84f4c9c1847b92452ac2720f41, type: 3}
+--- !u!1 &1460654130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1460654134}
+  - component: {fileID: 1460654133}
+  - component: {fileID: 1460654132}
+  - component: {fileID: 1460654131}
+  m_Layer: 0
+  m_Name: Barrel Thrower
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1460654131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460654130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c0fb0d83b436b4299197b1d6d060e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seconds: 30
+  thrower: {fileID: 0}
+--- !u!114 &1460654132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460654130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c150356bacdd2145ae8440a9719a2b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrelPrefab: {fileID: 7019515234606518684, guid: 9653aa9f05d30624f888bfa2802e431b,
+    type: 3}
+  target: {fileID: 0}
+  range: 15
+  arcMin: 0
+  arcMax: 360
+  angleMin: 35
+  angleMax: 55
+  force: 10
+  powerupItemPrefabs:
+  - {fileID: 3158911667443402170, guid: e85a3a1c8ccc59c489372dbfa8cb16d9, type: 3}
+  - {fileID: 3158911667443402170, guid: 4a1597eb3bed7aa4fa7fc1d5be5eaf5f, type: 3}
+  spawnOnStart: 0
+  numToSpawn: 5
+--- !u!114 &1460654133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460654130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5f8d88d97117d04e9c2d6cd8d69f78a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Barrels
+  description: Break these for powerups
+  sprite: {fileID: 0}
+  delay: 5
+--- !u!4 &1460654134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460654130}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1468016010
 GameObject:
   m_ObjectHideFlags: 0
@@ -9100,6 +9189,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 7e84bf40f424060438a920a87174518b,
         type: 3}
+    - target: {fileID: 1780616918735740897, guid: 37092314b8794e84c96818dde44aab8c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8027016823354626250, guid: 37092314b8794e84c96818dde44aab8c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9374,10 +9468,5 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8453353790993311778, guid: 61824b7a13bcd9c41997d3dda0ee3904,
         type: 3}
-    - target: {fileID: 1780616918735740897, guid: 37092314b8794e84c96818dde44aab8c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37092314b8794e84c96818dde44aab8c, type: 3}
