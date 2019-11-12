@@ -7,6 +7,9 @@ public class Barrel : MonoBehaviour
     public GameObject powerupPrefab;
     public ParticleSystem emitter;
 
+    public GameObject unbrokenBarrel;
+    public GameObject brokenBarrel;
+
     public void Break()
     {
         if (!this) { return; }
@@ -17,6 +20,11 @@ public class Barrel : MonoBehaviour
         //emitter.transform.localRotation = Quaternion.Euler(-90, 0, 0);
         //emitter.gameObject.SetActive(true);
 
-        Destroy(gameObject);
+        // Replace full mesh with broken mesh
+        unbrokenBarrel.SetActive(false);
+        brokenBarrel.SetActive(true);
+
+        // Destroy fragments after 5 seconds
+        Destroy(gameObject, 5.0f);
     }
 }
