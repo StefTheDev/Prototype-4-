@@ -175,8 +175,8 @@ public class PlayerManager : MonoBehaviour
 
         if (inputsDisabled) myPlayer.GetComponent<PlayerControllerRigidbody>().SetDisabled(true);
 
-        PromptManager.Instance.GetPrompts()[playerID].gameObject.SetActive(false);
-        //ReferenceManager.Instance.joinPrompts[playerID].SetActive(false);
+        //PromptManager.Instance.GetPrompts()[playerID].gameObject.SetActive(false);
+        ReferenceManager.Instance.ActivateHuman(playerID);
     }
 
     private void HumanLeave()
@@ -191,7 +191,6 @@ public class PlayerManager : MonoBehaviour
             myPlayer.GetComponent<PlayerControllerRigidbody>().SetDisabled(true);
         }
 
-        PromptManager.Instance.GetPrompts()[playerID].gameObject.SetActive(true);
-        //ReferenceManager.Instance.joinPrompts[playerID].SetActive(true);
+        ReferenceManager.Instance.ActivateAI(playerID);
     }
 }
