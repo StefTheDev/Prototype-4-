@@ -437,10 +437,10 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: e8f4abedbac57704b8c32ef0ebb6c7fa, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.4
-  m_Height: 0.91
+  m_Radius: 0.39
+  m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0.35, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7019515234608120514
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,7 +465,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7019515234608120514}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.375, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children:
   - {fileID: 2598831129230214189}
@@ -496,7 +496,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7019515235361549293}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.375, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children:
   - {fileID: 2598831129997695106}
@@ -630,16 +630,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7019515234608120513}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 633c7eb7d33ad454f81af7acd597766b,
-        type: 3}
-      propertyPath: m_Name
-      value: Barrel
-      objectReference: {fileID: 0}
-    - target: {fileID: 4118570343382581461, guid: 633c7eb7d33ad454f81af7acd597766b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 633c7eb7d33ad454f81af7acd597766b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -693,6 +683,16 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 633c7eb7d33ad454f81af7acd597766b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 633c7eb7d33ad454f81af7acd597766b,
+        type: 3}
+      propertyPath: m_Name
+      value: Barrel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4118570343382581461, guid: 633c7eb7d33ad454f81af7acd597766b,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -2235224902596103363, guid: 633c7eb7d33ad454f81af7acd597766b,
@@ -790,16 +790,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7019515235361549292}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 633c7eb7d33ad454f81af7acd597766b,
-        type: 3}
-      propertyPath: m_Name
-      value: Barrel
-      objectReference: {fileID: 0}
-    - target: {fileID: 4118570343382581461, guid: 633c7eb7d33ad454f81af7acd597766b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 633c7eb7d33ad454f81af7acd597766b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -869,6 +859,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 633c7eb7d33ad454f81af7acd597766b,
+        type: 3}
+      propertyPath: m_Name
+      value: Barrel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4118570343382581461, guid: 633c7eb7d33ad454f81af7acd597766b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -2235224902596103363, guid: 633c7eb7d33ad454f81af7acd597766b,
         type: 3}

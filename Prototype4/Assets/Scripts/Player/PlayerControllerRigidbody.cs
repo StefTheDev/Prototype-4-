@@ -164,6 +164,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
     {
         if (isDisabled) { return; }
         if (isFiring) { return; }
+        if (isCharging) { return; }
 
         isCharging = true;
         currentCharge = 0.0f;
