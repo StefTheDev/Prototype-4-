@@ -987,7 +987,7 @@ PrefabInstance:
     - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
         type: 3}
       propertyPath: soundClips.Array.size
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
         type: 3}
@@ -1069,6 +1069,16 @@ PrefabInstance:
       propertyPath: soundClips.Array.data[11].sound
       value: 
       objectReference: {fileID: 8300000, guid: 01206265bb0d62740b4c141682fd7b32, type: 3}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[12].name
+      value: Battlecry
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[12].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: cd20ab647615bf546b5e5f9f4f2785b8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a346d37d6edd9ec4f8d2cc4241592f95, type: 3}
 --- !u!4 &8027016824666364849 stripped

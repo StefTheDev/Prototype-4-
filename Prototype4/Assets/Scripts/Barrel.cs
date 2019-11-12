@@ -16,6 +16,8 @@ public class Barrel : MonoBehaviour
 
         var go = Instantiate(powerupPrefab, transform.position, Quaternion.identity, transform.parent);
 
+        AudioManager.Instance.PlaySound("BarrelBreak", 1.5f);
+
         //emitter.transform.SetParent(transform.parent);
         //emitter.transform.localRotation = Quaternion.Euler(-90, 0, 0);
         //emitter.gameObject.SetActive(true);

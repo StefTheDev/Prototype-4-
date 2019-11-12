@@ -201,8 +201,9 @@ public class PlayerControllerRigidbody : MonoBehaviour
                 InstantiateProjectile(direction);
             }
 
-            audioSource.Stop();
-            audioSource.PlayOneShot(exhaleSound);
+            // audioSource.Stop();
+            // audioSource.PlayOneShot(exhaleSound);
+            AudioManager.Instance.PlaySound("Battlecry");
         }
         else
         {

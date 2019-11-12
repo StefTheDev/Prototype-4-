@@ -60,7 +60,7 @@ public class AirBlast : MonoBehaviour
         {
             //Debug.Log("AirBlast Hit Player!" + System.DateTime.Now.Ticks);
 
-            AudioManager.Instance.PlaySound("ShoutHit", 0.5f);
+            AudioManager.Instance.PlaySound("ShoutHit", 0.15f);
             GameManager.Instance.playerManagers[otherPlayer.GetPlayerID()].GetComponent<PlayerManager>().SetLastHitBy(playerIndex);
             
 			// Edit by Elijah
@@ -83,7 +83,7 @@ public class AirBlast : MonoBehaviour
                     GameObject.Destroy(this.gameObject, 0.01f);
                 }
 
-                AudioManager.Instance.PlaySound("ShoutHit", 0.3f);
+                AudioManager.Instance.PlaySound("ShoutHit", 0.05f);
                 otherRigidbody.AddForce(launchForce, ForceMode.Impulse);
             }
 
