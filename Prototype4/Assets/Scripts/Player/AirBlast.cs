@@ -40,6 +40,8 @@ public class AirBlast : MonoBehaviour
 
         if (otherAirBlast)
         {
+            if (otherAirBlast.playerIndex == this.playerIndex) { return; }
+
             AudioManager.Instance.PlaySound("AirBlastCollision", 2.0f);
             var particles = Instantiate(ReferenceManager.Instance.airBlastCollisionParticle, this.transform.position, this.transform.rotation);
             GameObject.Destroy(particles, 1.0f);
@@ -56,7 +58,7 @@ public class AirBlast : MonoBehaviour
 
         if (otherPlayer && otherPlayer.GetPlayerID() != playerIndex && !otherPlayer.isInvulnerable)
         {
-            Debug.Log("AirBlast Hit Player!" + System.DateTime.Now.Ticks);
+            //Debug.Log("AirBlast Hit Player!" + System.DateTime.Now.Ticks);
 
             AudioManager.Instance.PlaySound("ShoutHit", 0.5f);
             GameManager.Instance.playerManagers[otherPlayer.GetPlayerID()].GetComponent<PlayerManager>().SetLastHitBy(playerIndex);
@@ -75,8 +77,20 @@ public class AirBlast : MonoBehaviour
             var otherRigidbody = other.GetComponent<Rigidbody>();
             if (otherRigidbody)
             {
+                if (other.GetComponent<Log>())
+                {
+                    launchForce *= 10.0f;
+                    GameObject.Destroy(this.gameObject, 0.01f);
+                }
+
                 AudioManager.Instance.PlaySound("ShoutHit", 0.3f);
                 otherRigidbody.AddForce(launchForce, ForceMode.Impulse);
+            }
+
+            var barrel = other.GetComponent<Barrel>();
+            if (barrel)
+            {
+                barrel.Break();
             }
         }
     }

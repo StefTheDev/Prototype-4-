@@ -2,51 +2,62 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class EventsManager : MonoBehaviour
 {
     [SerializeField] private Slider slider;
-    [SerializeField] private int delay = 10;
+    [SerializeField] private TMP_Text text;
+    [SerializeField] private Animator animator;
     [SerializeField] private List<Event> events;
 
-    private Event lastEvent;
+    private Event currentEvent;
     private float time;
-    private bool stop = true;
     private Queue<Event> eventQueue;
 
     private void Start()
     {
         eventQueue = new Queue<Event>();
-        time = delay;
 
         foreach (Event @event in events)
         {
             eventQueue.Enqueue(@event);
         }
+
+        currentEvent = eventQueue.Dequeue();
+        currentEvent.Call(EventState.START);
+
+        time = currentEvent.GetDelay();
+        text.text = currentEvent.GetDescription();
+
+        slider.gameObject.SetActive(true);
+        slider.image.sprite = eventQueue.Peek().GetSprite();
+        Debug.Log(eventQueue.Peek().GetSprite().name);
     }
 
     private void Update()
     {
-        slider.value = time / delay;
-
-        if (stop) return;
         time -= Time.deltaTime;
+        slider.value = time / currentEvent.GetDelay();
+
+        if (time <= currentEvent.GetDelay() / 2) animator.SetBool("Open", false);
+
+        if (Input.GetKey(KeyCode.T)) { time -= Time.deltaTime * 14; }
 
         if (time <= 0)
         {
-            if (eventQueue.Count > 1) time = delay;
             if (eventQueue.Count > 0)
             {
-                if(lastEvent != null) lastEvent.Call(EventState.END);
-                lastEvent = eventQueue.Dequeue();
-                lastEvent.Call(EventState.START);
+                if(currentEvent != null) currentEvent.Call(EventState.END);
+                currentEvent = eventQueue.Dequeue();
+                currentEvent.Call(EventState.START);
+
+                time = currentEvent.GetDelay();
+                text.text = currentEvent.GetDescription();
+
+                if (eventQueue.Count > 0) slider.image.sprite = eventQueue.Peek().GetSprite();
+                animator.SetBool("Open", true);
             }
         }
-    }
-
-    public void Run(bool running)
-    {
-        stop = running;
-        time = delay;
     }
 }

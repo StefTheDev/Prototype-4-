@@ -43,24 +43,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb6b93f52cf8cf4990590659e02b73b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  humanPrefab: {fileID: 6000394959823662806, guid: 547e5692493ecf6498745103af18a693,
-    type: 3}
-  AIPrefab: {fileID: 7053751132205501554, guid: dd8b85f779b35904ca08986d381c7dcc,
-    type: 3}
+  humanPlayerPrefabs: []
+  AIPlayerPrefabs: []
   playerManagerPrefab: {fileID: 7838045451939687182, guid: 98b8828962dba914dafa58841e19aa2f,
     type: 3}
+  fireParticlePrefabs: []
   playerMaterials:
-  - {fileID: 2100000, guid: 9c958ecdd6f9fcc4a9e153d909998486, type: 2}
-  - {fileID: 2100000, guid: ce07ba1bfb37de7489543a30a881d673, type: 2}
-  - {fileID: 2100000, guid: 864860a7c4073bb4196d7e2e5b3d0e0a, type: 2}
-  - {fileID: 2100000, guid: a1300daf2a6cc704e9dcdf0c0d659de2, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   playerShadowRealmMaterials:
   - {fileID: 2100000, guid: 107473e06e479cc4aa6a7b9f4eeceb8d, type: 2}
-  - {fileID: 2100000, guid: 60447ee00572b4f4daf59f6029642991, type: 2}
-  - {fileID: 2100000, guid: 060f72137a4fba54ca9be7865952a408, type: 2}
-  - {fileID: 2100000, guid: 5d81d7010c221bc45bcb550f9a72fb3f, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   joinPrompts:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  muzzleFlashParticle: {fileID: 3110707150723707677, guid: 059e3e1676e753444a9aa966ea47d8ac,
+    type: 3}
+  airBlastCollisionParticle: {fileID: 0}
+  respawnOnKillParticle: {fileID: 1426813943620131132, guid: 7bd6f0160eae1dc4280bbbdcd2c1d0af,
+    type: 3}
