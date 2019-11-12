@@ -109,7 +109,9 @@ public class PlayerManager : MonoBehaviour
         spawnPoint.Teleport(myPlayer.transform);
         myPlayer.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
+        myPlayer.GetComponent<PlayerControllerRigidbody>().CancelCharging();
         myPlayer.GetComponent<ShieldPowerup>().EndEffects();
+        myPlayer.GetComponent<BattlecryPowerupHolder>().EndEffects();
     }
 
     public void PlayerDeath()

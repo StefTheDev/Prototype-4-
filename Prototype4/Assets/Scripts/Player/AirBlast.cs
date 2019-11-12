@@ -15,6 +15,7 @@ public class AirBlast : MonoBehaviour
     private Rigidbody rigidBody;
     private Vector3 direction;
     private int playerIndex;
+    private bool inShadowRealm;
     private float chargeAmount = 0.0f;
     private static float currentBlastForce = normalBlastForce;
 
@@ -22,12 +23,13 @@ public class AirBlast : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody>();
     }
-    public void Launch(Vector3 _launchDirection, float _chargeAmount, int _playerIndex)
+    public void Launch(Vector3 _launchDirection, float _chargeAmount, int _playerIndex, bool _inShadowRealm)
     {
         rigidBody.AddForce(_launchDirection * _chargeAmount * blastSpeed, ForceMode.VelocityChange);
         this.transform.forward = _launchDirection;
         direction = _launchDirection;
         playerIndex = _playerIndex;
+        inShadowRealm = _inShadowRealm;
         chargeAmount = _chargeAmount;
         GameObject.Destroy(this.gameObject, maxLifetime * _chargeAmount);
     }
@@ -74,10 +76,10 @@ public class AirBlast : MonoBehaviour
 
         if (!otherPlayer)
         {
-            var otherRigidbody = other.GetComponent<Rigidbody>();
+            var otherRigidbody = other.GetComponentInParent<Rigidbody>();
             if (otherRigidbody)
             {
-                if (other.GetComponent<Log>())
+                if (otherRigidbody.GetComponent<Log>())
                 {
                     launchForce *= 10.0f;
                     GameObject.Destroy(this.gameObject, 0.01f);
@@ -87,7 +89,7 @@ public class AirBlast : MonoBehaviour
                 otherRigidbody.AddForce(launchForce, ForceMode.Impulse);
             }
 
-            var barrel = other.GetComponent<Barrel>();
+            var barrel = other.GetComponentInParent<Barrel>();
             if (barrel)
             {
                 barrel.Break();

@@ -176,6 +176,12 @@ public class PlayerControllerRigidbody : MonoBehaviour
         audioSource.PlayOneShot(inhaleSound);
     }
 
+    public void CancelCharging()
+    {
+        isCharging = false;
+        currentCharge = 0.0f;
+    }
+
     public void FireProjectile()
     {
         if (isDisabled) { return; }
@@ -220,7 +226,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
     {
         // Fire projectile
         var airBlast = Instantiate(airBlastPrefab, this.transform.position, Quaternion.identity, null);
-        airBlast.GetComponent<AirBlast>().Launch(direction, currentCharge, playerComp.GetPlayerID());
+        airBlast.GetComponent<AirBlast>().Launch(direction, currentCharge, playerComp.GetPlayerID(), playerComp.inShadowRealm);
         if (playerComp.inShadowRealm)
         {
             airBlast.layer = LayerMask.NameToLayer("Shadow Realm");
