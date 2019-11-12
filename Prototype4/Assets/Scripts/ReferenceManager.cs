@@ -23,6 +23,7 @@ public class ReferenceManager : MonoBehaviour
     public GameObject muzzleFlashParticle;
     public GameObject airBlastCollisionParticle;
     public GameObject[] respawnParticle;
+    public GameObject logPrefab;
 
     private void Awake()
     {

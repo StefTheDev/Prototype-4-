@@ -15,6 +15,8 @@ public class Barrel : MonoBehaviour
 
         var go = Instantiate(powerupPrefab, transform.position, Quaternion.identity, transform.parent);
 
+        AudioManager.Instance.PlaySound("BarrelBreak", 1.5f);
+
         // Replace full mesh with broken mesh
         brokenBarrel.transform.SetParent(transform.parent);
         brokenBarrel.SetActive(true);

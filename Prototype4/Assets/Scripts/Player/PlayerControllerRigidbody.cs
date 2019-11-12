@@ -190,7 +190,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
         isFiring = true;
         // transform.DOLocalMove(this.transform.position, 0.7f).OnComplete(OnShoutAnimEnd);
         var seq = DOTween.Sequence();
-        seq.AppendInterval(0.9331f).OnComplete(OnShoutAnimEnd);
+        seq.AppendInterval(0.35f).OnComplete(OnShoutAnimEnd);
 
         var muzzleFlash = Instantiate(ReferenceManager.Instance.muzzleFlashParticle, this.transform);
         GameObject.Destroy(muzzleFlash, 2.0f);
@@ -207,8 +207,9 @@ public class PlayerControllerRigidbody : MonoBehaviour
                 InstantiateProjectile(direction);
             }
 
-            audioSource.Stop();
-            audioSource.PlayOneShot(exhaleSound);
+            // audioSource.Stop();
+            // audioSource.PlayOneShot(exhaleSound);
+            AudioManager.Instance.PlaySound("Battlecry");
         }
         else
         {
