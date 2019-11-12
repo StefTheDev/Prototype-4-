@@ -6,5 +6,4 @@ public class Prompt : MonoBehaviour
 {
     private int id;
     private Sprite sprite;
-  
 }
