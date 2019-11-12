@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_1D877444:
-        m_Texture: {fileID: 2800000, guid: 8411d3e3e644ccc46a35cf9348ad2aed, type: 3}
+        m_Texture: {fileID: 2800000, guid: ae8d39d32201c494fb72a160d97fe50c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_22DC55EB:
@@ -49,7 +49,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_D89BD572:
-        m_Texture: {fileID: 2800000, guid: a39556cb6d4c48d47973880bf9fd1fef, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8805985ef8e12a540a9030861dff8901, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
