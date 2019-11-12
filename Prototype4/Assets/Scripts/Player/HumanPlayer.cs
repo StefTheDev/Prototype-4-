@@ -24,7 +24,7 @@ public class HumanPlayer : Player
     {
         if (myController.IsDisabled()) { return; }
 
-        if (Input.GetButtonDown(chargeButtons[playerID]))
+        if (Input.GetButton(chargeButtons[playerID]))
         {
             myController.StartCharging();
         }

@@ -164,6 +164,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
     {
         if (isDisabled) { return; }
         if (isFiring) { return; }
+        if (isCharging) { return; }
 
         isCharging = true;
         currentCharge = 0.0f;
@@ -183,7 +184,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
         isFiring = true;
         // transform.DOLocalMove(this.transform.position, 0.7f).OnComplete(OnShoutAnimEnd);
         var seq = DOTween.Sequence();
-        seq.AppendInterval(0.7f).OnComplete(OnShoutAnimEnd);
+        seq.AppendInterval(0.9331f).OnComplete(OnShoutAnimEnd);
 
         var muzzleFlash = Instantiate(ReferenceManager.Instance.muzzleFlashParticle, this.transform);
         GameObject.Destroy(muzzleFlash, 2.0f);
