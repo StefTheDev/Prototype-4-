@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
             var managerComp = newManager.GetComponent<PlayerManager>();
 
             // Make all players AI
-             // managerComp.SetAI(true);
+            managerComp.SetAI(true);
 
             playerManagers.Add(newManager);
             managerComp.SetPlayerID(i);
@@ -95,6 +95,8 @@ public class GameManager : MonoBehaviour
 
             case GameState.postGame:
             {
+                // Debug.Log("GAME TIMER ENDED");
+
                 postGameTimer -= Time.deltaTime;
                 timerText.text = postGameTimer.ToString("#.##");
                 
@@ -167,34 +169,30 @@ public class GameManager : MonoBehaviour
     {
         if (gameState == GameState.postGame) { return; }
 
-        int playersInNormalRealm = 0;
-        Player winner = null;
+        //int playersInNormalRealm = 0;
+        //Player winner = null;
 
-        // Check for victory
-        foreach (GameObject manager in playerManagers)
-        {
-            var managerComp = manager.GetComponent<PlayerManager>();
-            if (!managerComp.inShadowRealm)
-            {
-                playersInNormalRealm++;
-                winner = managerComp.myPlayer.GetComponent<Player>();
-            }
-        }
+        //// Check for victory
+        //Debug.Log("NEW VICTORY CONDITION HASN'T BEEN ADDED YET");
+        //foreach (GameObject manager in playerManagers)
+        //{
+            
+        //}
 
-        if (playersInNormalRealm == 1)
-        {
-            EndGame();
+        //if (playersInNormalRealm == 1)
+        //{
+        //    EndGame();
 
-            winner.transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
-            winner.ActivateVictoryCamera();
-        }
-        else if (playersInNormalRealm == 0)
-        {
-            EndGame();
-            winner = playerManagers[0].GetComponent<PlayerManager>().myPlayer.GetComponent<Player>();
+        //    winner.transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+        //    winner.ActivateVictoryCamera();
+        //}
+        //else if (playersInNormalRealm == 0)
+        //{
+        //    EndGame();
+        //    winner = playerManagers[0].GetComponent<PlayerManager>().myPlayer.GetComponent<Player>();
 
-            winner.transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
-            winner.ActivateVictoryCamera();
-        }
+        //    winner.transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+        //    winner.ActivateVictoryCamera();
+        //}
     }
 }

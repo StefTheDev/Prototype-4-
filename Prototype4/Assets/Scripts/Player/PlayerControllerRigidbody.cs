@@ -14,8 +14,6 @@ public class PlayerControllerRigidbody : MonoBehaviour
     [SerializeField] private float movingDrag = 0.5f;
     [SerializeField] private float stationaryDrag = 0.9f;
     [SerializeField] private float groundCheckDist = 0.1f;
-    [SerializeField] private float maxCrouchDuration = 0.5f;
-    [SerializeField] private float crouchCooldown = 0.5f;
 
     private float crouchingTime = 0.0f;
     private float crouchCooldownTimer = 0.0f;
@@ -23,7 +21,6 @@ public class PlayerControllerRigidbody : MonoBehaviour
     private float dragCoefficient = 10.0f;
     private float currentDrag;
     private float moveSpeedModifier = 1.0f;
-    private bool isCrouching = false;
     private bool isDisabled = false;
     public bool isGrounded = false;
     private float initialGroundCheckDist;
@@ -42,12 +39,8 @@ public class PlayerControllerRigidbody : MonoBehaviour
     [SerializeField] private GameObject inhalePrefab;
     [SerializeField] private AudioClip exhaleSound;
     [SerializeField] private AudioClip inhaleSound;
-    [SerializeField] private AudioClip respawnOnKillSound; // Sound that plays when you return from the shadow realm after getting a kill
 
 #pragma warning restore CS0649
-
-
-    public GameObject ghostParticles;
 
     private Rigidbody rigidBody;
     private Animator animator;
@@ -91,11 +84,6 @@ public class PlayerControllerRigidbody : MonoBehaviour
             currentCharge = Mathf.Clamp(currentCharge + (Time.deltaTime / chargeTime), 0.0f, 1.0f);
         }
 
-        if (isCrouching)
-        {
-            UpdateCrouch();
-        }
-
         crouchCooldownTimer -= Time.deltaTime;
 
         if (inhale != null) inhale.transform.position = this.transform.position;
@@ -117,16 +105,13 @@ public class PlayerControllerRigidbody : MonoBehaviour
 
         FallingOffUpdate();
 
-        // UpdateAnimator();
-
-        if (ghostParticles) { ghostParticles.transform.position = this.transform.position; }
+        // if (ghostParticles) { ghostParticles.transform.position = this.transform.position; }
     }
 
     private void PlayerMovement(Vector3 move)
     {
         Vector3 moveVec = move.normalized * moveForce * Time.fixedDeltaTime * moveSpeedModifier;
         if (!isGrounded) { moveVec *= 0.1f; }
-        if (isCrouching) { moveVec = Vector3.zero; }
 
         rigidBody.AddForce(moveVec, ForceMode.Impulse);
 
@@ -147,7 +132,6 @@ public class PlayerControllerRigidbody : MonoBehaviour
     {
         currentDrag = moveInputs ? movingDrag : stationaryDrag;
         if (!isGrounded) { currentDrag = airborneDrag; }
-        if (isCrouching) { currentDrag *= 1.3f; }
 
         var currentVelocity = rigidBody.velocity;
         currentVelocity.y = 0.0f;
@@ -227,57 +211,13 @@ public class PlayerControllerRigidbody : MonoBehaviour
     {
         // Fire projectile
         var airBlast = Instantiate(airBlastPrefab, this.transform.position, Quaternion.identity, null);
-        airBlast.GetComponent<AirBlast>().Launch(direction, currentCharge, playerComp.GetPlayerID(), playerComp.inShadowRealm);
-        if (playerComp.inShadowRealm)
-        {
-            airBlast.layer = LayerMask.NameToLayer("Shadow Realm");
-        }
+        airBlast.GetComponent<AirBlast>().Launch(direction, currentCharge, playerComp.GetPlayerID());
         return airBlast;
     }
 
     public void OnShoutAnimEnd()
     {
         isFiring = false;
-    }
-
-    public void StartCrouch()
-    {
-        return;
-        //if (crouchCooldownTimer > 0.0f)
-        //{
-        //    return;
-        //}
-
-        //transform.DOKill();
-        //transform.DOScaleY(0.3f, 0.01f);
-
-        //rigidBody.mass = startingMass * 1.3f;
-
-        //isCrouching = true;
-        //crouchingTime = 0.0f;
-    }
-
-    private void UpdateCrouch()
-    {
-        return;
-        //crouchingTime += Time.deltaTime;
-
-        //if (crouchingTime >= maxCrouchDuration)
-        //{
-        //    EndCrouch();
-        //}
-    }
-
-    public void EndCrouch()
-    {
-        return;
-        //isCrouching = false;
-        //crouchCooldownTimer = crouchCooldown;
-
-        //transform.DOKill();
-        //transform.DOScaleY(1.0f, 0.01f);
-
-        //rigidBody.mass = startingMass;
     }
 
     public void SetLook(Vector3 lookDir)
@@ -299,11 +239,6 @@ public class PlayerControllerRigidbody : MonoBehaviour
     public bool IsDisabled()
     {
         return isDisabled;
-    }
-
-    public bool IsCrouching()
-    {
-        return isCrouching;
     }
 
     public bool IsFiring()
@@ -354,17 +289,6 @@ public class PlayerControllerRigidbody : MonoBehaviour
             currentVelocity *= -0.05f;
             rigidBody.velocity += currentVelocity;
         }
-
-        // Scale down 
-
-
-    }
-
-    public void PlayReturnOnKillSound()
-    {
-        audioSource.PlayOneShot(respawnOnKillSound);
-        var respawnEffect = Instantiate(ReferenceManager.Instance.respawnParticle[playerComp.playerID], this.transform);
-        GameObject.Destroy(respawnEffect, 2.0f);
     }
 
     private void OnDrawGizmosSelected()

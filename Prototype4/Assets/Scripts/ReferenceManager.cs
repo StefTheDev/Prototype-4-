@@ -16,7 +16,6 @@ public class ReferenceManager : MonoBehaviour
     public GameObject[] fireParticlePrefabs;
 
     public Material[] playerMaterials;
-    public Material[] playerShadowRealmMaterials;
 
     public GameObject promptParent;
 

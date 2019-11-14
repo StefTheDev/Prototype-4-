@@ -144,7 +144,6 @@ public class AIPlayer : Player
             if (testManager.playerID == this.playerID) { continue; }
 
             GameObject testPlayer = manager.GetComponent<PlayerManager>().myPlayer;
-            if (testManager.inShadowRealm != inShadowRealm) { continue; }
 
             float dist = (this.transform.position - testPlayer.transform.position).magnitude;
 
