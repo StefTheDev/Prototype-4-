@@ -133,7 +133,7 @@ public class AIPlayer : Player
 
     private GameObject FindClosestPlayer()
     {
-        var playerManagers = GameManager.Instance.playerManagers;
+        var playerManagers = GameManager.Instance.playerManagerObjects;
 
         float shortestDistance = 10000.0f;
         GameObject closestPlayer = null;

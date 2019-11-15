@@ -36,7 +36,8 @@ public class GameManager : MonoBehaviour
     public GameState gameState = GameState.preGame;
 
     public const int numPlayers = 4;
-    public List<GameObject> playerManagers;
+    public List<GameObject> playerManagerObjects;
+    public List<PlayerManager> playerManagers;
     public GameObject gameMusic;
     public GameObject gameEvents;
     public GameObject timerObject;
@@ -68,7 +69,8 @@ public class GameManager : MonoBehaviour
             // Make all players AI
             managerComp.SetAI(true);
 
-            playerManagers.Add(newManager);
+            playerManagerObjects.Add(newManager);
+            playerManagers.Add(managerComp);
             managerComp.SetPlayerID(i);
             managerComp.SpawnPlayer();
             
@@ -107,6 +109,12 @@ public class GameManager : MonoBehaviour
 
                 break;
             }
+
+            case GameState.suddenDeath:
+            {
+                CheckWinner();
+                break;
+            }
         }
     }
 
@@ -114,7 +122,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         // Enable player controls
-        foreach (GameObject manager in playerManagers)
+        foreach (GameObject manager in playerManagerObjects)
         {
             manager.GetComponent<PlayerManager>().myPlayer.GetComponent<PlayerControllerRigidbody>().SetDisabled(false);
         }
@@ -145,7 +153,7 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         // Disable player controls
-        foreach (GameObject manager in playerManagers)
+        foreach (GameObject manager in playerManagerObjects)
         {
             manager.GetComponent<PlayerManager>().myPlayer.GetComponent<PlayerControllerRigidbody>().SetDisabled(true);
         }
@@ -194,5 +202,38 @@ public class GameManager : MonoBehaviour
         //    winner.transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
         //    winner.ActivateVictoryCamera();
         //}
+    }
+
+    private void CheckWinner()
+    {
+        PlayerManager winner = null;
+        int highest = 0;
+
+        bool draw = false;
+
+        foreach (PlayerManager manager in playerManagers)
+        {
+            if (manager.normalKills > highest)
+            {
+                winner = manager;
+                highest = manager.normalKills;
+                draw = false;
+            }
+            else if (manager.normalKills == highest)
+            {
+                draw = true;
+            }
+        }
+
+        if (winner != null && !draw)
+        {
+            EndGame();
+
+            Debug.Log("THE WINNER IS PLAYER " + winner.playerID + "WITH " + winner.normalKills + " KILLS");
+
+            Player playerComp = winner.myPlayer.GetComponent<Player>();
+            playerComp.transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+            playerComp.ActivateVictoryCamera();
+        }
     }
 }

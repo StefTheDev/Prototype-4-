@@ -55,7 +55,7 @@ public class AirBlast : MonoBehaviour
         if (otherPlayer && otherPlayer.GetPlayerID() != playerIndex && !otherPlayer.isInvulnerable)
         {
             AudioManager.Instance.PlaySound("ShoutHit", 0.15f);
-            GameManager.Instance.playerManagers[otherPlayer.GetPlayerID()].GetComponent<PlayerManager>().SetLastHitBy(playerIndex);
+            GameManager.Instance.playerManagerObjects[otherPlayer.GetPlayerID()].GetComponent<PlayerManager>().SetLastHitBy(playerIndex);
             
 			// Edit by Elijah
 			otherPlayer.GetComponent<ShieldPowerup>().ApplyAirBlast(new ShotHitInfo(transform.position, transform.forward), launchForce, chargeAmount);

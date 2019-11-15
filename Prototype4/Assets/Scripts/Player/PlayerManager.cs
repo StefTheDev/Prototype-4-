@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -61,7 +62,11 @@ public class PlayerManager : MonoBehaviour
 
     public void AwardKill()
     {
+        // Don't award kills if game is over
+        if (GameManager.Instance.gameState == GameState.postGame) { return; }
+
         normalKills++;
+        ReferenceManager.Instance.GetPlayerPrompt(playerID).GetComponentInChildren<TMP_Text>().text = normalKills.ToString();
     }
 
     public void RespawnPlayer()
@@ -102,7 +107,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (lastHitBy != -1)
         {
-            GameManager.Instance.playerManagers[lastHitBy].GetComponent<PlayerManager>().AwardKill();
+            GameManager.Instance.playerManagerObjects[lastHitBy].GetComponent<PlayerManager>().AwardKill();
         }
 
         GameManager.Instance.OnKnockout(playerID);
