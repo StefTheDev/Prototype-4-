@@ -49,6 +49,9 @@ public class GameManager : MonoBehaviour
     public Action onGameStarted;
     public Action onGameEnded;
 
+    private int killLeader = 0;
+    private int leaderKills = 0;
+
     private void Awake()
     {
         if (instance != null && instance != this) { Destroy(this.gameObject); }
@@ -92,6 +95,7 @@ public class GameManager : MonoBehaviour
 
             case GameState.inGame:
             {
+                CheckLeaderChange();
                 break;
             }
 
@@ -235,5 +239,29 @@ public class GameManager : MonoBehaviour
             playerComp.transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
             playerComp.ActivateVictoryCamera();
         }
+    }
+
+    private void CheckLeaderChange()
+    {
+        foreach (PlayerManager manager in playerManagers)
+        {
+            if (manager.normalKills > leaderKills)
+            {
+                OnLeaderChange(manager);
+            }
+            else if (manager.normalKills == leaderKills && manager.playerID != killLeader)
+            {
+                // If we are drawing with the leader, remove the flames
+                playerManagers[killLeader].SetFireParticles(false);
+            }
+        }
+    }
+
+    private void OnLeaderChange(PlayerManager newLeader)
+    {
+        playerManagers[killLeader].SetFireParticles(false);
+        killLeader = newLeader.playerID;
+        playerManagers[killLeader].SetFireParticles(true);
+        leaderKills = newLeader.normalKills;
     }
 }

@@ -69,6 +69,11 @@ public class PlayerManager : MonoBehaviour
         ReferenceManager.Instance.GetPlayerPrompt(playerID).GetComponentInChildren<TMP_Text>().text = normalKills.ToString();
     }
 
+    public void SetFireParticles(bool active)
+    {
+        controller.SetFireParticles(active);
+    }
+
     public void RespawnPlayer()
     {
         bool foundFreeSpawn = false;

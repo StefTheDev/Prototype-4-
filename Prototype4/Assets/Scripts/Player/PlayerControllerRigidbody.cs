@@ -37,6 +37,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
 #pragma warning disable CS0649
     [SerializeField] private GameObject airBlastPrefab;
     [SerializeField] private GameObject inhalePrefab;
+    [SerializeField] private GameObject fireParticles;
     [SerializeField] private AudioClip exhaleSound;
     [SerializeField] private AudioClip inhaleSound;
 
@@ -87,6 +88,11 @@ public class PlayerControllerRigidbody : MonoBehaviour
         crouchCooldownTimer -= Time.deltaTime;
 
         if (inhale != null) inhale.transform.position = this.transform.position;
+    }
+
+    public void SetFireParticles(bool active)
+    {
+        fireParticles.SetActive(active);
     }
 
     // Call in fixed update
