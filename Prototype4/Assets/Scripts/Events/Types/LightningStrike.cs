@@ -8,11 +8,13 @@ public class LightningStrike : MonoBehaviour
     private float delay = 1.0f;
     private float radius = 2.0f;
     private float strikeForce = 50.0f;
+    public GameObject bolt;
+    public GameObject impact;
 
     private void Start()
     {
         var seq = DOTween.Sequence();
-        seq.AppendInterval(delay).OnComplete(Knockback);
+        seq.AppendInterval(delay).OnComplete(ActivateBolt);
 
         var audioSeq = DOTween.Sequence();
         audioSeq.AppendInterval(0.2f).AppendCallback(() => AudioManager.Instance.PlaySound("LightningStrike", 1.5f));
@@ -39,5 +41,12 @@ public class LightningStrike : MonoBehaviour
                 Debug.Log("STRUCK");
             }
         }
+    }
+
+    private void ActivateBolt()
+    {
+        // bolt.SetActive(true);
+        // impact.SetActive(true);
+        Knockback();
     }
 }
