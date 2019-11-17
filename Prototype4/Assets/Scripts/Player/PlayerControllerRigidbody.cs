@@ -106,6 +106,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
         CheckGrounded();
 
         moveSpeedModifier = (isCharging || isFiring) ? inhalingMoveSpeedModifier : 1.0f;
+        if (GetComponent<WindwalkerPowerup>().hasPowerup) { moveSpeedModifier *= 2.0f; }
 
         PlayerMovement(move);
 
