@@ -6,10 +6,12 @@ using TMPro;
 
 public class EventsManager : MonoBehaviour
 {
+#pragma warning disable CS0649
     [SerializeField] private Slider slider;
     [SerializeField] private TMP_Text text;
     [SerializeField] private Animator animator;
     [SerializeField] private List<Event> events;
+#pragma warning restore CS0649
 
     private Event currentEvent;
     private float time;
