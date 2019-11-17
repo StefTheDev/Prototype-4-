@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class StormEvent : Event
 {
@@ -22,9 +23,20 @@ public class StormEvent : Event
     public bool includeChildren = true;
     */
 
+
+
     public override void OnStart()
     {
         Debug.Log("Storm Event Started.");
+
+        var seq = DOTween.Sequence();
+
+        // Create lightning strikes
+        for (int i = 0; i < 5; i++)
+        {
+            float delay = Random.Range(2.0f, 4.0f);
+            seq.AppendInterval(delay).AppendCallback(() => LightningStrike());
+        }
         //lightning.SetActive(true);
     }
 
@@ -41,4 +53,16 @@ public class StormEvent : Event
             Debug.Log("Player has been hit");
         }
     }
+
+    private void LightningStrike()
+    {
+        // Choose random position in arena
+        float angle = Random.Range(0.0f, 360.0f);
+        float dist = Random.Range(0.0f, 9.0f);
+
+        Vector3 spawnPos = new Vector3(dist * Mathf.Cos(angle), 0.0f, dist * Mathf.Sin(angle));
+        Instantiate(ReferenceManager.Instance.lightningStrike, spawnPos, Quaternion.identity, null);
+        // Debug.Log("LIGHTNING STRIKE");
+    }
+    
 }
