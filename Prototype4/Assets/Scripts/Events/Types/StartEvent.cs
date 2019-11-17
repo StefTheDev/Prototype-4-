@@ -12,6 +12,6 @@ public class StartEvent : Event
     public override void OnStart()
     {
         Debug.Log("Game has started");
-        //GameManager Starts game
+        EventsManager.Instance.SetActive(true);
     }
 }
