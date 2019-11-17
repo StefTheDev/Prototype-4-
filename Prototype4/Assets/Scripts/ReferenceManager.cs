@@ -39,7 +39,7 @@ public class ReferenceManager : MonoBehaviour
 
     private void Start()
     {
-        humanPrompts = Resources.LoadAll<GameObject>("AI Prompts");
+        humanPrompts = Resources.LoadAll<GameObject>("Human Prompts");
         aiPrompts = Resources.LoadAll<GameObject>("AI Prompts");
 
         for (int i = 0; i < 4; i++)
@@ -57,7 +57,7 @@ public class ReferenceManager : MonoBehaviour
         }
 
         activatedPrompts[index] = Instantiate(humanPrompts[index], promptParent.transform);
-        activatedPrompts[index].GetComponentInChildren<TMP_Text>().text = GameManager.Instance.playerManagers[index].normalKills.ToString();
+        activatedPrompts[index].GetComponent<PromptReferences>().scoreText.text = GameManager.Instance.playerManagers[index].normalKills.ToString();
         // activatedPrompts[index].GetComponentInChildren<TMP_Text>().text = "Human";
 
         activatedPrompts[index].transform.SetSiblingIndex(index);
@@ -70,8 +70,8 @@ public class ReferenceManager : MonoBehaviour
             Destroy(activatedPrompts[index]);
             Debug.Log("AI Destroyed");
         }
-        activatedPrompts[index] = Instantiate(humanPrompts[index], promptParent.transform);
-        activatedPrompts[index].GetComponentInChildren<TMP_Text>().text = GameManager.Instance.playerManagers[index].normalKills.ToString();
+        activatedPrompts[index] = Instantiate(aiPrompts[index], promptParent.transform);
+        activatedPrompts[index].GetComponent<PromptReferences>().scoreText.text = GameManager.Instance.playerManagers[index].normalKills.ToString();
         // activatedPrompts[index].GetComponentInChildren<TMP_Text>().text = "AI";
         activatedPrompts[index].transform.SetSiblingIndex(index);
     }
