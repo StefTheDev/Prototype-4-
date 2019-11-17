@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum TimeState
+{
+    DAY,
+    NIGHT
+}
+
 public class MainMenu : MonoBehaviour
 {
     public string gameLevelName = "TimScene";
@@ -11,6 +17,30 @@ public class MainMenu : MonoBehaviour
     public GameObject optionsBackButton;
     public GameObject instructionsPanel;
     public GameObject instructionsBackButton;
+
+    private int time = 0;
+    private TimeState timeState;
+
+    private void Start()
+    {
+        time = 10;
+    }
+
+    private void Update()
+    {
+        time -= 1;
+        if(time == 0)
+        {
+            if(timeState == TimeState.DAY)
+            {
+
+                timeState = TimeState.NIGHT;
+            } else
+            {
+                timeState = TimeState.DAY;
+            }
+        }
+    }
 
     public void OnPressPlay()
     {
