@@ -29,7 +29,7 @@ public class Deathbox : MonoBehaviour
 
         if (player)
         {
-            GameManager.Instance.playerManagers[player.GetPlayerID()].GetComponent<PlayerManager>().PlayerDeath();
+            GameManager.Instance.playerManagerObjects[player.GetPlayerID()].GetComponent<PlayerManager>().PlayerDeath();
         }
     }
 

@@ -33,16 +33,6 @@ public class HumanPlayer : Player
         {
             myController.FireProjectile();
         }
-
-        if (Input.GetButtonDown(crouchButtons[playerID]))
-        {
-            myController.StartCrouch();
-        }
-
-        if (Input.GetButtonUp(crouchButtons[playerID]))
-        {
-            if (myController.IsCrouching()) { myController.EndCrouch(); }
-        }
     }
 
     private void FixedUpdate()
@@ -52,9 +42,7 @@ public class HumanPlayer : Player
         float horMove = Input.GetAxisRaw(horizontalAxes[playerID]);
         float vertMove = Input.GetAxisRaw(verticalAxes[playerID]);
 
-        // if (Input.GetKeyDown(KeyCode.R)) { SceneManager.LoadSceneAsync("TimScene"); }
         Vector3 moveVector = new Vector3(horMove, 0.0f, vertMove).normalized;
-        bool crouch = Input.GetButton(crouchButtons[playerID]);
 
         myController.Move(moveVector);
         

@@ -1,22 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerManager : MonoBehaviour
 {
     public int playerID;
-    public bool inShadowRealm = false;
     public bool isAI = false;
 
     public int normalKills = 0;
-    public int shadowKills = 0;
 
     public GameObject myPlayer;
     private Player myPlayerComp;
     private PlayerControllerRigidbody controller;
-
-    private const string shadowRealmLayer = "Shadow Realm";
-    private const string normalRealmLayer = "Normal Realm";
 
     private string[] actionButtons = { "P1_Charge", "P2_Charge", "P3_Charge", "P4_Charge" };
     private string[] backButtons = { "P1_Back", "P2_Back", "P3_Back", "P4_Back" };
@@ -59,25 +55,23 @@ public class PlayerManager : MonoBehaviour
         myPlayerComp = myPlayer.GetComponent<Player>();
 
         myPlayerComp.SetPlayerID(playerID);
-        myPlayerComp.inShadowRealm = this.inShadowRealm;
-        myPlayerComp.UpdateMaterial();
         controller = myPlayer.GetComponent<PlayerControllerRigidbody>();
 
         RespawnPlayer();
     }
 
-    public void AwardKill(bool _isShadowKill)
+    public void AwardKill()
     {
-        if (_isShadowKill)
-        {
-            shadowKills++;
-            SwitchRealm(false);
-            controller.PlayReturnOnKillSound();
-        }
-        else
-        {
-            normalKills++;
-        }
+        // Don't award kills if game is over
+        if (GameManager.Instance.gameState == GameState.postGame) { return; }
+
+        normalKills++;
+        ReferenceManager.Instance.GetPlayerPrompt(playerID).GetComponentInChildren<TMP_Text>().text = normalKills.ToString();
+    }
+
+    public void SetFireParticles(bool active)
+    {
+        controller.SetFireParticles(active);
     }
 
     public void RespawnPlayer()
@@ -118,43 +112,41 @@ public class PlayerManager : MonoBehaviour
     {
         if (lastHitBy != -1)
         {
-            GameManager.Instance.playerManagers[lastHitBy].GetComponent<PlayerManager>().AwardKill(inShadowRealm);
+            GameManager.Instance.playerManagerObjects[lastHitBy].GetComponent<PlayerManager>().AwardKill();
         }
-
-        if (!inShadowRealm) { SwitchRealm(true); }
 
         GameManager.Instance.OnKnockout(playerID);
 
         RespawnPlayer();
     }
 
-    public void SwitchRealm(bool _shadowRealm)
-    {
-        inShadowRealm = _shadowRealm;
+    //public void SwitchRealm(bool _shadowRealm)
+    //{
+    //    inShadowRealm = _shadowRealm;
         
-        if (inShadowRealm)
-        {
-            int newLayer = LayerMask.NameToLayer(shadowRealmLayer);
-            myPlayer.layer = newLayer;
-            foreach (Transform trans in gameObject.GetComponentsInChildren<Transform>(true))
-            {
-                trans.gameObject.layer = newLayer;
-            }
-            myPlayerComp.ChangeRealm(true);
-            //Set prompt to have dark realm sprite
-        }
-        else
-        {
-            int newLayer = LayerMask.NameToLayer(normalRealmLayer);
-            myPlayer.layer = newLayer;
-            foreach (Transform trans in gameObject.GetComponentsInChildren<Transform>(true))
-            {
-                trans.gameObject.layer = newLayer;
-            }
-            myPlayerComp.ChangeRealm(false);
-            //Set prompt to have normal realm sprite
-        }
-    }
+    //    if (inShadowRealm)
+    //    {
+    //        int newLayer = LayerMask.NameToLayer(shadowRealmLayer);
+    //        myPlayer.layer = newLayer;
+    //        foreach (Transform trans in gameObject.GetComponentsInChildren<Transform>(true))
+    //        {
+    //            trans.gameObject.layer = newLayer;
+    //        }
+    //        myPlayerComp.ChangeRealm(true);
+    //        //Set prompt to have dark realm sprite
+    //    }
+    //    else
+    //    {
+    //        int newLayer = LayerMask.NameToLayer(normalRealmLayer);
+    //        myPlayer.layer = newLayer;
+    //        foreach (Transform trans in gameObject.GetComponentsInChildren<Transform>(true))
+    //        {
+    //            trans.gameObject.layer = newLayer;
+    //        }
+    //        myPlayerComp.ChangeRealm(false);
+    //        //Set prompt to have normal realm sprite
+    //    }
+    //}
 
     public void SetLastHitBy(int _playerID)
     {

@@ -16,7 +16,6 @@ public class ReferenceManager : MonoBehaviour
     public GameObject[] fireParticlePrefabs;
 
     public Material[] playerMaterials;
-    public Material[] playerShadowRealmMaterials;
 
     public GameObject promptParent;
 
@@ -31,7 +30,6 @@ public class ReferenceManager : MonoBehaviour
         else { instance = this; }
     }
 
-
     private GameObject[] humanPrompts;
     private GameObject[] aiPrompts;
 
@@ -44,9 +42,11 @@ public class ReferenceManager : MonoBehaviour
         humanPrompts = Resources.LoadAll<GameObject>("AI Prompts");
         aiPrompts = Resources.LoadAll<GameObject>("AI Prompts");
 
-        for(int i = 0; i < 4; i++) ActivateAI(i);
+        for (int i = 0; i < 4; i++)
+        {
+            ActivateAI(i);
+        }
     }
-
 
     public void ActivateHuman(int index)
     {
@@ -57,7 +57,10 @@ public class ReferenceManager : MonoBehaviour
         }
 
         activatedPrompts[index] = Instantiate(humanPrompts[index], promptParent.transform);
-        activatedPrompts[index].GetComponentInChildren<TMP_Text>().text = "Human";
+        activatedPrompts[index].GetComponentInChildren<TMP_Text>().text = GameManager.Instance.playerManagers[index].normalKills.ToString();
+        // activatedPrompts[index].GetComponentInChildren<TMP_Text>().text = "Human";
+
+        activatedPrompts[index].transform.SetSiblingIndex(index);
     }
 
     public void ActivateAI(int index)
@@ -68,6 +71,13 @@ public class ReferenceManager : MonoBehaviour
             Debug.Log("AI Destroyed");
         }
         activatedPrompts[index] = Instantiate(humanPrompts[index], promptParent.transform);
-        activatedPrompts[index].GetComponentInChildren<TMP_Text>().text = "AI";
+        activatedPrompts[index].GetComponentInChildren<TMP_Text>().text = GameManager.Instance.playerManagers[index].normalKills.ToString();
+        // activatedPrompts[index].GetComponentInChildren<TMP_Text>().text = "AI";
+        activatedPrompts[index].transform.SetSiblingIndex(index);
+    }
+
+    public GameObject GetPlayerPrompt(int index)
+    {
+        return activatedPrompts[index];
     }
 }
