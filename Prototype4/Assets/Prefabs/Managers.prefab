@@ -760,26 +760,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8c9b5642ce7f87948a706b6585c9603a, type: 2}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
-      propertyPath: playerShadowRealmMaterials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: bde0c3939dd0d314aac700c5ff3853d7, type: 2}
-    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
-        type: 3}
-      propertyPath: playerShadowRealmMaterials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: a94051c95ad0cb641afa06bfe5dabb26, type: 2}
-    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
-        type: 3}
-      propertyPath: playerShadowRealmMaterials.Array.data[2]
-      value: 
-      objectReference: {fileID: 2100000, guid: a51ad42f4c4504f4f864f47e035e545b, type: 2}
-    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
-        type: 3}
-      propertyPath: playerShadowRealmMaterials.Array.data[3]
-      value: 
-      objectReference: {fileID: 2100000, guid: d62f916fae262c04595faa3997773b53, type: 2}
-    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
-        type: 3}
       propertyPath: airBlastCollisionParticle
       value: 
       objectReference: {fileID: 8614095058015402865, guid: 15cdf640328f9574db3a3faa9d760ee9,
@@ -813,6 +793,12 @@ PrefabInstance:
       propertyPath: logPrefab
       value: 
       objectReference: {fileID: 699079500605745404, guid: a7e0804e6b904c94491898ed7f823961,
+        type: 3}
+    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
+        type: 3}
+      propertyPath: lightningStrike
+      value: 
+      objectReference: {fileID: 5964433050533304363, guid: 9add083694de0fa478bb900f2ab2e63b,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48192c751207127459d5194e211595f0, type: 3}
