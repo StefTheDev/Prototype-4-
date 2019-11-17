@@ -8,8 +8,13 @@ public class PromptReferences : MonoBehaviour
 {
     public GameObject baseObject;
     // public Image mainBackground;
+    public GameObject first;
     public GameObject joinPrompt;
-    public GameObject scoreBackgroundFirst;
     public Image faceImage;
     public TMP_Text scoreText;
+
+    public void Pulse()
+    {
+
+    }
 }

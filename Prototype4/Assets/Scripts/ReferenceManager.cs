@@ -61,6 +61,7 @@ public class ReferenceManager : MonoBehaviour
         activatedPrompts[index].GetComponent<PromptReferences>().scoreText.text = GameManager.Instance.playerManagers[index].normalKills.ToString();
         // activatedPrompts[index].GetComponentInChildren<TMP_Text>().text = "Human";
 
+        if (GameManager.Instance.killLeader == index) { SetLeader(index, true); }
         activatedPrompts[index].transform.SetSiblingIndex(index);
     }
 
@@ -73,6 +74,8 @@ public class ReferenceManager : MonoBehaviour
         }
         activatedPrompts[index] = Instantiate(aiPrompts[index], promptParent.transform);
         activatedPrompts[index].GetComponent<PromptReferences>().scoreText.text = GameManager.Instance.playerManagers[index].normalKills.ToString();
+
+        if (GameManager.Instance.killLeader == index) { SetLeader(index, true); }
         // activatedPrompts[index].GetComponentInChildren<TMP_Text>().text = "AI";
         activatedPrompts[index].transform.SetSiblingIndex(index);
     }
@@ -80,5 +83,11 @@ public class ReferenceManager : MonoBehaviour
     public GameObject GetPlayerPrompt(int index)
     {
         return activatedPrompts[index];
+    }
+
+    public void SetLeader(int index, bool isLeader)
+    {
+        if (GameManager.Instance.leaderKills == 0) { return; }
+        activatedPrompts[index].GetComponent<PromptReferences>().first.SetActive(isLeader);
     }
 }

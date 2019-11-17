@@ -49,8 +49,8 @@ public class GameManager : MonoBehaviour
     public Action onGameStarted;
     public Action onGameEnded;
 
-    private int killLeader = 0;
-    private int leaderKills = 0;
+    public int killLeader = 0;
+    public int leaderKills = 0;
 
     private void Awake()
     {
@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
             var managerComp = newManager.GetComponent<PlayerManager>();
 
             // Make all players AI
-            // managerComp.SetAI(true);
+            managerComp.SetAI(true);
 
             playerManagerObjects.Add(newManager);
             playerManagers.Add(managerComp);
@@ -253,6 +253,7 @@ public class GameManager : MonoBehaviour
             {
                 // If we are drawing with the leader, remove the flames
                 playerManagers[killLeader].SetFireParticles(false);
+                ReferenceManager.Instance.SetLeader(killLeader, false);
             }
         }
     }
@@ -260,8 +261,12 @@ public class GameManager : MonoBehaviour
     private void OnLeaderChange(PlayerManager newLeader)
     {
         playerManagers[killLeader].SetFireParticles(false);
+        ReferenceManager.Instance.SetLeader(killLeader, false);
+
         killLeader = newLeader.playerID;
         playerManagers[killLeader].SetFireParticles(true);
         leaderKills = newLeader.normalKills;
+        ReferenceManager.Instance.SetLeader(newLeader.playerID, true);
+        
     }
 }
