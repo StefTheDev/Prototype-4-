@@ -84,7 +84,7 @@ public class AirBlast : MonoBehaviour
             var barrel = other.GetComponentInParent<Barrel>();
             if (barrel)
             {
-                barrel.Break();
+                barrel.Break(launchForce);
             }
         }
     }
