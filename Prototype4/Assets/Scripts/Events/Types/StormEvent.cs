@@ -61,7 +61,8 @@ public class StormEvent : Event
         float dist = Random.Range(0.0f, 9.0f);
 
         Vector3 spawnPos = new Vector3(dist * Mathf.Cos(angle), 0.0f, dist * Mathf.Sin(angle));
-        Instantiate(ReferenceManager.Instance.lightningStrike, spawnPos, Quaternion.identity, null);
+        var strike = Instantiate(ReferenceManager.Instance.lightningStrike, spawnPos, Quaternion.identity, null);
+        GameObject.Destroy(strike, 10.0f);
         // Debug.Log("LIGHTNING STRIKE");
     }
     
