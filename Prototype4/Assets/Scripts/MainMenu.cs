@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering.PostProcessing;
 
 public enum TimeState
 {
@@ -18,27 +19,44 @@ public class MainMenu : MonoBehaviour
     public GameObject instructionsPanel;
     public GameObject instructionsBackButton;
 
-    private int time = 0;
-    private TimeState timeState;
+    private float time = 0;
+    private TimeState timeState = TimeState.NIGHT;
+
+    public PostProcessVolume volume;
+    private ColorGrading colorGrading;
+
 
     private void Start()
     {
-        time = 10;
+        time = 8;
+        colorGrading = volume.profile.GetSetting<ColorGrading>();
     }
 
     private void Update()
     {
-        time -= 1;
-        if(time == 0)
+        Debug.Log(timeState.ToString());
+        time -= Time.deltaTime;
+        if(time <= 0)
         {
             if(timeState == TimeState.DAY)
             {
-
                 timeState = TimeState.NIGHT;
             } else
             {
                 timeState = TimeState.DAY;
             }
+            time = 10;
+        }
+
+        if (timeState == TimeState.DAY)
+        {
+            if (colorGrading.temperature.value < 16.0f) colorGrading.temperature.value += Time.deltaTime * 8;
+            if (colorGrading.postExposure.value < 1.04f) colorGrading.postExposure.value += Time.deltaTime / 2;
+        }
+        else
+        {
+            if (colorGrading.temperature.value > -60.0f) colorGrading.temperature.value -= Time.deltaTime * 8;
+            if (colorGrading.postExposure.value > 0.0f) colorGrading.postExposure.value -= Time.deltaTime / 2;
         }
     }
 
