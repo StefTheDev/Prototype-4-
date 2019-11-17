@@ -14,9 +14,16 @@ public class EventsManager : MonoBehaviour
     private Event currentEvent;
     private float time;
     private Queue<Event> eventQueue;
+    bool isActive = true;
+
+    private static EventsManager instance;
+    public static EventsManager Instance { get { return instance; } }
 
     private void Start()
     {
+        if (instance != null && instance != this) { Destroy(this.gameObject); }
+        else { instance = this; }
+
         eventQueue = new Queue<Event>();
 
         foreach (Event @event in events)
@@ -37,6 +44,8 @@ public class EventsManager : MonoBehaviour
 
     private void Update()
     {
+        if (!isActive) return;
+
         time -= Time.deltaTime;
         slider.value = time / currentEvent.GetDelay();
 
@@ -59,5 +68,10 @@ public class EventsManager : MonoBehaviour
                 animator.SetBool("Open", true);
             }
         }
+    }
+
+    public void SetActive(bool active)
+    {
+        this.isActive = active;
     }
 }

@@ -106,6 +106,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
         CheckGrounded();
 
         moveSpeedModifier = (isCharging || isFiring) ? inhalingMoveSpeedModifier : 1.0f;
+        if (GetComponent<WindwalkerPowerup>().hasPowerup) { moveSpeedModifier *= 2.0f; }
 
         PlayerMovement(move);
 
@@ -229,7 +230,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
     public void SetLook(Vector3 lookDir)
     {
         lookDir.y = 0.0f;
-        transform.forward = lookDir;
+        if (lookDir != Vector3.zero) { transform.forward = lookDir; }
     }
 
     public void SetDisabled(bool disabled)

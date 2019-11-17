@@ -7,7 +7,7 @@ public class SuddenDeathEvent : Event
 {
     public override void OnEnd()
     {
-
+    
     }
 
     public override void OnStart()
@@ -19,5 +19,7 @@ public class SuddenDeathEvent : Event
         gameManager.gameMusic.SetActive(false);
         gameManager.suddenDeathCanvas.SetActive(true);
         gameManager.suddenDeathMusic.SetActive(true);
+
+        EventsManager.Instance.SetActive(false);
     }
 }

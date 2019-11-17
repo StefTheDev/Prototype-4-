@@ -67,6 +67,7 @@ public class PlayerManager : MonoBehaviour
 
         normalKills++;
         ReferenceManager.Instance.GetPlayerPrompt(playerID).GetComponentInChildren<TMP_Text>().text = normalKills.ToString();
+        ReferenceManager.Instance.GetPlayerPrompt(playerID).GetComponent<PromptReferences>().scoreText.GetComponent<Animator>().SetTrigger("Pulse");
     }
 
     public void SetFireParticles(bool active)

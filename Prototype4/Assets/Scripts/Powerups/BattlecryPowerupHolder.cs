@@ -25,6 +25,8 @@ public class BattlecryPowerupHolder : MonoBehaviour
         AudioManager.Instance.PlaySound("PowerupPickup");
         var shield = GetComponent<ShieldPowerup>();
         if (shield) shield.EndEffects();
+        var windwalker = GetComponent<WindwalkerPowerup>();
+        if (windwalker) windwalker.EndEffects();
     }
 
     public void EndEffects()
@@ -34,6 +36,7 @@ public class BattlecryPowerupHolder : MonoBehaviour
 
     private void Start()
     {
+        GameManager.Instance.onGameEnded += EndEffects;
         hasPowerup = m_hasPowerup;
     }
 }

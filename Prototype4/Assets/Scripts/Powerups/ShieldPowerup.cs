@@ -64,6 +64,8 @@ public class ShieldPowerup : MonoBehaviour
 
         var battlecry = GetComponent<BattlecryPowerupHolder>();
         if (battlecry) battlecry.EndEffects();
+        var windwalker = GetComponent<WindwalkerPowerup>();
+        if (windwalker) windwalker.EndEffects();
     }
 
 	public void EndEffects()
