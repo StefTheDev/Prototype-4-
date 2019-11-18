@@ -18,6 +18,8 @@ public class AirBlast : MonoBehaviour
     private float chargeAmount = 0.0f;
     private static float currentBlastForce = normalBlastForce;
 
+    public int PlayerIndex => PlayerIndex;
+
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
