@@ -14,8 +14,8 @@ public class MainMenu : MonoBehaviour
 {
     public string gameLevelName = "TimScene";
     public GameObject playButton;
-    public GameObject options, main;
-    public GameObject optionsBackButton;
+    public GameObject main;
+    // public GameObject optionsBackButton;
     public GameObject instructionsPanel;
     public GameObject instructionsBackButton;
 
@@ -65,13 +65,13 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(gameLevelName);
     }
 
-    public void OnOptions()
-    {
-        main.SetActive(false);
-        options.SetActive(true);
+    //public void OnOptions()
+    //{
+    //    main.SetActive(false);
+    //    options.SetActive(true);
 
-        FindObjectOfType<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(optionsBackButton);
-    }
+    //    FindObjectOfType<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(optionsBackButton);
+    //}
 
     public void OnInstructions()
     {
@@ -84,7 +84,7 @@ public class MainMenu : MonoBehaviour
     public void OnMain()
     {
         main.SetActive(true);
-        options.SetActive(false);
+        // options.SetActive(false);
         instructionsPanel.SetActive(false);
 
         FindObjectOfType<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(playButton);
