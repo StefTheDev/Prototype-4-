@@ -37,7 +37,7 @@ public class Pause : MonoBehaviour
                 paused = false;
                 panel.SetActive(false);
 
-                joinPrompts.SetActive(true);
+                if (joinPrompts) joinPrompts.SetActive(true);
                 timer.SetActive(true);
 
                 image.sprite = images[0].sprite;
@@ -49,7 +49,7 @@ public class Pause : MonoBehaviour
                 paused = true;
                 panel.SetActive(true);
 
-                joinPrompts.SetActive(false);
+                if (joinPrompts) joinPrompts.SetActive(false);
                 timer.SetActive(false);
 
                 image.sprite = images[1].sprite;
@@ -66,7 +66,7 @@ public class Pause : MonoBehaviour
         paused = false;
         panel.SetActive(false);
 
-        joinPrompts.SetActive(true);
+        if (joinPrompts) joinPrompts.SetActive(true);
         timer.SetActive(true);
 
         image.sprite = images[0].sprite;
