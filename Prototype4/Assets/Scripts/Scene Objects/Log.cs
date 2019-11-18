@@ -8,6 +8,8 @@ public class Log : MonoBehaviour
     private Vector3 velocityBeforeCollision;
     private Rigidbody rigidBody;
 
+    public int LastHitByPlayerIndex { get; private set; } = 0;
+
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -76,6 +78,9 @@ public class Log : MonoBehaviour
 
             collision.gameObject.GetComponent<Rigidbody>().AddForce(dir * pushForce, ForceMode.Impulse);
             AudioManager.Instance.PlaySound("ShoutHit");
+
+            var otherPlayer = collision.gameObject.GetComponent<Player>();
+            GameManager.Instance.playerManagerObjects[otherPlayer.GetPlayerID()].GetComponent<PlayerManager>().SetLastHitBy(LastHitByPlayerIndex);
         }
         else if (collision.gameObject.tag == "Ground")
         {
@@ -85,6 +90,14 @@ public class Log : MonoBehaviour
             if (vel < 1.0f) { return; }
 
             AudioManager.Instance.PlaySound("LogBounce");
+        }
+        else
+        {
+            var blast = collision.gameObject.GetComponent<AirBlast>();
+            if (blast)
+            {
+                LastHitByPlayerIndex = blast.PlayerIndex;
+            }
         }
     }
 
