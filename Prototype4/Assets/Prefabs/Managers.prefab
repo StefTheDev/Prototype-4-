@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: 
-  description: 'Darkness has fallen. '
+  description: WE FALL INTO DARKNESS
   sprite: {fileID: 21300000, guid: 7e84bf40f424060438a920a87174518b, type: 3}
   delay: 15
   volume: {fileID: 0}
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Storm
-  description: Thou shalt be smited by Thor
+  description: WRATH  OF THOR
   sprite: {fileID: 21300000, guid: 00423eea9cb42f246b02622abd7f80cd, type: 3}
   delay: 15
 --- !u!1 &702381382740011258
@@ -374,7 +374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   description: 'The gods are cleaning up your stink hole. '
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 445a85a933f8b28419f3f93b25533bb2, type: 3}
   delay: 5
 --- !u!1 &4337627699702723607
 GameObject:
@@ -493,7 +493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Debris
-  description: The gods are pretty dirty ngl
+  description: LOGS ABOVE!
   sprite: {fileID: 21300000, guid: 6fd9b11cee0230a47931ad33b4614320, type: 3}
   delay: 15
 --- !u!1 &8027016823354626251
