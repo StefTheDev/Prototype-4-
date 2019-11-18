@@ -107,6 +107,7 @@ public class PlayerManager : MonoBehaviour
         myPlayer.GetComponent<PlayerControllerRigidbody>().CancelCharging();
         myPlayer.GetComponent<ShieldPowerup>().EndEffects();
         myPlayer.GetComponent<BattlecryPowerupHolder>().EndEffects();
+        myPlayer.GetComponent<WindwalkerPowerup>().EndEffects();
     }
 
     public void PlayerDeath()

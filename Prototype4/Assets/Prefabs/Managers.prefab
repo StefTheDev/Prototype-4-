@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: 
-  description: 'The gods are cleaning up your stink hole. '
+  description: 
   sprite: {fileID: 21300000, guid: 445a85a933f8b28419f3f93b25533bb2, type: 3}
   delay: 5
 --- !u!1 &4337627699702723607
