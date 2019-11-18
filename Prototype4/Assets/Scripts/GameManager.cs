@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Action = System.Action;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -35,13 +36,21 @@ public class GameManager : MonoBehaviour
     public GameState gameState = GameState.preGame;
 
     public const int numPlayers = 4;
-    public List<GameObject> playerManagers;
+    public List<GameObject> playerManagerObjects;
+    public List<PlayerManager> playerManagers;
     public GameObject gameMusic;
+    public GameObject gameEvents;
     public GameObject timerObject;
     public GameObject victoryCanvas;
 
     public GameObject suddenDeathMusic;
     public GameObject suddenDeathCanvas;
+
+    public Action onGameStarted;
+    public Action onGameEnded;
+
+    public int killLeader = 0;
+    public int leaderKills = 0;
 
     private void Awake()
     {
@@ -61,9 +70,10 @@ public class GameManager : MonoBehaviour
             var managerComp = newManager.GetComponent<PlayerManager>();
 
             // Make all players AI
-            //managerComp.SetAI(true);
+            // managerComp.SetAI(true);
 
-            playerManagers.Add(newManager);
+            playerManagerObjects.Add(newManager);
+            playerManagers.Add(managerComp);
             managerComp.SetPlayerID(i);
             managerComp.SpawnPlayer();
             
@@ -85,26 +95,14 @@ public class GameManager : MonoBehaviour
 
             case GameState.inGame:
             {
-                roundTimer -= Time.deltaTime;
-                timerText.text = roundTimer.ToString("#.##");
-
-                if (roundTimer <= 0.0f)
-                {
-                    StartSuddenDeath();
-                }
-
-                break;
-            }
-
-            case GameState.suddenDeath:
-            {
-                timerText.text = "0.00";
-
+                CheckLeaderChange();
                 break;
             }
 
             case GameState.postGame:
             {
+                // Debug.Log("GAME TIMER ENDED");
+
                 postGameTimer -= Time.deltaTime;
                 timerText.text = postGameTimer.ToString("#.##");
                 
@@ -115,6 +113,12 @@ public class GameManager : MonoBehaviour
 
                 break;
             }
+
+            case GameState.suddenDeath:
+            {
+                CheckWinner();
+                break;
+            }
         }
     }
 
@@ -122,20 +126,23 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         // Enable player controls
-        foreach (GameObject manager in playerManagers)
+        foreach (GameObject manager in playerManagerObjects)
         {
             manager.GetComponent<PlayerManager>().myPlayer.GetComponent<PlayerControllerRigidbody>().SetDisabled(false);
         }
 
         gameMusic.SetActive(true);
-        timerObject.SetActive(true);
-
+        //timerObject.SetActive(true);
+        gameEvents.SetActive(true);
+            
         roundTimer = roundLength;
         gameState = GameState.inGame;
+
+        onGameStarted?.Invoke();
     }
 
     // Changes from the inGame state to the suddenDeath state
-    public void StartSuddenDeath()
+    /*public void StartSuddenDeath()
     {
         gameState = GameState.suddenDeath;
         AirBlast.SetSuddenDeath(true);
@@ -144,12 +151,13 @@ public class GameManager : MonoBehaviour
         suddenDeathCanvas.SetActive(true);
         suddenDeathMusic.SetActive(true);
     }
+    */
 
     // Changes to the postGame state
     public void EndGame()
     {
         // Disable player controls
-        foreach (GameObject manager in playerManagers)
+        foreach (GameObject manager in playerManagerObjects)
         {
             manager.GetComponent<PlayerManager>().myPlayer.GetComponent<PlayerControllerRigidbody>().SetDisabled(true);
         }
@@ -164,6 +172,8 @@ public class GameManager : MonoBehaviour
 
         postGameTimer = postGameLength;
         gameState = GameState.postGame;
+
+        onGameEnded?.Invoke();
     }
 
     // Gets called when a player is knocked out
@@ -171,34 +181,92 @@ public class GameManager : MonoBehaviour
     {
         if (gameState == GameState.postGame) { return; }
 
-        int playersInNormalRealm = 0;
-        Player winner = null;
+        //int playersInNormalRealm = 0;
+        //Player winner = null;
 
-        // Check for victory
-        foreach (GameObject manager in playerManagers)
+        //// Check for victory
+        //Debug.Log("NEW VICTORY CONDITION HASN'T BEEN ADDED YET");
+        //foreach (GameObject manager in playerManagers)
+        //{
+            
+        //}
+
+        //if (playersInNormalRealm == 1)
+        //{
+        //    EndGame();
+
+        //    winner.transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+        //    winner.ActivateVictoryCamera();
+        //}
+        //else if (playersInNormalRealm == 0)
+        //{
+        //    EndGame();
+        //    winner = playerManagers[0].GetComponent<PlayerManager>().myPlayer.GetComponent<Player>();
+
+        //    winner.transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+        //    winner.ActivateVictoryCamera();
+        //}
+    }
+
+    private void CheckWinner()
+    {
+        PlayerManager winner = null;
+        int highest = 0;
+
+        bool draw = false;
+
+        foreach (PlayerManager manager in playerManagers)
         {
-            var managerComp = manager.GetComponent<PlayerManager>();
-            if (!managerComp.inShadowRealm)
+            if (manager.normalKills > highest)
             {
-                playersInNormalRealm++;
-                winner = managerComp.myPlayer.GetComponent<Player>();
+                winner = manager;
+                highest = manager.normalKills;
+                draw = false;
+            }
+            else if (manager.normalKills == highest)
+            {
+                draw = true;
             }
         }
 
-        if (playersInNormalRealm == 1)
+        if (winner != null && !draw)
         {
             EndGame();
 
-            winner.transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
-            winner.ActivateVictoryCamera();
-        }
-        else if (playersInNormalRealm == 0)
-        {
-            EndGame();
-            winner = playerManagers[0].GetComponent<PlayerManager>().myPlayer.GetComponent<Player>();
+            Debug.Log("THE WINNER IS PLAYER " + winner.playerID + "WITH " + winner.normalKills + " KILLS");
 
-            winner.transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
-            winner.ActivateVictoryCamera();
+            Player playerComp = winner.myPlayer.GetComponent<Player>();
+            playerComp.transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+            playerComp.ActivateVictoryCamera();
         }
+    }
+
+    private void CheckLeaderChange()
+    {
+        foreach (PlayerManager manager in playerManagers)
+        {
+            if (manager.normalKills > leaderKills)
+            {
+                OnLeaderChange(manager);
+            }
+            else if (manager.normalKills == leaderKills && manager.playerID != killLeader)
+            {
+                // If we are drawing with the leader, remove the flames
+                playerManagers[killLeader].SetFireParticles(false);
+                ReferenceManager.Instance.SetLeader(killLeader, false);
+            }
+        }
+    }
+
+    private void OnLeaderChange(PlayerManager newLeader)
+    {
+        playerManagers[killLeader].SetFireParticles(false);
+        ReferenceManager.Instance.SetLeader(killLeader, false);
+
+        killLeader = newLeader.playerID;
+        playerManagers[killLeader].SetFireParticles(true);
+        leaderKills = newLeader.normalKills;
+        ReferenceManager.Instance.SetLeader(newLeader.playerID, true);
+        
     }
 }

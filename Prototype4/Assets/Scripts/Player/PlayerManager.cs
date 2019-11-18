@@ -1,21 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerManager : MonoBehaviour
 {
     public int playerID;
-    public bool inShadowRealm = false;
     public bool isAI = false;
 
     public int normalKills = 0;
-    public int shadowKills = 0;
 
     public GameObject myPlayer;
     private Player myPlayerComp;
-
-    private const string shadowRealmLayer = "Shadow Realm";
-    private const string normalRealmLayer = "Normal Realm";
+    private PlayerControllerRigidbody controller;
 
     private string[] actionButtons = { "P1_Charge", "P2_Charge", "P3_Charge", "P4_Charge" };
     private string[] backButtons = { "P1_Back", "P2_Back", "P3_Back", "P4_Back" };
@@ -58,23 +55,24 @@ public class PlayerManager : MonoBehaviour
         myPlayerComp = myPlayer.GetComponent<Player>();
 
         myPlayerComp.SetPlayerID(playerID);
-        myPlayerComp.inShadowRealm = this.inShadowRealm;
-        myPlayerComp.UpdateMaterial();
+        controller = myPlayer.GetComponent<PlayerControllerRigidbody>();
 
         RespawnPlayer();
     }
 
-    public void AwardKill(bool _isShadowKill)
+    public void AwardKill()
     {
-        if (_isShadowKill)
-        {
-            shadowKills++;
-            SwitchRealm(false);
-        }
-        else
-        {
-            normalKills++;
-        }
+        // Don't award kills if game is over
+        if (GameManager.Instance.gameState == GameState.postGame) { return; }
+
+        normalKills++;
+        ReferenceManager.Instance.GetPlayerPrompt(playerID).GetComponentInChildren<TMP_Text>().text = normalKills.ToString();
+        ReferenceManager.Instance.GetPlayerPrompt(playerID).GetComponent<PromptReferences>().scoreText.GetComponent<Animator>().SetTrigger("Pulse");
+    }
+
+    public void SetFireParticles(bool active)
+    {
+        controller.SetFireParticles(active);
     }
 
     public void RespawnPlayer()
@@ -102,51 +100,54 @@ public class PlayerManager : MonoBehaviour
         }
         while (!foundFreeSpawn);
 
+        myPlayerComp.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         spawnPoint.Teleport(myPlayer.transform);
         myPlayer.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
+        myPlayer.GetComponent<PlayerControllerRigidbody>().CancelCharging();
         myPlayer.GetComponent<ShieldPowerup>().EndEffects();
+        myPlayer.GetComponent<BattlecryPowerupHolder>().EndEffects();
     }
 
     public void PlayerDeath()
     {
         if (lastHitBy != -1)
         {
-            GameManager.Instance.playerManagers[lastHitBy].GetComponent<PlayerManager>().AwardKill(inShadowRealm);
+            GameManager.Instance.playerManagerObjects[lastHitBy].GetComponent<PlayerManager>().AwardKill();
         }
-
-        if (!inShadowRealm) { SwitchRealm(true); }
 
         GameManager.Instance.OnKnockout(playerID);
 
         RespawnPlayer();
     }
 
-    public void SwitchRealm(bool _shadowRealm)
-    {
-        inShadowRealm = _shadowRealm;
+    //public void SwitchRealm(bool _shadowRealm)
+    //{
+    //    inShadowRealm = _shadowRealm;
         
-        if (inShadowRealm)
-        {
-            int newLayer = LayerMask.NameToLayer(shadowRealmLayer);
-            myPlayer.layer = newLayer;
-            foreach (Transform trans in gameObject.GetComponentsInChildren<Transform>(true))
-            {
-                trans.gameObject.layer = newLayer;
-            }
-            myPlayerComp.ChangeRealm(true);
-        }
-        else
-        {
-            int newLayer = LayerMask.NameToLayer(normalRealmLayer);
-            myPlayer.layer = newLayer;
-            foreach (Transform trans in gameObject.GetComponentsInChildren<Transform>(true))
-            {
-                trans.gameObject.layer = newLayer;
-            }
-            myPlayerComp.ChangeRealm(false);
-        }
-    }
+    //    if (inShadowRealm)
+    //    {
+    //        int newLayer = LayerMask.NameToLayer(shadowRealmLayer);
+    //        myPlayer.layer = newLayer;
+    //        foreach (Transform trans in gameObject.GetComponentsInChildren<Transform>(true))
+    //        {
+    //            trans.gameObject.layer = newLayer;
+    //        }
+    //        myPlayerComp.ChangeRealm(true);
+    //        //Set prompt to have dark realm sprite
+    //    }
+    //    else
+    //    {
+    //        int newLayer = LayerMask.NameToLayer(normalRealmLayer);
+    //        myPlayer.layer = newLayer;
+    //        foreach (Transform trans in gameObject.GetComponentsInChildren<Transform>(true))
+    //        {
+    //            trans.gameObject.layer = newLayer;
+    //        }
+    //        myPlayerComp.ChangeRealm(false);
+    //        //Set prompt to have normal realm sprite
+    //    }
+    //}
 
     public void SetLastHitBy(int _playerID)
     {
@@ -167,12 +168,10 @@ public class PlayerManager : MonoBehaviour
         Destroy(myPlayer);
         SpawnPlayer();
 
-        if (inputsDisabled)
-        {
-            myPlayer.GetComponent<PlayerControllerRigidbody>().SetDisabled(true);
-        }
+        if (inputsDisabled) myPlayer.GetComponent<PlayerControllerRigidbody>().SetDisabled(true);
 
-        ReferenceManager.Instance.joinPrompts[playerID].SetActive(false);
+        //PromptManager.Instance.GetPrompts()[playerID].gameObject.SetActive(false);
+        ReferenceManager.Instance.ActivateHuman(playerID);
     }
 
     private void HumanLeave()
@@ -187,6 +186,6 @@ public class PlayerManager : MonoBehaviour
             myPlayer.GetComponent<PlayerControllerRigidbody>().SetDisabled(true);
         }
 
-        ReferenceManager.Instance.joinPrompts[playerID].SetActive(true);
+        ReferenceManager.Instance.ActivateAI(playerID);
     }
 }

@@ -127,6 +127,375 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &296044290344464170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3516777611253671757}
+  - component: {fileID: 758295319146026262}
+  m_Layer: 0
+  m_Name: Night Event
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3516777611253671757
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296044290344464170}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7488301963481570452}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &758295319146026262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296044290344464170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db6fcc28976e4844f8927f5bb2eac1d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  description: 'Darkness has fallen. '
+  sprite: {fileID: 21300000, guid: 7e84bf40f424060438a920a87174518b, type: 3}
+  delay: 15
+  volume: {fileID: 0}
+--- !u!1 &437903104834491294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 290276057308186800}
+  - component: {fileID: 6475034694108800697}
+  m_Layer: 0
+  m_Name: Storm Event
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &290276057308186800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437903104834491294}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7488301963481570452}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6475034694108800697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437903104834491294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 146358220528e684dbd0458fc840e3ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Storm
+  description: Thou shalt be smited by Thor
+  sprite: {fileID: 21300000, guid: 00423eea9cb42f246b02622abd7f80cd, type: 3}
+  delay: 15
+--- !u!1 &702381382740011258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4361032759313868002}
+  - component: {fileID: 3103971508744945412}
+  m_Layer: 0
+  m_Name: Start Event
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4361032759313868002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702381382740011258}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7488301963481570452}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3103971508744945412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702381382740011258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da950a54fde0c644eb54d6f9c1595f9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Start Event
+  description: A fresh new day has arisen.
+  sprite: {fileID: 0}
+  delay: 15
+--- !u!1 &1780616918735740897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7488301963481570452}
+  - component: {fileID: 2350451343517981870}
+  m_Layer: 0
+  m_Name: Events Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &7488301963481570452
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780616918735740897}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4361032759313868002}
+  - {fileID: 5297869992848872027}
+  - {fileID: 290276057308186800}
+  - {fileID: 5115143273490390908}
+  - {fileID: 3516777611253671757}
+  - {fileID: 381538140873533872}
+  - {fileID: 2785861930395467123}
+  m_Father: {fileID: 8027016823354626250}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2350451343517981870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780616918735740897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd6efb84f89b5543ad8cea9b2b387e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 0}
+  text: {fileID: 0}
+  animator: {fileID: 0}
+  events:
+  - {fileID: 3103971508744945412}
+  - {fileID: 9063220331588936259}
+  - {fileID: 6475034694108800697}
+  - {fileID: 758295319146026262}
+  - {fileID: 1385217791383466823}
+  - {fileID: 7809251964459285306}
+--- !u!1 &2996300568722971094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2785861930395467123}
+  - component: {fileID: 7809251964459285306}
+  m_Layer: 0
+  m_Name: Post Game Event
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2785861930395467123
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2996300568722971094}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7488301963481570452}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7809251964459285306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2996300568722971094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c3ce6cc493ec464e94ae153eecc3872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  description: 'The gods are cleaning up your stink hole. '
+  sprite: {fileID: 0}
+  delay: 5
+--- !u!1 &4337627699702723607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5115143273490390908}
+  - component: {fileID: 1281380708880949909}
+  - component: {fileID: 1558745743870054217}
+  m_Layer: 0
+  m_Name: Barrels Event
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5115143273490390908
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4337627699702723607}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7488301963481570452}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1281380708880949909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4337627699702723607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5f8d88d97117d04e9c2d6cd8d69f78a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Barrels
+  description: Break these for powerups
+  sprite: {fileID: 0}
+  delay: 5
+--- !u!114 &1558745743870054217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4337627699702723607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c150356bacdd2145ae8440a9719a2b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrelPrefab: {fileID: 0}
+  target: {fileID: 8453353790993311778, guid: 61824b7a13bcd9c41997d3dda0ee3904, type: 3}
+  range: 15
+  arcMin: 0
+  arcMax: 360
+  angleMin: 35
+  angleMax: 55
+  force: 10
+  powerupItemPrefabs:
+  - {fileID: 3158911667443402170, guid: e85a3a1c8ccc59c489372dbfa8cb16d9, type: 3}
+  - {fileID: 3158911667443402170, guid: 4a1597eb3bed7aa4fa7fc1d5be5eaf5f, type: 3}
+  spawnOnStart: 0
+  numToSpawn: 5
+--- !u!1 &6032698425995969632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5297869992848872027}
+  - component: {fileID: 9063220331588936259}
+  m_Layer: 0
+  m_Name: Debris Event
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5297869992848872027
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6032698425995969632}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7488301963481570452}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9063220331588936259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6032698425995969632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5767cf52249705d489f95cb811293cb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Debris
+  description: The gods are pretty dirty ngl
+  sprite: {fileID: 21300000, guid: 6fd9b11cee0230a47931ad33b4614320, type: 3}
+  delay: 15
 --- !u!1 &8027016823354626251
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,9 +528,57 @@ Transform:
   - {fileID: 8027016824054475352}
   - {fileID: 8027016824815337113}
   - {fileID: 1003999134}
+  - {fileID: 7488301963481570452}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8993832316853512719
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 381538140873533872}
+  - component: {fileID: 1385217791383466823}
+  m_Layer: 0
+  m_Name: Sudden Death
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &381538140873533872
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8993832316853512719}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7488301963481570452}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1385217791383466823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8993832316853512719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587bf30e2660df44483c10d724f6409f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Sudden Death
+  description: Die or live, your choice!
+  sprite: {fileID: 21300000, guid: 445a85a933f8b28419f3f93b25533bb2, type: 3}
+  delay: 60
 --- !u!1001 &2054375505415331878
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -241,6 +658,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
+      propertyPath: fireParticlePrefabs.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
+        type: 3}
+      propertyPath: respawnParticle.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
+        type: 3}
       propertyPath: humanPlayerPrefabs.Array.data[0]
       value: 
       objectReference: {fileID: 5549077535386217237, guid: 9605ffa1ac275b644a62d2d2ee7760d6,
@@ -289,44 +716,90 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
+      propertyPath: fireParticlePrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 344582781354820271, guid: 1d942936935732b4fb8b27816394d8a7,
+        type: 3}
+    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
+        type: 3}
+      propertyPath: fireParticlePrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 805963271710531290, guid: 3b83b0a95db95534086bdb5b972e8b0e,
+        type: 3}
+    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
+        type: 3}
+      propertyPath: fireParticlePrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 8200244096457999376, guid: 6fe05e5ce8335eb46ad701f06660ec7c,
+        type: 3}
+    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
+        type: 3}
+      propertyPath: fireParticlePrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 3132534280919216546, guid: 4608614d951fe104e9b0166243097232,
+        type: 3}
+    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
+        type: 3}
       propertyPath: playerMaterials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1699132b9c26caf43888f579caf01225, type: 2}
+      objectReference: {fileID: 2100000, guid: 1fd861a8450cfa34993ad4d8ab6a2c2d, type: 2}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
       propertyPath: playerMaterials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 4598cf3c309476846a39301ba589931a, type: 2}
+      objectReference: {fileID: 2100000, guid: b8ad32ab7f42b1343a720ef209f312ec, type: 2}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
       propertyPath: playerMaterials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: 873942bfda6a8de4d95b5bc62e69cdee, type: 2}
+      objectReference: {fileID: 2100000, guid: 6f6af22948576c14d84dde80abb57c83, type: 2}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
       propertyPath: playerMaterials.Array.data[3]
       value: 
-      objectReference: {fileID: 2100000, guid: 7ee3db1e6e38cf645b1c6f71f9e3dbcf, type: 2}
+      objectReference: {fileID: 2100000, guid: 8c9b5642ce7f87948a706b6585c9603a, type: 2}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
-      propertyPath: playerShadowRealmMaterials.Array.data[0]
+      propertyPath: airBlastCollisionParticle
       value: 
-      objectReference: {fileID: 2100000, guid: 850c5e4963dfb83429b5d7f9f4fad1e3, type: 2}
+      objectReference: {fileID: 8614095058015402865, guid: 15cdf640328f9574db3a3faa9d760ee9,
+        type: 3}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
-      propertyPath: playerShadowRealmMaterials.Array.data[1]
+      propertyPath: respawnParticle.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5c2526425db8b0e4197f8896fa8c4be8, type: 2}
+      objectReference: {fileID: 3647239317727895555, guid: 6c7c43bbf148a024196bd7ff6440f205,
+        type: 3}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
-      propertyPath: playerShadowRealmMaterials.Array.data[2]
+      propertyPath: respawnParticle.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 2983bdd8c4fcdb04eb95465938a77def, type: 2}
+      objectReference: {fileID: 7405881699350033391, guid: 575d29c79f99b7649abdecdddd33340d,
+        type: 3}
     - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
         type: 3}
-      propertyPath: playerShadowRealmMaterials.Array.data[3]
+      propertyPath: respawnParticle.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: b8d6c59048bd94f46a7d37f3734324af, type: 2}
+      objectReference: {fileID: 3755678459924302148, guid: 52278cd8c43ab5148b4c7be50030515a,
+        type: 3}
+    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
+        type: 3}
+      propertyPath: respawnParticle.Array.data[3]
+      value: 
+      objectReference: {fileID: 2689279263446547178, guid: 4bddc2bacbf5c454889919a6964779b6,
+        type: 3}
+    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
+        type: 3}
+      propertyPath: logPrefab
+      value: 
+      objectReference: {fileID: 699079500605745404, guid: a7e0804e6b904c94491898ed7f823961,
+        type: 3}
+    - target: {fileID: 8351691205478877817, guid: 48192c751207127459d5194e211595f0,
+        type: 3}
+      propertyPath: lightningStrike
+      value: 
+      objectReference: {fileID: 5964433050533304363, guid: 9add083694de0fa478bb900f2ab2e63b,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48192c751207127459d5194e211595f0, type: 3}
 --- !u!4 &8027016824054475352 stripped
@@ -404,9 +877,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2794480756177605660, guid: acde3917766fec14da4336e89253bee4,
         type: 3}
+      propertyPath: roundLength
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794480756177605660, guid: acde3917766fec14da4336e89253bee4,
+        type: 3}
       propertyPath: gameMusic
       value: 
       objectReference: {fileID: 8027016823293919410}
+    - target: {fileID: 2794480756177605660, guid: acde3917766fec14da4336e89253bee4,
+        type: 3}
+      propertyPath: gameEvents
+      value: 
+      objectReference: {fileID: 1780616918735740897}
     - target: {fileID: 2794480756177605660, guid: acde3917766fec14da4336e89253bee4,
         type: 3}
       propertyPath: suddenDeathMusic
@@ -487,6 +970,101 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[4].name
+      value: ShieldPowerup
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[4].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 4a325b41010f9494b83055b33e9849c6, type: 3}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[5].name
+      value: ShoutHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[5].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: f594caa0323dd0748bef42a494c4bd3a, type: 3}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[6].name
+      value: ShieldBreak
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[6].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: f66cade23f1780946b43985aed6c5622, type: 3}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[7].name
+      value: BarrelBreak
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[7].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 193a4032229d25b4cb3391923a4eb98b, type: 3}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[8].name
+      value: AirBlastCollision
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[8].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: fae754737e250df4f95019f59211457c, type: 3}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[9].name
+      value: LightningStrike
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[9].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 16212755120fb264d9ae21d6c2278478, type: 3}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[10].name
+      value: PowerupPickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[10].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 02ac1932661e42d43829aa8eebbb55a9, type: 3}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[11].name
+      value: LogBounce
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[11].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 01206265bb0d62740b4c141682fd7b32, type: 3}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[12].name
+      value: Battlecry
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908128947721345548, guid: a346d37d6edd9ec4f8d2cc4241592f95,
+        type: 3}
+      propertyPath: soundClips.Array.data[12].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: cd20ab647615bf546b5e5f9f4f2785b8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a346d37d6edd9ec4f8d2cc4241592f95, type: 3}
 --- !u!4 &8027016824666364849 stripped
@@ -564,15 +1142,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf520ef275e4fa7418019a7a8678e00d, type: 3}
---- !u!1 &8027016823293919410 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1921333887040512680, guid: bf520ef275e4fa7418019a7a8678e00d,
-    type: 3}
-  m_PrefabInstance: {fileID: 8488233855264530970}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8027016823293919415 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1921333887040512685, guid: bf520ef275e4fa7418019a7a8678e00d,
+    type: 3}
+  m_PrefabInstance: {fileID: 8488233855264530970}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8027016823293919410 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1921333887040512680, guid: bf520ef275e4fa7418019a7a8678e00d,
     type: 3}
   m_PrefabInstance: {fileID: 8488233855264530970}
   m_PrefabAsset: {fileID: 0}

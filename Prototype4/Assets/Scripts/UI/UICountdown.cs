@@ -24,6 +24,11 @@ public class UICountdown : MonoBehaviour
         numText.text = currentCounter.ToString();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T)) { Destroy(this.gameObject); }
+    }
+
     public void CountDown()
     {
         currentCounter--;
