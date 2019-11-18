@@ -18,6 +18,29 @@ public class Log : MonoBehaviour
     private void FixedUpdate()
     {
         velocityBeforeCollision = rigidBody.velocity;
+
+        const float waterY = -12.0f;
+        const float arenaRadius = 10.0f;
+
+        Vector3 pos = this.transform.position;
+        float posMag = pos.magnitude;
+
+        // If off arena edge
+        if (posMag > arenaRadius + 0.2f)
+        {
+            if (pos.y < 0.0f)
+            {
+                float newScale = 1.0f - pos.y / waterY;
+                this.transform.localScale = new Vector3(newScale, newScale, newScale);
+
+                var currentVelocity = rigidBody.velocity;
+                currentVelocity.y = 0.0f;
+                currentVelocity *= -0.05f;
+                rigidBody.velocity += currentVelocity;
+            }
+        }
+
+        if (transform.position.y < -11.0f) { GameObject.Destroy(this.gameObject); }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -76,5 +99,10 @@ public class Log : MonoBehaviour
                 LastHitByPlayerIndex = blast.PlayerIndex;
             }
         }
+    }
+
+    private void Update()
+    {
+        
     }
 }
