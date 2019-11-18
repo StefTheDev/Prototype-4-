@@ -107,6 +107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   billboardObject: {fileID: 4396978151781577180}
+  amplitude: 0.1
+  duration: 2
 --- !u!1 &3158911667443402170
 GameObject:
   m_ObjectHideFlags: 0

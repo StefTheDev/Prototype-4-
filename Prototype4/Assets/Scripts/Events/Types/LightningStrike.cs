@@ -39,8 +39,8 @@ public class LightningStrike : MonoBehaviour
             // Struck by lightning
             if (mag <= radius)
             {
-                float severity = 1.0f - (mag / radius);
-                player.GetComponent<Rigidbody>().AddForce(toPlayer.normalized * strikeForce * severity, ForceMode.Impulse);
+                // float severity = 1.0f - (mag / radius);
+                player.GetComponent<Rigidbody>().AddForce(toPlayer.normalized * strikeForce, ForceMode.Impulse);
                 Debug.Log("STRUCK");
             }
         }
