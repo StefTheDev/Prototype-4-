@@ -7,7 +7,6 @@ public class NightEvent : Event
 {
     public PostProcessVolume volume;
     private ColorGrading colorGrading;
-    private MotionBlur motionBlur;
 
     /*
      * TODO:
@@ -19,7 +18,6 @@ public class NightEvent : Event
     public override void OnStart()
     {
         colorGrading = volume.profile.GetSetting<ColorGrading>();
-        motionBlur = volume.profile.GetSetting<MotionBlur>();
     }
 
     public override void OnEnd() {
