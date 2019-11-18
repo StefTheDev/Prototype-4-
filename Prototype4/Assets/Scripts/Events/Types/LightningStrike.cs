@@ -18,6 +18,9 @@ public class LightningStrike : MonoBehaviour
 
         var audioSeq = DOTween.Sequence();
         audioSeq.AppendInterval(0.2f).AppendCallback(() => AudioManager.Instance.PlaySound("LightningStrike", 1.5f));
+
+        var destroySeq = DOTween.Sequence();
+        destroySeq.AppendInterval(1.4f).AppendCallback(() => GameObject.Destroy(this.gameObject));
     }
 
     private void Knockback()
