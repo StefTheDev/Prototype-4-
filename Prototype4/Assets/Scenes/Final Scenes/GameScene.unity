@@ -5843,6 +5843,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers
       objectReference: {fileID: 0}
+    - target: {fileID: 9063220331588936259, guid: 37092314b8794e84c96818dde44aab8c,
+        type: 3}
+      propertyPath: description
+      value: LOGS ABOVE!
+      objectReference: {fileID: 0}
     - target: {fileID: 758295319146026262, guid: 37092314b8794e84c96818dde44aab8c,
         type: 3}
       propertyPath: volume
@@ -5854,10 +5859,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 7e84bf40f424060438a920a87174518b,
         type: 3}
+    - target: {fileID: 758295319146026262, guid: 37092314b8794e84c96818dde44aab8c,
+        type: 3}
+      propertyPath: description
+      value: WE FALL INTO DARKNESS
+      objectReference: {fileID: 0}
     - target: {fileID: 1780616918735740897, guid: 37092314b8794e84c96818dde44aab8c,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7809251964459285306, guid: 37092314b8794e84c96818dde44aab8c,
+        type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 445a85a933f8b28419f3f93b25533bb2,
+        type: 3}
+    - target: {fileID: 6475034694108800697, guid: 37092314b8794e84c96818dde44aab8c,
+        type: 3}
+      propertyPath: description
+      value: WRATH  OF THOR
       objectReference: {fileID: 0}
     - target: {fileID: 8027016823354626250, guid: 37092314b8794e84c96818dde44aab8c,
         type: 3}

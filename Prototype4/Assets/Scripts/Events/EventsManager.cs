@@ -49,7 +49,11 @@ public class EventsManager : MonoBehaviour
         time -= Time.deltaTime;
         slider.value = time / currentEvent.GetDelay();
 
-        if (time <= currentEvent.GetDelay() / 2) animator.SetBool("Open", false);
+        if (currentEvent.name != "Sudden Death")
+        {
+            if (time <= currentEvent.GetDelay() / 2) animator.SetBool("Open", false);
+        }
+        
 
         if (Input.GetKey(KeyCode.T)) { time -= Time.deltaTime * 14; }
 
@@ -65,7 +69,11 @@ public class EventsManager : MonoBehaviour
                 text.text = currentEvent.GetDescription();
 
                 if (eventQueue.Count > 0) slider.image.sprite = eventQueue.Peek().GetSprite();
-                animator.SetBool("Open", true);
+
+                if (currentEvent.name != "Sudden Death")
+                {
+                    animator.SetBool("Open", true);
+                }
             }
         }
     }
