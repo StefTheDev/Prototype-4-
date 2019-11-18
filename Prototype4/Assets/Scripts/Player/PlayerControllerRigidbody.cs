@@ -15,8 +15,8 @@ public class PlayerControllerRigidbody : MonoBehaviour
     [SerializeField] private float stationaryDrag = 0.9f;
     [SerializeField] private float groundCheckDist = 0.1f;
 
-    private float crouchingTime = 0.0f;
-    private float crouchCooldownTimer = 0.0f;
+    //private float crouchingTime = 0.0f;
+    //private float crouchCooldownTimer = 0.0f;
     
     private float dragCoefficient = 10.0f;
     private float currentDrag;
@@ -85,7 +85,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
             currentCharge = Mathf.Clamp(currentCharge + (Time.deltaTime / chargeTime), 0.0f, 1.0f);
         }
 
-        crouchCooldownTimer -= Time.deltaTime;
+        //crouchCooldownTimer -= Time.deltaTime;
 
         if (inhale != null) inhale.transform.position = this.transform.position;
     }

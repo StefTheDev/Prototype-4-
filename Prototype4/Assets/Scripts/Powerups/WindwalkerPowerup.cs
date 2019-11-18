@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WindwalkerPowerup : MonoBehaviour
 {
-    public ParticleSystem particleSystem;
+    public new ParticleSystem particleSystem;
     public float duration = 5.0f;
     
     private float m_timer = 0.0f;
